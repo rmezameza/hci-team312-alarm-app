@@ -1,4 +1,4 @@
-package at.ac.univie.hci.u_alarm.ui.notifications;
+package at.ac.univie.hci.u_alarm.ui.map;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,24 +12,23 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import at.ac.univie.hci.u_alarm.R;
-import at.ac.univie.hci.u_alarm.databinding.FragmentNotificationsBinding;
+import at.ac.univie.hci.u_alarm.databinding.FragmentMapBinding;
 
-public class NotificationsFragment extends Fragment {
+public class MapFragment extends Fragment {
 
-    private NotificationsViewModel notificationsViewModel;
-    private FragmentNotificationsBinding binding;
+    private MapViewModel mapViewModel;
+    private FragmentMapBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
+        mapViewModel =
+                new ViewModelProvider(this).get(MapViewModel.class);
 
-        binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+        binding = FragmentMapBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textNotifications;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        final TextView textView = binding.textMap;
+        mapViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

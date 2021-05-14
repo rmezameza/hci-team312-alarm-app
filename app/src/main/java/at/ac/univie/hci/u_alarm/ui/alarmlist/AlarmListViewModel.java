@@ -1,16 +1,16 @@
-package at.ac.univie.hci.u_alarm.ui.notifications;
+package at.ac.univie.hci.u_alarm.ui.alarmlist;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class NotificationsViewModel extends ViewModel {
+public class AlarmListViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public NotificationsViewModel() {
+    public AlarmListViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+        mText.setValue("This is alarm list fragment");
     }
 
     public LiveData<String> getText() {

@@ -12,14 +12,21 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="at.ac.univie.hci.u_alarm.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_configuration"
+        android:name="at.ac.univie.hci.u_alarm.ui.configuration.ConfigurationFragment"
+        android:label="@string/title_configuration"
+        tools:layout="@layout/fragment_configuration" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="at.ac.univie.hci.u_alarm.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_alarmlist"
+        android:name="at.ac.univie.hci.u_alarm.ui.alarmlist.AlarmListFragment"
+        android:label="@string/title_alarmlist"
+        tools:layout="@layout/fragment_alarmlist" />
+
+    <fragment
+        android:id="@+id/navigation_map"
+        android:name="at.ac.univie.hci.u_alarm.ui.map.MapFragment"
+        android:label="@string/title_map"
+        tools:layout="@layout/fragment_map" />
+
 </navigation>
