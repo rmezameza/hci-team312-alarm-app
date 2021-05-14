@@ -20,7 +20,7 @@ Framework:	    Android
 API-Version:	API 28
 
 Gerät(e), auf dem(denen) getestet wurde:
-Pixel 4 (Emulator)
+Pixel 4 - API 28 (Emulator), Samsung A50 - API 30 (Hr. Meza Meza) 
 
 Externe Libraries und Frameworks:
 
