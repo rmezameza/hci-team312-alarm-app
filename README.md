@@ -1,5 +1,5 @@
 # HCI group project
-#Alarm system for deaf and heard hearing university members
+# Alarm system for deaf and heard hearing university members
 
 Android App for an alarm system for deaf and heard hearing member of the
 University of Vienna.
@@ -26,6 +26,6 @@ Externe Libraries und Frameworks:
 
 
 Dauer der Entwicklung:
-1 Stunde (bis jetzt)
+Roberto: 5 Stunden und 23 Minuten (bis jetzt)
 
 Weitere Anmerkungen:
