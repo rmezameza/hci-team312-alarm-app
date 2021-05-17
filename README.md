@@ -21,6 +21,7 @@ API-Version:	API 28
 
 Gerät(e), auf dem(denen) getestet wurde:
 Pixel 4 - API 28 (Emulator), Samsung A50 - API 30 (Hr. Meza Meza) 
+
 Pixel 2 - API 30 (Emulator), (Hr. Murad) 
 
 
@@ -29,6 +30,7 @@ Externe Libraries und Frameworks:
 
 Dauer der Entwicklung:
 Roberto: 5 Stunden und 23 Minuten (bis jetzt)
+
 Mumen: 15 Stunden und 35 Minuten (bis jetzt)
 
 Weitere Anmerkungen:
