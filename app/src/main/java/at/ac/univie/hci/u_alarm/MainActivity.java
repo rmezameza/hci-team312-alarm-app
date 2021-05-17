@@ -1,16 +1,25 @@
 package at.ac.univie.hci.u_alarm;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import at.ac.univie.hci.u_alarm.databinding.ActivityMainBinding;
+import at.ac.univie.hci.u_alarm.ui.configuration.ConfigurationFragment;
+import at.ac.univie.hci.u_alarm.ui.home.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Boolean isFirstRun = getSharedPreferences("preferences",MODE_PRIVATE).getBoolean("isFirstRun",true);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -33,6 +44,12 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
+        if(isFirstRun){
+            Fragment fragment = new ConfigurationFragment();
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction tr = fm.beginTransaction();
+            tr.replace(R.id.fragment_home_view,fragment);
+            tr.commit();
+        }
     }
-
 }
