@@ -4,42 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="#0063a6"
+    android:focusedByDefault="false"
+    android:forceHasOverlappingRendering="true"
     tools:context=".ui.configuration.ConfigurationFragment">
-
-    <View
-        android:id="@+id/viewBackground"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#0063A6"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/languageText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-black"
         android:text="Sprache"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_settings"
-        app:layout_constraintVertical_bias="0.013" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.153" />
 
     <RadioGroup
         android:id="@+id/toggle"
         android:layout_width="289dp"
         android:layout_height="31dp"
         android:background="@color/white"
-        android:checkedButton="@+id/green"
+        android:checkedButton="@+id/GreenButton"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,27 +38,27 @@
         app:layout_constraintVertical_bias="0.062">
 
         <RadioButton
-            android:id="@+id/blue"
+            android:id="@+id/BlueButton"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="1dp"
+            android:layout_marginStart="1dp"
             android:layout_marginTop="1dp"
             android:layout_marginBottom="1dp"
             android:layout_weight="1"
             android:background="@color/university_blue"
             android:button="@null"
-            android:buttonTint="#FF0000"
+            android:buttonTint="#FFFFFF"
             android:checked="true"
             android:gravity="center"
-            android:text="Blue"
+            android:text="Blau"
             android:textColor="@color/white" />
 
         <RadioButton
-            android:id="@+id/green"
+            android:id="@+id/GreenButton"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginTop="1dp"
-            android:layout_marginRight="1dp"
+            android:layout_marginEnd="1dp"
             android:layout_marginBottom="1dp"
             android:layout_weight="1"
             android:background="@color/teal_700"
@@ -76,7 +66,7 @@
             android:checked="false"
             android:clickable="true"
             android:gravity="center"
-            android:text="Green"
+            android:text="Grün"
             android:textColor="@color/white" />
     </RadioGroup>
 
@@ -107,7 +97,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewLanguage"
-        app:layout_constraintVertical_bias="0.098" />
+        app:layout_constraintVertical_bias="0.118" />
 
     <ImageView
         android:id="@+id/imageViewLeft"
@@ -152,31 +142,138 @@
         app:layout_constraintVertical_bias="0.958" />
 
     <TextView
-        android:id="@+id/title_settings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Bitte wählen Sie"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:id="@+id/textViewDisplay"
+        android:layout_width="103dp"
+        android:layout_height="27dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Displaytest"
+        android:textColor="#FAFAFA"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        app:layout_constraintVertical_bias="0.01" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="123dp"
-        android:layout_height="115dp"
-        android:src="@drawable/logo6"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/switchFlash"
+        app:layout_constraintHorizontal_bias="0.674"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.886" />
+
+    <TextView
+        android:id="@+id/textViewVibration"
+        android:layout_width="103dp"
+        android:layout_height="27dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Vibrationtest"
+        android:textColor="#FAFAFA"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/switchVibration"
+        app:layout_constraintHorizontal_bias="0.674"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.695" />
+
+    <Switch
+        android:id="@+id/switchVibration"
+        android:layout_width="49dp"
+        android:layout_height="6dp"
+        android:checked="false"
+        android:showText="false"
+        android:thumbTint="#FFFFFF"
+        android:trackTint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.698"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.697" />
+
+    <TextView
+        android:id="@+id/textViewLight"
+        android:layout_width="103dp"
+        android:layout_height="27dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Lichttest"
+        android:textColor="#FAFAFA"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/switchLicht"
+        app:layout_constraintHorizontal_bias="0.674"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.767" />
+
+    <Switch
+        android:id="@+id/switchFlash"
+        android:layout_width="49dp"
+        android:layout_height="6dp"
+        android:checked="false"
+        android:showText="false"
+        android:thumbTint="#FFFFFF"
+        android:trackTint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.698"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.825" />
+
+    <TextView
+        android:id="@+id/textViewFlash"
+        android:layout_width="103dp"
+        android:layout_height="27dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Flashtest"
+        android:textColor="#FAFAFA"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/switchFlash"
+        app:layout_constraintHorizontal_bias="0.674"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.825" />
+
+    <Switch
+        android:id="@+id/switchDisplay"
+        android:layout_width="49dp"
+        android:layout_height="6dp"
+        android:checked="false"
+        android:showText="false"
+        android:thumbTint="#FFFFFF"
+        android:trackTint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.698"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.886" />
+
+    <Switch
+        android:id="@+id/switchLicht"
+        android:layout_width="49dp"
+        android:layout_height="6dp"
+        android:checked="false"
+        android:showText="false"
+        android:thumbTint="#FFFFFF"
+        android:trackTint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.698"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.767" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="Funktionstest "
+        android:textColor="#F4F2F2"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewVibration"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toggle"
+        app:layout_constraintVertical_bias="0.618" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

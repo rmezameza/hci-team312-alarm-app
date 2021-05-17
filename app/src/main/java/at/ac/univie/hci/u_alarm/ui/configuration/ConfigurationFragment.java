@@ -43,6 +43,8 @@ public class ConfigurationFragment extends Fragment {
         });
 
         return inflater.inflate(R.layout.fragment_configuration,container,false);
+
+
     }
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
