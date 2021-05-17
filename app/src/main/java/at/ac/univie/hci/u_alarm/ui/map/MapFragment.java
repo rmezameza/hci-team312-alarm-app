@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import at.ac.univie.hci.u_alarm.R;
 import at.ac.univie.hci.u_alarm.databinding.FragmentMapBinding;
 
 public class MapFragment extends Fragment {
@@ -34,7 +35,18 @@ public class MapFragment extends Fragment {
                 textView.setText(s);
             }
         });
+
+        this.onViewCreated(container.getRootView(), savedInstanceState);
+
         return root;
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Fragment googleMapFragment = new GoogleMapFragment();
+        this.getChildFragmentManager().beginTransaction().replace(R.id.map_fragment_container,
+                googleMapFragment).addToBackStack(null).commit();
     }
 
     @Override

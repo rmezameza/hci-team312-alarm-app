@@ -8,9 +8,10 @@ public class MapViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
+
     public MapViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is a test change for a commit to check GitHub on Android Studio");
+        mText.setValue("Google Map");
     }
 
     public LiveData<String> getText() {
