@@ -23,7 +23,7 @@ Gerät(e), auf dem(denen) getestet wurde:
 Pixel 4 - API 28 (Emulator), Samsung A50 - API 30 (Hr. Meza Meza) 
 
 Externe Libraries und Frameworks:
-
+AndroidPdfViewer (https://github.com/barteksc/AndroidPdfViewer)
 
 Dauer der Entwicklung:
 1 Stunde (bis jetzt)
