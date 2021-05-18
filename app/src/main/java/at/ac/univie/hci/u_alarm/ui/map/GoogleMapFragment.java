@@ -20,6 +20,8 @@ import at.ac.univie.hci.u_alarm.R;
 
 public class GoogleMapFragment extends Fragment {
 
+    private static final String ID = "1";
+
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
         /**
@@ -55,11 +57,15 @@ public class GoogleMapFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         SupportMapFragment mapFragment =
-                (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
+                (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.childFragment_google_map);
 
 
         if (mapFragment != null) {
             mapFragment.getMapAsync(callback);
         }
+    }
+
+    public String getID() {
+        return ID;
     }
 }

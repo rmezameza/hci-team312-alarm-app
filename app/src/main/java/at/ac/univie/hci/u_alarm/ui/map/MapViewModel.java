@@ -11,10 +11,13 @@ public class MapViewModel extends ViewModel {
 
     public MapViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Google Map");
     }
 
     public LiveData<String> getText() {
         return mText;
+    }
+
+    protected void setMapTextView(String input) {
+        mText.setValue(input);
     }
 }
