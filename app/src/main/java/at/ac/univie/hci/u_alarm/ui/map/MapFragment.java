@@ -81,7 +81,7 @@ public class MapFragment extends Fragment {
                         googleMapFragment).commit();
             }
             // Sets the new text
-            setMapViewModelText();
+            this.setMapViewModelText();
         });
 
         // Same procedure as imageButtonLeft
@@ -97,7 +97,7 @@ public class MapFragment extends Fragment {
                 childFragment.beginTransaction().replace(R.id.map_fragment_container,
                         googleMapFragment).commit();
             }
-            setMapViewModelText();
+            this.setMapViewModelText();
         });
     }
 
@@ -115,7 +115,7 @@ public class MapFragment extends Fragment {
                 this.mapViewModel.setMapTextView("Google Maps");
                 break;
             case "2":
-                this.mapViewModel.setMapTextView("Gebäude Karte");
+                this.mapViewModel.setMapTextView("Gebäudekarte");
                 break;
         }
     }
