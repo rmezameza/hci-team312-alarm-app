@@ -1,6 +1,10 @@
 package at.ac.univie.hci.u_alarm;
 
+
+
 import android.os.Bundle;
+
+
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -32,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
-    }
 
-}
+
+        Alarmer alarmtester=new Alarmer(this.getApplicationContext(),500,255,10,500,10);
+        alarmtester.start_alarm();
+
+
+    }
+    }
