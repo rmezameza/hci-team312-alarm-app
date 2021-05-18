@@ -1,6 +1,7 @@
 package at.ac.univie.hci.u_alarm;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -24,13 +25,14 @@ import at.ac.univie.hci.u_alarm.ui.home.HomeFragment;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    SharedPreferences preferences = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //This boolean stores "true" if the App runs for the first time.
-        Boolean isFirstRun = getSharedPreferences("preferences",MODE_PRIVATE).getBoolean("isFirstRun",true);
+        preferences = getSharedPreferences("com.at.ac.univie.hci_ualarm", MODE_PRIVATE);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -44,11 +46,19 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
-
+        //
         //If the App runs for the first time, the default screen will be the settings one
         //because the screen page is a fragment, we need a framgentmanager+transaction.
-        if(isFirstRun){
+        if(preferences.getBoolean("firstRun",true)){
+
             Fragment fragment = new ConfigurationFragment();
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction tr = fm.beginTransaction();
+            tr.replace(R.id.fragment_home_view,fragment);
+            tr.commit();
+            preferences.edit().putBoolean("firstRun",false).commit();
+        } else{
+            Fragment fragment = new HomeFragment();
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction tr = fm.beginTransaction();
             tr.replace(R.id.fragment_home_view,fragment);
