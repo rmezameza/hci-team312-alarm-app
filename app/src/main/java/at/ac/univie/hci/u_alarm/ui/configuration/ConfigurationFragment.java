@@ -26,6 +26,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import org.jetbrains.annotations.NotNull;
+import org.w3c.dom.Text;
 
 import at.ac.univie.hci.u_alarm.MainActivity;
 import at.ac.univie.hci.u_alarm.R;
@@ -138,6 +139,31 @@ public class ConfigurationFragment extends Fragment {
             public void onClick(View view) {
                 TextView languageText = getActivity().findViewById(R.id.textViewLanguage);
                 languageText.setText("English");
+
+                TextView languageTitle = getActivity().findViewById(R.id.languageText);
+                languageTitle.setText("Language");
+
+                TextView colorsText = getActivity().findViewById(R.id.colorsText);
+                colorsText.setText("Color combination");
+
+                TextView functionsTitleText = getActivity().findViewById(R.id.textFunctions);
+                functionsTitleText.setText("Tests");
+
+                TextView textVibration = getActivity().findViewById(R.id.textViewVibration);
+                textVibration.setText("Vibration");
+
+                TextView textLight = getActivity().findViewById(R.id.textViewLight);
+                textLight.setText("Light");
+
+                TextView textFlash = getActivity().findViewById(R.id.textViewFlash);
+                textFlash.setText("Flash");
+
+                TextView textDisplay = getActivity().findViewById(R.id.textViewDisplay);
+                textDisplay.setText("Display");
+
+                buttonTest.setText("Alarm Test");
+
+
             }
         });
 
@@ -146,6 +172,30 @@ public class ConfigurationFragment extends Fragment {
             public void onClick(View view) {
                 TextView languageText = getActivity().findViewById(R.id.textViewLanguage);
                 languageText.setText("Deutsch");
+
+                TextView languageTitle = getActivity().findViewById(R.id.languageText);
+                languageTitle.setText("Sprache");
+
+                TextView colorsText = getActivity().findViewById(R.id.colorsText);
+                colorsText.setText("Farbkombination");
+
+                TextView functionsTitleText = getActivity().findViewById(R.id.textFunctions);
+                functionsTitleText.setText("Funktionstest");
+
+                TextView textVibration = getActivity().findViewById(R.id.textViewVibration);
+                textVibration.setText("Vibrationtest");
+
+                TextView textLight = getActivity().findViewById(R.id.textViewLight);
+                textLight.setText("Lighttest");
+
+                TextView textFlash = getActivity().findViewById(R.id.textViewFlash);
+                textFlash.setText("Flashtest");
+
+                TextView textDisplay = getActivity().findViewById(R.id.textViewDisplay);
+                textDisplay.setText("Displaytest");
+
+                buttonTest.setText("Alarmprobe");
+
             }
         });
 

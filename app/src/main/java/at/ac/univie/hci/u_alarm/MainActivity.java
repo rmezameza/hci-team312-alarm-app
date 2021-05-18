@@ -3,6 +3,7 @@ package at.ac.univie.hci.u_alarm;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         //This boolean stores "true" if the App runs for the first time.
-        preferences = getSharedPreferences("com.at.ac.univie.hci_ualarm", MODE_PRIVATE);
+        preferences = MainActivity.this.getSharedPreferences("preferences",0);
+        boolean firstRun = preferences.getBoolean("firstRun",true);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -46,18 +48,20 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
-        //
+
         //If the App runs for the first time, the default screen will be the settings one
         //because the screen page is a fragment, we need a framgentmanager+transaction.
-        if(preferences.getBoolean("firstRun",true)){
-
+        if(firstRun || preferences == null){
+            Log.i("onCreate firstRun: ", "First time running the app.");
+            preferences.edit().putBoolean("firstRun",false).commit();
             Fragment fragment = new ConfigurationFragment();
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction tr = fm.beginTransaction();
             tr.replace(R.id.fragment_home_view,fragment);
             tr.commit();
-            preferences.edit().putBoolean("firstRun",false).commit();
+
         } else{
+            Log.i("onCreate firstRun: ", "Not first time running the app.");
             Fragment fragment = new HomeFragment();
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction tr = fm.beginTransaction();
