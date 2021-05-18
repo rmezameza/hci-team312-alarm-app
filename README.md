@@ -27,7 +27,7 @@ Pixel 2 - API 30 (Emulator), (Hr. Murad)
 
 
 Externe Libraries und Frameworks:
-
+AndroidPdfViewer (https://github.com/barteksc/AndroidPdfViewer)
 
 Dauer der Entwicklung:
 

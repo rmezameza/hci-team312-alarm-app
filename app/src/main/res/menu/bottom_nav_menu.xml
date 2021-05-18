@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!--  Items / Entries for the menu of the bottom navigation bar -->
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home_black_24dp"

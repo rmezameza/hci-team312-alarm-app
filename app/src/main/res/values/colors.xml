@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Colors for the project, especially for the themes
+     Colors with university in the name are in accordance with the corporate design
+     of the University of Vienna
+-->
+
 <resources>
     <color name="purple_200">#FFBB86FC</color>
     <color name="university_blue_lighter">#1972ae</color>
