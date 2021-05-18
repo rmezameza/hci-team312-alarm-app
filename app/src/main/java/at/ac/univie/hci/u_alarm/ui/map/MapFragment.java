@@ -112,10 +112,10 @@ public class MapFragment extends Fragment {
     private void setMapViewModelText() {
         switch (this.currentChildMapFragment) {
             case "1":
-                this.mapViewModel.setMapTextView("Google Map");
+                this.mapViewModel.setMapTextView("Google Maps");
                 break;
             case "2":
-                this.mapViewModel.setMapTextView("Building Map");
+                this.mapViewModel.setMapTextView("Gebäude Karte");
                 break;
         }
     }
