@@ -1,5 +1,6 @@
 package at.ac.univie.hci.u_alarm;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +11,12 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import at.ac.univie.hci.u_alarm.databinding.ActivityMainBinding;
+import at.ac.univie.hci.u_alarm.ui.AlarmPage.AlarmActivity;
+import at.ac.univie.hci.u_alarm.ui.alarmlist.AlarmListFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +38,17 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+        new Timer().schedule(new TimerTask(){
+            public void run() {
+                MainActivity.this.runOnUiThread(new Runnable() {
+                    public void run() {
+                        startActivity(new Intent(MainActivity.this, AlarmActivity.class));
+                    }
+                });
+            }
+        }, 5000);
+
     }
 
 }
