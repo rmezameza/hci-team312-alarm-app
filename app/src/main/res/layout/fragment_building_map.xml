@@ -6,7 +6,7 @@
     tools:context=".ui.map.BuildingMapFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <WebView
+    <com.github.barteksc.pdfviewer.PDFView
         android:id="@+id/childFragment_building_map"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
