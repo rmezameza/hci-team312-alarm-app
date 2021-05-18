@@ -8,11 +8,11 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+
+import org.jetbrains.annotations.NotNull;
 
 import at.ac.univie.hci.u_alarm.R;
 import at.ac.univie.hci.u_alarm.databinding.FragmentMapBinding;
@@ -24,9 +24,6 @@ public class MapFragment extends Fragment {
 
     // This variable checks the current Fragment IDs of the child fragments
     private String currentChildMapFragment;
-
-    private ImageButton imageButtonLeft;
-    private ImageButton imageButtonRight;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -42,12 +39,7 @@ public class MapFragment extends Fragment {
 
         // Get the Text of the ViewModel
         TextView textView = binding.textMap;
-        mapViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        mapViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         // Sets the default values: Google Map
         setCurrentChildMapFragment("1");
@@ -60,7 +52,7 @@ public class MapFragment extends Fragment {
 
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
+    public void onViewCreated(@NotNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         // Variables needed for nested fragments
@@ -70,48 +62,42 @@ public class MapFragment extends Fragment {
 
         // Sets the default content of the fragment container: Google Maps
         childFragment.beginTransaction().replace(R.id.map_fragment_container,
-                googleMapFragment).addToBackStack(null).commit();
+                googleMapFragment).commit();
 
         // Buttons for switching between Google and building map
-        this.imageButtonLeft = (ImageButton)view.findViewById(R.id.leftMapChangeButton);
-        this.imageButtonLeft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Checks the current child fragment (class field "currentChildMapFragment")
-                if(currentChildMapFragment.equals("1")) {
-                    // Sets the field variable to the new fragment id.
-                    setCurrentChildMapFragment("2");
+        ImageButton imageButtonLeft = (ImageButton) view.findViewById(R.id.leftMapChangeButton);
+        imageButtonLeft.setOnClickListener(viewLeftButton -> {
+            // Checks the current child fragment (class field "currentChildMapFragment")
+            if(currentChildMapFragment.equals("1")) {
+                // Sets the field variable to the new fragment id.
+                setCurrentChildMapFragment("2");
 
-                    // Then it loads the other fragment into the container and sets the text for
-                    childFragment.beginTransaction().replace(R.id.map_fragment_container,
-                            buildingMapFragment).addToBackStack(null).commit();
-                } else {
-                    setCurrentChildMapFragment("1");
-                    childFragment.beginTransaction().replace(R.id.map_fragment_container,
-                            googleMapFragment).addToBackStack(null).commit();
-                }
-                // Sets the new text
-                setMapViewModelText();
+                // Then it loads the other fragment into the container and sets the text for
+                childFragment.beginTransaction().replace(R.id.map_fragment_container,
+                        buildingMapFragment).commit();
+            } else {
+                setCurrentChildMapFragment("1");
+                childFragment.beginTransaction().replace(R.id.map_fragment_container,
+                        googleMapFragment).commit();
             }
+            // Sets the new text
+            setMapViewModelText();
         });
 
         // Same procedure as imageButtonLeft
-        this.imageButtonRight = (ImageButton)view.findViewById(R.id.rightMapChangeButton);
-        this.imageButtonRight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(currentChildMapFragment.equals("1")) {
-                    setCurrentChildMapFragment("2");
-                    childFragment.beginTransaction().replace(R.id.map_fragment_container,
-                            buildingMapFragment).addToBackStack(null).commit();
-                }
-                else {
-                    setCurrentChildMapFragment("1");
-                    childFragment.beginTransaction().replace(R.id.map_fragment_container,
-                            googleMapFragment).addToBackStack(null).commit();
-                }
-                setMapViewModelText();
+        ImageButton imageButtonRight = (ImageButton) view.findViewById(R.id.rightMapChangeButton);
+        imageButtonRight.setOnClickListener(viewRightButton -> {
+            if(currentChildMapFragment.equals("1")) {
+                setCurrentChildMapFragment("2");
+                childFragment.beginTransaction().replace(R.id.map_fragment_container,
+                        buildingMapFragment).commit();
             }
+            else {
+                setCurrentChildMapFragment("1");
+                childFragment.beginTransaction().replace(R.id.map_fragment_container,
+                        googleMapFragment).commit();
+            }
+            setMapViewModelText();
         });
     }
 
