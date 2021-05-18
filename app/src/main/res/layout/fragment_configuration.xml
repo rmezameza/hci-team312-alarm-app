@@ -101,31 +101,29 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewLanguage"
         app:layout_constraintVertical_bias="0.085" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imageViewLeft"
-        android:layout_width="21dp"
-        android:layout_height="43dp"
-        android:src="@drawable/left"
+        android:layout_width="20dp"
+        android:layout_height="34dp"
+        android:background="@drawable/left"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.343"
+        app:layout_constraintHorizontal_bias="0.36"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/languageText"
-        app:layout_constraintVertical_bias="0.011" />
+        app:layout_constraintVertical_bias="0.026" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imageViewRight"
-        android:layout_width="21dp"
-        android:layout_height="43dp"
-        android:src="@drawable/right"
+        android:layout_width="20dp"
+        android:layout_height="34dp"
+        android:background="@drawable/right"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.653"
+        app:layout_constraintHorizontal_bias="0.644"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/languageText"
-        app:layout_constraintVertical_bias="0.011"
-        app:srcCompat="@drawable/right"
-        tools:srcCompat="@drawable/right" />
+        app:layout_constraintVertical_bias="0.026" />
 
     <TextView
         android:id="@+id/textViewVibration"
@@ -262,7 +260,7 @@
         app:layout_constraintVertical_bias="0.643" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/buttonTestAlarm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#FFFFFF"

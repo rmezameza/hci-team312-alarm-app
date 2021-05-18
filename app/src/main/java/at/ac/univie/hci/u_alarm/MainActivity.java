@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //This boolean stores "true" if the App runs for the first time.
         Boolean isFirstRun = getSharedPreferences("preferences",MODE_PRIVATE).getBoolean("isFirstRun",true);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -44,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
+        //If the App runs for the first time, the default screen will be the settings one
+        //because the screen page is a fragment, we need a framgentmanager+transaction.
         if(isFirstRun){
             Fragment fragment = new ConfigurationFragment();
             FragmentManager fm = getSupportFragmentManager();

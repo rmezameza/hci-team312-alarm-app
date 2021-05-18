@@ -1,12 +1,16 @@
 package at.ac.univie.hci.u_alarm.ui.configuration;
 
+import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,11 +56,102 @@ public class ConfigurationFragment extends Fragment {
         }); */
 
 
+
         return root;
+    }
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+
+        // All switches assigned to a variable.
+        Switch switchVibration = (Switch) getView().findViewById(R.id.switchVibration);
+        Switch switchLicht = (Switch) getView().findViewById(R.id.switchLicht);
+        Switch switchFlash = (Switch) getView().findViewById(R.id.switchFlash);
+        Switch switchDisplay = (Switch) getView().findViewById(R.id.switchDisplay);
+
+        //Variable for the alarm test
+        Button buttonTest = (Button) getView().findViewById(R.id.buttonTestAlarm);
+
+        //Variables for buttons to switch the language
+        ImageView leftArrow = (ImageView) getActivity().findViewById(R.id.imageViewLeft);
+        ImageView rightArrow = (ImageView) getActivity().findViewById(R.id.imageViewRight);
+
+        //Listener for Vibration Switch
+        switchVibration.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if(isChecked){
+                    Log.i("TEST ON SWITCH:","IT WORKS.");
+                } else {
+
+                }
+            }
+        });
+
+        //Listener for Light Switch
+        switchLicht.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if(isChecked){
+
+                } else {
+
+                }
+            }
+        });
+
+        //Listener for Flash Switch
+        switchFlash.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if(isChecked){
+
+                } else {
+
+                }
+            }
+        });
+
+        //Listener for Display Switch
+        switchDisplay.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if(isChecked){
+
+                } else {
+
+                }
+            }
+        });
+
+        //Listener for Test Alarm button
+        buttonTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Will do something.
+            }
+        });
+
+
+        //Buttons right and left to change the language.
+        rightArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView languageText = getActivity().findViewById(R.id.textViewLanguage);
+                languageText.setText("English");
+            }
+        });
+
+        leftArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView languageText = getActivity().findViewById(R.id.textViewLanguage);
+                languageText.setText("Deutsch");
+            }
+        });
+
 
 
     }
-
 
     @Override
     public void onDestroyView() {
