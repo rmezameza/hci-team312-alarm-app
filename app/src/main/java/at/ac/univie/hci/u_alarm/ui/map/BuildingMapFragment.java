@@ -15,36 +15,21 @@ import at.ac.univie.hci.u_alarm.databinding.FragmentBuildingMapBinding;
 
 public class BuildingMapFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ID = "2";
-
     private FragmentBuildingMapBinding binding;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        // Inflate the layout for this child fragment
         this.binding = FragmentBuildingMapBinding.inflate(inflater, container, false);
-        View rootBuldingMap = binding.getRoot();
+        View rootBuildingMap = binding.getRoot();
 
-        // Inflate the layout for this fragment
-        PDFView pdfView = (PDFView)rootBuldingMap.findViewById(R.id.childFragment_building_map);
-        //Uri buildingMap = Uri.parse("https://www.univie.ac.at/fileadmin/user_upload/startseite/Fotos/Plaene/plan-hauptgebaeude-universitaet-wien-2020-v1.pdf");
+        // Creates variable with type of library PDFViewer
+        PDFView pdfView = (PDFView)rootBuildingMap.findViewById(R.id.childFragment_building_map);
+        // Takes the pdf from the folder "asset" in main folder and load it
         pdfView.fromAsset("plan-hauptgebaeude-universitaet-wien-2020-v1.pdf").load();
-        return rootBuldingMap;
-    }
 
-    /*
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-
-    }*/
-
-    public String getID() {
-        return ID;
+        return rootBuildingMap;
     }
 }

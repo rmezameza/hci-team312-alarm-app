@@ -20,26 +20,27 @@ import at.ac.univie.hci.u_alarm.R;
 
 public class GoogleMapFragment extends Fragment {
 
-    private static final String ID = "1";
-
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
         /**
          * Manipulates the map once available.
          * This callback is triggered when the map is ready to be used.
-         * This is where we can add markers or lines, add listeners or move the camera.
-         * In this case, we just add a marker near Sydney, Australia.
-         * If Google Play services is not installed on the device, the user will be prompted to
-         * install it inside the SupportMapFragment. This method will only be triggered once the
-         * user has installed Google Play services and returned to the app.
+         * (Comment by Android Studio)
          */
         @Override
         public void onMapReady(GoogleMap googleMap) {
-
+            // Pre-defined latitude and longitude values (Main building of the University of Vienna
             LatLng mainBuildingUniversityVienna = new LatLng(48.21319, 16.36010);
+
+            // Add a marker with the pre-defined coordinates but hides the marker
             googleMap.addMarker(new MarkerOptions().position(mainBuildingUniversityVienna)
-                    .title("Main Building of the University of Vienna"));
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mainBuildingUniversityVienna, 17.0f));
+                    .title("Main Building of the University of Vienna").visible(false));
+
+            // Zooms in by the value (17.0f)
+            googleMap.moveCamera(CameraUpdateFactory
+                    .newLatLngZoom(mainBuildingUniversityVienna, 17.0f));
+
+            // Values to enable indoor building map view of Google Maps
             googleMap.setIndoorEnabled(true);
             googleMap.getUiSettings().setIndoorLevelPickerEnabled(true);
         }
@@ -50,6 +51,7 @@ public class GoogleMapFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        // Inflate the layout for this child fragment
         return inflater.inflate(R.layout.fragment_google_map, container, false);
     }
 
@@ -57,15 +59,11 @@ public class GoogleMapFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         SupportMapFragment mapFragment =
-                (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.childFragment_google_map);
-
+                (SupportMapFragment)getChildFragmentManager()
+                        .findFragmentById(R.id.childFragment_google_map);
 
         if (mapFragment != null) {
             mapFragment.getMapAsync(callback);
         }
-    }
-
-    public String getID() {
-        return ID;
     }
 }

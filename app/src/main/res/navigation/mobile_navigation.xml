@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Fragments for the bottom navigation bar. -->
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -28,26 +30,4 @@
         android:name="at.ac.univie.hci.u_alarm.ui.map.MapFragment"
         android:label="@string/title_map"
         tools:layout="@layout/fragment_map" />
-
-    <!--
-    <fragment
-        android:id="@+id/childFragment_google_map"
-        android:name="at.ac.univie.hci.u_alarm.ui.map.GoogleMapFragment"
-        android:label="GoogleMap"
-        tools:layout="@layout/fragment_google_map" >
-        <action
-            android:id="@+id/action_childFragment_google_map_to_childFragment_building_map"
-            app:destination="@id/childFragment_building_map" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/childFragment_building_map"
-        android:name="at.ac.univie.hci.u_alarm.ui.map.BuildingMapFragment"
-        android:label="BuildingMap"
-        android:layout="@layout/fragment_building_map" >
-        <action
-            android:id="@+id/action_childFragment_building_map_to_childFragment_google_map"
-            app:destination="@id/childFragment_google_map" />
-    </fragment> -->
-
 </navigation>

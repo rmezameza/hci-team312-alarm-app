@@ -1,12 +1,13 @@
 <resources>
+    <!-- Names for the bottom navigation bar -->
     <string name="app_name">u:alarm</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_alarmlist">Alarmliste</string>
     <string name="title_map">Map</string>
     <string name="title_configuration">Einstellungen</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- For MapFragment: Navigation buttons to switch between building and google maps -->
     <string name="DescriptionImageButtonRight">Right Button for switching between maps.</string>
     <string name="DescriptionImageButtonLeft">Left Button for switching between maps.</string>
 </resources>
