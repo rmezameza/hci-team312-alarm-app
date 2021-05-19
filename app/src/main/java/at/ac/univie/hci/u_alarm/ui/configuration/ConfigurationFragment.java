@@ -1,6 +1,8 @@
 package at.ac.univie.hci.u_alarm.ui.configuration;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -68,6 +70,7 @@ public class ConfigurationFragment extends Fragment {
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if(isChecked){
                     Log.i("TEST ON SWITCH:","IT WORKS.");
+
                 } else {
 
                 }
