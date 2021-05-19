@@ -5,7 +5,7 @@
     android:id="@+id/fragment_settings_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0063a6"
+    android:background="@color/university_blue_lighter"
     android:focusedByDefault="false"
     android:forceHasOverlappingRendering="true"
     tools:context=".ui.configuration.ConfigurationFragment">
@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
-        android:text="Sprache"
+        android:text="@string/language"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -52,7 +52,7 @@
             android:buttonTint="#FFFFFF"
             android:checked="true"
             android:gravity="center"
-            android:text="Blau"
+            android:text="@string/blue"
             android:textColor="@color/white" />
 
         <RadioButton
@@ -68,7 +68,7 @@
             android:checked="false"
             android:clickable="true"
             android:gravity="center"
-            android:text="Grün"
+            android:text="@string/green"
             android:textColor="@color/white" />
     </RadioGroup>
 
@@ -77,7 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
-        android:text="Deutsch"
+        android:text="@string/german_language"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -92,7 +92,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
-        android:text="Farbkombination"
+        android:text="@string/color_combination"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -101,11 +101,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewLanguage"
         app:layout_constraintVertical_bias="0.085" />
 
+    <!-- Image buttons for choosing language -->
     <ImageButton
         android:id="@+id/imageViewLeft"
         android:layout_width="20dp"
         android:layout_height="34dp"
         android:background="@drawable/left"
+        android:contentDescription="@string/descriptionImageButtonLeftLanguage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.36"
@@ -118,6 +120,7 @@
         android:layout_width="20dp"
         android:layout_height="34dp"
         android:background="@drawable/right"
+        android:contentDescription="@string/descriptionImageButtonRightLanguage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.644"
@@ -130,7 +133,7 @@
         android:layout_width="103dp"
         android:layout_height="27dp"
         android:fontFamily="sans-serif-black"
-        android:text="Vibrationtest"
+        android:text="@string/vibration_test"
         android:textColor="#FAFAFA"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -145,7 +148,7 @@
         android:layout_width="103dp"
         android:layout_height="27dp"
         android:fontFamily="sans-serif-black"
-        android:text="Lichttest"
+        android:text="@string/frontflash_test"
         android:textColor="#FAFAFA"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -160,7 +163,7 @@
         android:layout_width="103dp"
         android:layout_height="27dp"
         android:fontFamily="sans-serif-black"
-        android:text="Flashtest"
+        android:text="@string/backflash_test"
         android:textColor="#FAFAFA"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -201,7 +204,7 @@
         app:layout_constraintVertical_bias="0.615" />
 
     <Switch
-        android:id="@+id/switchLicht"
+        android:id="@+id/switchLight"
         android:layout_width="49dp"
         android:layout_height="6dp"
         android:checked="false"
@@ -235,7 +238,7 @@
         android:layout_width="103dp"
         android:layout_height="27dp"
         android:fontFamily="sans-serif-black"
-        android:text="Displaytest"
+        android:text="@string/displaytest"
         android:textColor="#FAFAFA"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -250,7 +253,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
-        android:text="Funktionstest "
+        android:text="@string/function_test"
         android:textColor="#F4F2F2"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/textViewVibration"
@@ -265,7 +268,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#FFFFFF"
         android:backgroundTintMode="add"
-        android:text="Alarmprobe"
+        android:text="@string/test_alarm"
         android:textColor="#1B1B1B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

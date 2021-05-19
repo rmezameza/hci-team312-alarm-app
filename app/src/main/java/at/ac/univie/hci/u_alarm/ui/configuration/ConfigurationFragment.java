@@ -1,8 +1,5 @@
 package at.ac.univie.hci.u_alarm.ui.configuration;
 
-import android.content.Context;
-import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,25 +10,14 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.IntentCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.fragment.NavHostFragment;
 
-import org.jetbrains.annotations.NotNull;
-import org.w3c.dom.Text;
-
-import at.ac.univie.hci.u_alarm.MainActivity;
 import at.ac.univie.hci.u_alarm.R;
 import at.ac.univie.hci.u_alarm.databinding.FragmentConfigurationBinding;
-import at.ac.univie.hci.u_alarm.ui.home.HomeFragment;
 
 public class ConfigurationFragment extends Fragment {
 
@@ -65,7 +51,7 @@ public class ConfigurationFragment extends Fragment {
 
         // All switches assigned to a variable.
         Switch switchVibration = (Switch) getView().findViewById(R.id.switchVibration);
-        Switch switchLicht = (Switch) getView().findViewById(R.id.switchLicht);
+        Switch switchLicht = (Switch) getView().findViewById(R.id.switchLight);
         Switch switchFlash = (Switch) getView().findViewById(R.id.switchFlash);
         Switch switchDisplay = (Switch) getView().findViewById(R.id.switchDisplay);
 

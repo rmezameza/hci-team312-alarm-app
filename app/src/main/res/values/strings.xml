@@ -1,5 +1,7 @@
 <resources>
-    <!-- Names for the bottom navigation bar -->
+    <!-- ####################################################################################### -->
+    <!--                               For bottom_nav_menu.xml                                   -->
+    <!-- ####################################################################################### -->
     <string name="app_name">u:alarm</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
@@ -7,7 +9,36 @@
     <string name="title_map">Map</string>
     <string name="title_configuration">Einstellungen</string>
 
-    <!-- For MapFragment: Navigation buttons to switch between building and google maps -->
-    <string name="DescriptionImageButtonRight">Right Button for switching between maps.</string>
-    <string name="DescriptionImageButtonLeft">Left Button for switching between maps.</string>
+    <!-- ####################################################################################### -->
+    <!--                                For fragment_map.xml                                     -->
+    <!-- ####################################################################################### -->
+    <string name="descriptionImageButtonRight">Right Button for switching between maps.</string>
+    <string name="descriptionImageButtonLeft">Left Button for switching between maps.</string>
+
+
+    <!-- ####################################################################################### -->
+    <!--                            For fragment_configuration.xml                               -->
+    <!-- ####################################################################################### -->
+    <!-- Text views -->
+    <string name="language">Sprache</string>
+    <string name="german_language">Deutsch</string>
+    <string name="color_combination">Farbkombination</string>
+    <string name="vibration_test">Vibrationstest</string>
+    <string name="frontflash_test">Frontlichttest</string>
+    <string name="backflash_test">Backflashtest</string>
+    <string name="function_test">Funktionstest</string>
+    <string name="displaytest">Displaytext</string>
+    <string name="test_alarm">Alarmprobe</string>
+
+    <!-- Radio buttons -->
+    <string name="blue">Blau</string>
+    <string name="green">Grün</string>
+
+    <!-- Image buttons -->
+    <string name="descriptionImageButtonLeftLanguage">
+        Left Image Button to choose language.
+    </string>
+    <string name="descriptionImageButtonRightLanguage">
+        Right Image Button to choose language.
+    </string>
 </resources>
