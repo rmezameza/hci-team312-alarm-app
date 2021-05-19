@@ -1,11 +1,20 @@
 package at.ac.univie.hci.u_alarm;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
+import android.os.Build;
 import android.os.SystemClock;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 //Klassenname sicher noch ausbaufähig
 public class Alarmer{
@@ -27,6 +36,48 @@ public class Alarmer{
     }
 
     public void start_alarm(){
+
+        //Kram fuer die Notification.
+        //Fuer den Channel noch auf NotifcationChannelCompat umsteigen, der braucht einen extra Builder. Vorteil Compat vs "normal" ist backwards compatibility.
+        //NotificationLED funktioniert bei mir noch nicht, keine Ahnung wieso. Liegt wahrscheinlich daran, dass ich das Telefon gleichzeitig ueber das USB Kabel lade während ich die App ausführe und deshalb die Notification LED eher das Laden anzeigt als die eingestellte Farbe.
+            NotificationChannel channel = new NotificationChannel("111", "Testchannel", NotificationManager.IMPORTANCE_DEFAULT);
+            channel.setDescription("Test for AlarmerChannel");
+            channel.setLightColor(Color.parseColor("lime"));
+            channel.enableLights(true);
+
+
+
+            //Funktioniert an dieser Stelle nur mit NotificationManage, nicht mit der Compat-Variante, sehr interessant.
+            //NotificationManager notificationManager = alarmcontext.getSystemService(NotificationManager.class);
+            //notificationManager.createNotificationChannel(channel);
+
+
+            Intent alarm_intent=new Intent(this.alarmcontext, MainActivity.class);
+            alarm_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            //Hier noch den Context aendern um auf den AlarmScreen anstatt zum HomeFragment zu navigieren.
+            PendingIntent pendingIntent = PendingIntent.getActivity(this.alarmcontext, 0, alarm_intent, 0);
+
+            String textTitle="u:alert Test notification";
+            String textContent="u:alert Test notification text";
+
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this.alarmcontext.getApplicationContext(), "111")
+                    .setSmallIcon(R.drawable.alarm_icon) //Derzeit nocht einfach das Icon aus der Navigation Bar gestohlen.
+                    .setContentTitle(textTitle)
+                    .setContentText(textContent)
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                    .setContentIntent(pendingIntent)
+                    .setLights(0xff00ff00,50,50) //bei niedrigeren Android-Versionen relevant, sonst ueber den Channel geregelt.
+                    .setAutoCancel(true);
+
+            NotificationManagerCompat notifmgr=NotificationManagerCompat.from(this.alarmcontext);
+            notifmgr.createNotificationChannel(channel);
+            builder.setChannelId("111");
+            notifmgr.notify(0,builder.build());
+
+
+
+    //Licht und Kamera
+
         Vibrator vibrator=(Vibrator)alarmcontext.getSystemService(Context.VIBRATOR_SERVICE);
         CameraManager flashCameraManager=(CameraManager)alarmcontext.getSystemService(Context.CAMERA_SERVICE);
         String camID=null;
@@ -51,7 +102,7 @@ public class Alarmer{
             SystemClock.sleep(milli_cycle_sleep);
         }
     }
-}
+};
 //Ein- und Ausschalten des Blitzes dürfte etwas overhead haben, deshalb lassen sich Pause zwischen den Blitzen*Iterationen und Dauer der Vibration nicht direkt gleichsetzen.
 //Das ist nur ein Test der Muster, einfach denken dass es while loops wären die abbrechen wenn ein Knopf gedrückt wird.
 
