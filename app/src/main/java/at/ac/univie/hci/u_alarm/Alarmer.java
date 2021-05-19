@@ -17,6 +17,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 //Klassenname sicher noch ausbaufähig
+//Emulatoren werfen exceptions wenn versucht wird die Kamera und/oder die Vibration anzusprechen. Entweder die Teile in start_alarm() zum Testen der Notification auskommentieren oder am physischen Gerät testen.
 public class Alarmer{
     Context alarmcontext;
     int mill_vibrations;
