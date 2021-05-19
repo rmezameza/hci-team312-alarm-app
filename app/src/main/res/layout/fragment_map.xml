@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/university_blue_lighter"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".ui.map.MapFragment">
 
@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/university_grey"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,31 +34,29 @@
 
     <ImageButton
         android:id="@+id/rightMapChangeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
+        android:layout_width="31dp"
+        android:layout_height="31dp"
+        android:background="@drawable/right"
         android:contentDescription="@string/descriptionImageButtonRight"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.715"
+        app:layout_constraintHorizontal_bias="0.752"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.067"
-        app:srcCompat="@drawable/ic_baseline_arrow_right_24" />
+        app:layout_constraintVertical_bias="0.062" />
 
     <ImageButton
         android:id="@+id/leftMapChangeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
+        android:layout_width="31dp"
+        android:layout_height="29dp"
+        android:background="@drawable/left"
         android:contentDescription="@string/descriptionImageButtonLeft"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.286"
+        app:layout_constraintHorizontal_bias="0.252"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.067"
-        app:srcCompat="@drawable/ic_baseline_arrow_left_24" />
+        app:layout_constraintVertical_bias="0.062" />
 
     <FrameLayout
         android:id="@+id/map_fragment_container"
