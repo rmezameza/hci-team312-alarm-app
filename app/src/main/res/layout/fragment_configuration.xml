@@ -13,12 +13,13 @@
 
     <TextView
         android:id="@+id/languageText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:text="@string/language"
         android:textColor="@color/university_grey"
         android:textSize="20sp"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -74,12 +75,13 @@
 
     <TextView
         android:id="@+id/textViewLanguage"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
         android:text="@string/german_language"
         android:textColor="@color/university_grey"
         android:textSize="20sp"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
@@ -89,12 +91,13 @@
 
     <TextView
         android:id="@+id/colorsText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:text="@string/color_combination"
         android:textColor="@color/university_grey"
         android:textSize="20sp"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -130,48 +133,54 @@
 
     <TextView
         android:id="@+id/textViewVibration"
-        android:layout_width="114dp"
+        android:layout_width="match_parent"
         android:layout_height="28dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/vibration_test"
         android:textColor="@color/university_grey"
         android:textSize="16sp"
+        android:paddingStart="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.34"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.615" />
+        app:layout_constraintVertical_bias="0.615"
+        tools:ignore="RtlSymmetry" />
 
     <TextView
         android:id="@+id/textViewLight"
-        android:layout_width="103dp"
+        android:layout_width="match_parent"
         android:layout_height="27dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/frontflash_test"
         android:textColor="@color/university_grey"
         android:textSize="16sp"
+        android:paddingStart="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.327"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.674" />
+        app:layout_constraintVertical_bias="0.674"
+        tools:ignore="RtlSymmetry" />
 
     <TextView
         android:id="@+id/textViewFlash"
-        android:layout_width="103dp"
+        android:layout_width="match_parent"
         android:layout_height="27dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/backflash_test"
         android:textColor="@color/university_grey"
         android:textSize="16sp"
+        android:paddingStart="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.327"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.731" />
+        app:layout_constraintVertical_bias="0.731"
+        tools:ignore="RtlSymmetry" />
 
     <Switch
         android:id="@+id/switchFlash"
@@ -226,36 +235,41 @@
         android:showText="false"
         android:thumbTint="@color/university_grey"
         android:trackTint="#000000"
+        android:paddingStart="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.723"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.792" />
+        app:layout_constraintVertical_bias="0.792"
+        tools:ignore="RtlSymmetry" />
 
     <TextView
         android:id="@+id/textViewDisplay"
-        android:layout_width="103dp"
+        android:layout_width="match_parent"
         android:layout_height="27dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/displaytest"
         android:textColor="@color/university_grey"
         android:textSize="16sp"
+        android:paddingStart="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.327"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.792" />
+        app:layout_constraintVertical_bias="0.792"
+        tools:ignore="RtlSymmetry" />
 
     <TextView
         android:id="@+id/textFunctions"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:text="@string/function_test"
         android:textColor="@color/university_grey"
         android:textSize="20sp"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/textViewVibration"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
