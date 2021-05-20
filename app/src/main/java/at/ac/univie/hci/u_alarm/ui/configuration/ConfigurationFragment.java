@@ -1,8 +1,7 @@
 package at.ac.univie.hci.u_alarm.ui.configuration;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.Vibrator;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +17,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import at.ac.univie.hci.u_alarm.R;
 import at.ac.univie.hci.u_alarm.databinding.FragmentConfigurationBinding;
+import at.ac.univie.hci.u_alarm.ui.AlarmPage.AlarmActivity;
 
 public class ConfigurationFragment extends Fragment {
 
@@ -58,7 +61,7 @@ public class ConfigurationFragment extends Fragment {
         Switch switchDisplay = (Switch) getView().findViewById(R.id.switchDisplay);
 
         //Variable for the alarm test
-        Button buttonTest = (Button) getView().findViewById(R.id.buttonTestAlarm);
+        Button buttonTest = (Button)view.findViewById(R.id.buttonTestAlarm);
 
         //Variables for buttons to switch the language
         ImageView leftArrow = (ImageView) getActivity().findViewById(R.id.imageViewLeft);
@@ -117,7 +120,7 @@ public class ConfigurationFragment extends Fragment {
         buttonTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Will do something.
+                AlarmTestButtonClicked(view);
             }
         });
 
@@ -190,6 +193,20 @@ public class ConfigurationFragment extends Fragment {
 
 
 
+    }
+
+    public void AlarmTestButtonClicked(View v) {
+        new Timer().schedule(new TimerTask(){
+            public void run() {
+                getActivity().runOnUiThread(new Runnable() {
+                    public void run() {
+                        startActivity(new Intent(getActivity(), AlarmActivity.class));
+                    }
+                });
+            }
+        }, 5000);
+        //Alarmer alarmtester=new Alarmer(this.getActivity().getApplicationContext(),500,255,1,500,10);
+        //alarmtester.start_alarm();
     }
 
     @Override
