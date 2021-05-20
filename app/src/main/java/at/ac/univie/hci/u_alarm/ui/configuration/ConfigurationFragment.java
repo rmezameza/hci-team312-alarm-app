@@ -21,6 +21,10 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.util.Observable;
+import java.util.Observer;
+import androidx.lifecycle.*;
+
 import at.ac.univie.hci.u_alarm.MainActivity;
 import at.ac.univie.hci.u_alarm.R;
 import at.ac.univie.hci.u_alarm.databinding.FragmentConfigurationBinding;
@@ -30,14 +34,29 @@ public class ConfigurationFragment extends Fragment {
 
     private ConfigurationViewModel configurationViewModel;
     private FragmentConfigurationBinding binding;
+    private View root = null;
+
+
+    private static final String CONFIGURATION_STATE = "CONFIGURATION_STATE";
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+        if(binding == null){
+            binding = FragmentConfigurationBinding.inflate(inflater, container, false);
+            root = binding.getRoot();
+        } else{
+            return root;
+        }
+
         configurationViewModel =
                 new ViewModelProvider(this).get(ConfigurationViewModel.class);
 
-        binding = FragmentConfigurationBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+
+       /* binding = FragmentConfigurationBinding.inflate(inflater, container, false);
+        View root = binding.getRoot(); */
+
+
 
         /*
         final TextView textView = binding.textConfiguration;
@@ -56,11 +75,14 @@ public class ConfigurationFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
+
+
         // All switches assigned to a variable.
         Switch switchVibration = (Switch) getView().findViewById(R.id.switchVibration);
         Switch switchLicht = (Switch) getView().findViewById(R.id.switchLight);
         Switch switchFlash = (Switch) getView().findViewById(R.id.switchFlash);
         Switch switchDisplay = (Switch) getView().findViewById(R.id.switchDisplay);
+
 
         //Variable for the alarm test
         Button buttonTest = (Button) getView().findViewById(R.id.buttonTestAlarm);
@@ -158,6 +180,7 @@ public class ConfigurationFragment extends Fragment {
                 buttonTest.setText("Alarm Test");
 
                 configurationViewModel.setLanguage("English");
+                Log.i("LANGUAGE CHANGED:","English");
 
 
 
@@ -195,8 +218,7 @@ public class ConfigurationFragment extends Fragment {
                 buttonTest.setText("Alarmprobe");
 
                 configurationViewModel.setLanguage("Deutsch");
-
-
+                Log.i("LANGUAGE CHANGED:","Deutsch");
 
 
             }
@@ -204,14 +226,7 @@ public class ConfigurationFragment extends Fragment {
 
 
 
-
     }
 
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
-    }
 
 }
