@@ -25,7 +25,7 @@ Pixel 4 - API 28 (Emulator), Samsung A50 - API 30 (Hr. Meza Meza)
 
 Pixel 2 - API 30 (Emulator), (Hr. Murad) 
 
-Pixel 2 - API 30 (Emulator), Samsung S8+ - API 28(Hr. Uetz)
+Pixel 2 - API 30 (Emulator), Samsung S8+ - API 28 (Hr. Uetz)
 
 Externe Libraries und Frameworks:
 AndroidPdfViewer (https://github.com/barteksc/AndroidPdfViewer)
