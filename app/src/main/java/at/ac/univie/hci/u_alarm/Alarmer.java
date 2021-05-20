@@ -9,7 +9,6 @@ import android.graphics.Color;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
 import android.media.MediaPlayer;
-import android.os.Build;
 import android.os.SystemClock;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
@@ -17,116 +16,125 @@ import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+
 //Todo: Einzelne Alarmoptionen in enums o.Ä speichern um die Verbindung mit den Einstellungen zu ermöglichen.
 //Klassenname sicher noch ausbaufähig
 //Emulatoren werfen exceptions wenn versucht wird die Kamera und/oder die Vibration anzusprechen. Entweder die Teile in start_alarm() zum Testen der Notification auskommentieren oder am physischen Gerät testen.
 public class Alarmer{
     //public boolean shouldContinue; AIDS
-    Context alarmcontext;
-    int mill_vibrations;
-    int amp_vibrations;
-    int vibcycles;
-    int milli_flashes_sleep;
-    int milli_cycle_sleep;
+    Context alarmContext;
+    int millVibrations;
+    int ampVibrations;
+    int vibrationCycles;
+    int milliFlashesSleep;
+    int milliCyclesSleep;
     boolean shouldContinue;
 
     public Alarmer(Context context, int milliseconds_vibration, int amplitude_vibration, int vibration_cycles, int milliseconds_sleep_between_flashes, int milliseconds_sleep_between_cycles){
-        alarmcontext=context;
-        mill_vibrations=milliseconds_vibration;
-        amp_vibrations=amplitude_vibration;
-        vibcycles=vibration_cycles;
-        milli_flashes_sleep=milliseconds_sleep_between_flashes;
-        milli_cycle_sleep=milliseconds_sleep_between_cycles;
+        alarmContext=context;
+        millVibrations=milliseconds_vibration;
+        ampVibrations=amplitude_vibration;
+        vibrationCycles =vibration_cycles;
+        milliFlashesSleep =milliseconds_sleep_between_flashes;
+        milliCyclesSleep =milliseconds_sleep_between_cycles;
         shouldContinue=true;
 
     }
     //Das ist jetzt sicher nicht elegant, mir gerade aber egal und schneller als einfach darauf zu warten, dass der Thread automatisch gekillt wird.
-    public void stop_alarm(){
+    public void stopAlarm(){
         this.shouldContinue=false;
     }
-    public void start_alarm(){
-    //Log.d("Boolean shouldContinue=",Boolean.toString(this.shouldContinue));
+    public void startAlarm(){
+
+        //Audio, creating MediaPlayer with the hardcoded alarm sound and starting it. Gets ended at the end Tail of this method.
+        final MediaPlayer AlarmPlayer=MediaPlayer.create(this.alarmContext,R.raw.mytesttone);
+        AlarmPlayer.start();
+
+
         //Kram fuer die Notification.
         //Fuer den Channel noch auf NotifcationChannelCompat umsteigen, der braucht einen extra Builder. Vorteil Compat vs "normal" ist backwards compatibility.
         //NotificationLED funktioniert bei mir noch nicht, keine Ahnung wieso. Liegt wahrscheinlich daran, dass ich das Telefon gleichzeitig ueber das USB Kabel lade während ich die App ausführe und deshalb die Notification LED eher das Laden anzeigt als die eingestellte Farbe.
-            NotificationChannel channel = new NotificationChannel("111", "Testchannel", NotificationManager.IMPORTANCE_DEFAULT);
-            channel.setDescription("Test for AlarmerChannel");
-            channel.setLightColor(Color.parseColor("lime"));
-            channel.enableLights(true);
 
-            //Audio shizzle:
-            final MediaPlayer AlarmPlayer=MediaPlayer.create(this.alarmcontext,R.raw.mytesttone);
-            AlarmPlayer.start();
+        NotificationChannel alarmChannel = new NotificationChannel("122", "Testchannel", NotificationManager.IMPORTANCE_DEFAULT);
+            alarmChannel.setDescription("AlarmChannel description");
+            alarmChannel.setLightColor(Color.parseColor("lime"));
+            alarmChannel.enableLights(true);
+        /*
+        //Compat Alarm Channel, cannot import
+        NotificationChannelCompat.Builder alarmChannelBuilder= new NotificationChannelCompat.Builder("122",NotificationManagerCompat.IMPORTANCE_DEFAULT)
+                .setDescription("AlarmChannelCompat for alarm notifications")
+                .setLightColor(Color.parseColor("lime"))
+                .setLightEnabled(true);
+    */
 
-            //Funktioniert an dieser Stelle nur mit NotificationManage, nicht mit der Compat-Variante, sehr interessant.
-            //NotificationManager notificationManager = alarmcontext.getSystemService(NotificationManager.class);
-            //notificationManager.createNotificationChannel(channel);
 
+            Intent alarmIntent=new Intent(this.alarmContext, MainActivity.class);
+            alarmIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); //Possibly dont need flags, test TODO
 
-            Intent alarm_intent=new Intent(this.alarmcontext, MainActivity.class);
-            alarm_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            //Hier noch den Context aendern um auf den AlarmScreen anstatt zum HomeFragment zu navigieren.
-            PendingIntent pendingIntent = PendingIntent.getActivity(this.alarmcontext, 0, alarm_intent, 0);
+            //Todo: Change Context to navigate to List of past Alarms instead of the home fragment.
+            PendingIntent pendingIntent = PendingIntent.getActivity(this.alarmContext, 0, alarmIntent, 0);
 
+                //TODO: Should the Notification be built with Info from the AlarmPage or just a boilerplate Text? If yes, delegate to AlarmActivity.
             String textTitle="u:alert Test notification";
             String textContent="u:alert Test notification text";
 
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(this.alarmcontext.getApplicationContext(), "111")
+            NotificationCompat.Builder alarmNotificationBuilder = new NotificationCompat.Builder(this.alarmContext.getApplicationContext(), "122")
                     .setSmallIcon(R.drawable.alarm_icon) //Derzeit nocht einfach das Icon aus der Navigation Bar gestohlen.
                     .setContentTitle(textTitle)
                     .setContentText(textContent)
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                     .setContentIntent(pendingIntent)
-                    .setLights(0xff00ff00,50,50) //bei niedrigeren Android-Versionen relevant, sonst ueber den Channel geregelt.
+                    .setLights(0xff00ff00,500,100) //bei niedrigeren Android-Versionen relevant, sonst ueber den Channel geregelt.
                     .setAutoCancel(true);
 
-            NotificationManagerCompat notifmgr=NotificationManagerCompat.from(this.alarmcontext);
-            notifmgr.createNotificationChannel(channel);
-            builder.setChannelId("111");
-            notifmgr.notify(0,builder.build());
+            NotificationManagerCompat alarmNotificationManager=NotificationManagerCompat.from(this.alarmContext);
+            //alarmNotificationManager.createNotificationChannel(alarmChannelBuilder.build()); for CompatChannel
+            alarmNotificationManager.createNotificationChannel(alarmChannel);
+            alarmNotificationBuilder.setChannelId("122"); //kann wsl weg
+            alarmNotificationManager.notify(0,alarmNotificationBuilder.build());
 
 
 
-    //Licht und Kamera
+        //Camera flash and vibration
+        //Turning flash on/off appears to incur some overhead, so duration of vibration and pause between
+        //camera on/off can't simply be set to equal. Could be fixed by threading but is sufficiently performant this way.
 
-        Vibrator vibrator=(Vibrator)alarmcontext.getSystemService(Context.VIBRATOR_SERVICE);
-        CameraManager flashCameraManager=(CameraManager)alarmcontext.getSystemService(Context.CAMERA_SERVICE);
-        String camID=null;
+
+        Vibrator alarmVibrator=(Vibrator)alarmContext.getSystemService(Context.VIBRATOR_SERVICE);
+        CameraManager flashCameraManager=(CameraManager)alarmContext.getSystemService(Context.CAMERA_SERVICE);
+        String rearCamID=null;
         try {
-            camID = flashCameraManager.getCameraIdList()[0];
+            rearCamID = flashCameraManager.getCameraIdList()[0];
         } catch (CameraAccessException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            Log.d("startAlarm","Exception on getting CamerIdList, probably running on Emulator");
         }
-
-        //for(int j=0;j<vibcycles;++j){
-        while(this.shouldContinue==true){
-            vibrator.vibrate(VibrationEffect.createOneShot(mill_vibrations,amp_vibrations));
+        while(shouldContinue){
+            alarmVibrator.vibrate(VibrationEffect.createOneShot(millVibrations,ampVibrations));
             try {
-                flashCameraManager.setTorchMode(camID, true);
+                flashCameraManager.setTorchMode(rearCamID, true);
             } catch (CameraAccessException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
+                Log.d("startAlarm","Exception on enabling main camera flash, probably running on Emulator");
             }
-            SystemClock.sleep(milli_flashes_sleep);
+            SystemClock.sleep(milliFlashesSleep);
             try {
-                flashCameraManager.setTorchMode(camID, false);
+                flashCameraManager.setTorchMode(rearCamID, false);
             } catch (CameraAccessException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
+                Log.d("startAlarm","Exception on disabling main camera flash, probably running on Emulator");
             }
-            SystemClock.sleep(milli_cycle_sleep);
+            SystemClock.sleep(milliCyclesSleep);
         }
         //Frees the MediaPlayer and associated ressources, more elegant to call here than on extra Function to avoid passing or creating every Alamer with its own MediaPlayer
          AlarmPlayer.release();
     }
-
-
 };
-//Ein- und Ausschalten des Blitzes dürfte etwas overhead haben, deshalb lassen sich Pause zwischen den Blitzen*Iterationen und Dauer der Vibration nicht direkt gleichsetzen.
-//Das ist nur ein Test der Muster, einfach denken dass es while loops wären die abbrechen wenn ein Knopf gedrückt wird.
 
-//Getestete Patterns:
+//Tested Patterns, using fixed cycles instead of permanent vibration for convenience.
 /*
     //"Normal"/Slow Alarm.
-        for(int j=0;j<10;++j){
+        while(shouldContinue==true){
             vibrator.vibrate(VibrationEffect.createOneShot(1000,255));
             //for(int i=0;i<5;++i){
                 try {
@@ -148,7 +156,7 @@ public class Alarmer{
 
         /*
         //Schnellerer Alarm
-        for(int j=0;j<10;++j){
+        while(shouldContinue==true){
             vibrator.vibrate(VibrationEffect.createOneShot(500,255));
             //for(int i=0;i<5;++i){
             try {
@@ -168,7 +176,7 @@ public class Alarmer{
 */
 //Disco
         /*
-        for(int j=0;j<10;++j){
+        while(shouldContinue==true){
             vibrator.vibrate(VibrationEffect.createOneShot(500,255));
             for(int i=0;i<100;++i){
             try {

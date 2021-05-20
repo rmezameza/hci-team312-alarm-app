@@ -36,14 +36,14 @@ public class AlarmActivity extends AppCompatActivity {
         setContentView(R.layout.activity_alarm);
 
         //Wäre wsl eleganter wenn die Klasse selbst einen Alarmer als Feld hätte, dann könnte die stop_alarm() Funktion auch noch im onPause/onDestroyed aufgerufen werden. Derzeit leicht buggy wenn sich 2 oder mehr Alarme überschneiden, dann vibriert das ganze auch weiter nachdem der Stop-BUtton gedrückt wurde. Wird in der Praxis wahrscheinlich keinem auffallen.
-        Alarmer alarmtester=new Alarmer(AlarmActivity.this.getApplicationContext(),500,255,10,500,10);
+        Alarmer alarmTester=new Alarmer(AlarmActivity.this.getApplicationContext(),500,255,10,500,10);
 
         //Geht vllt auch indem ein Runnable an den Thread gepasst wird statt nur Thread, sollte aber egal sein. Wenns ohne extra Thread gestartet wird läuft zuerst die Vibration komplett durch bevor das User Interface gezeichnet wurde.
         //Wenn Zeit ist noch mittels Threadhandlern statt "nackt" machen.
         Thread thread = new Thread() {
             @Override
             public void run() {
-                alarmtester.start_alarm();
+                alarmTester.startAlarm();
             }
         };
 
@@ -57,7 +57,7 @@ public class AlarmActivity extends AppCompatActivity {
         stop_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                alarmtester.stop_alarm();
+                alarmTester.stopAlarm();
                 Intent intent = new Intent(AlarmActivity.this, MainActivity.class);
                 startActivity(intent);
             }
