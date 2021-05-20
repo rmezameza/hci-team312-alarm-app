@@ -23,7 +23,7 @@ import at.ac.univie.hci.u_alarm.ui.alarmlist.Alarm;
 public class AlarmActivity extends AppCompatActivity {
 
     public static  ArrayList<String> alarmtypeGlobal =new ArrayList<>();
-    public static    ArrayList<String>  alarmortGlobal =new ArrayList<>();
+    public static  ArrayList<String>  alarmortGlobal =new ArrayList<>();
     public static  ArrayList alarmdateGlobal = new ArrayList<String>();
 
     Button stop_button;
