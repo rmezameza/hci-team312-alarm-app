@@ -155,6 +155,9 @@ public class ConfigurationFragment extends Fragment {
 
                 buttonTest.setText("Alarm Test");
 
+                configurationViewModel.setLanguage("English");
+                Log.i("LANGUAGE CHANGED:","Deutsch");
+
 
             }
         });
@@ -187,6 +190,9 @@ public class ConfigurationFragment extends Fragment {
                 textDisplay.setText("Displaytest");
 
                 buttonTest.setText("Alarmprobe");
+
+                configurationViewModel.setLanguage("Deutsch");
+                Log.i("LANGUAGE CHANGED:","Deutsch");
 
             }
         });

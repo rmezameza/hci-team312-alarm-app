@@ -1,6 +1,7 @@
 package at.ac.univie.hci.u_alarm.ui.map;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import org.jetbrains.annotations.NotNull;
 
+import at.ac.univie.hci.u_alarm.MainActivity;
 import at.ac.univie.hci.u_alarm.R;
 import at.ac.univie.hci.u_alarm.databinding.FragmentMapBinding;
 
@@ -115,8 +117,17 @@ public class MapFragment extends Fragment {
                 this.mapViewModel.setMapTextView("Google Maps");
                 break;
             case "2":
-                this.mapViewModel.setMapTextView("Gebäudekarte");
+                if (MainActivity.language.compareTo("English") == 0) {
+                    Log.i("String in LANGUAGE variable:", MainActivity.language);
+                    this.mapViewModel.setMapTextView("Building Map");
+                } else {
+                    Log.i("String in LANGUAGE variable", MainActivity.language);
+                    this.mapViewModel.setMapTextView("Gebäudekarte");
+                }
+
                 break;
+
+
         }
     }
 
