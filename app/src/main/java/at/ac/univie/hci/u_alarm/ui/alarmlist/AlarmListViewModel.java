@@ -16,4 +16,5 @@ public class AlarmListViewModel extends ViewModel {
     public LiveData<String> getText() {
         return mText;
     }
+
 }
