@@ -1,7 +1,4 @@
 package at.ac.univie.hci.u_alarm;
-
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -16,6 +13,7 @@ import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.core.app.NotificationChannelCompat;
 
 //Todo: Einzelne Alarmoptionen in enums o.Ä speichern um die Verbindung mit den Einstellungen zu ermöglichen.
 //Klassenname sicher noch ausbaufähig
@@ -54,46 +52,44 @@ public class Alarmer{
         //Kram fuer die Notification.
         //Fuer den Channel noch auf NotifcationChannelCompat umsteigen, der braucht einen extra Builder. Vorteil Compat vs "normal" ist backwards compatibility.
         //NotificationLED funktioniert bei mir noch nicht, keine Ahnung wieso. Liegt wahrscheinlich daran, dass ich das Telefon gleichzeitig ueber das USB Kabel lade während ich die App ausführe und deshalb die Notification LED eher das Laden anzeigt als die eingestellte Farbe.
-
+        /*
         NotificationChannel alarmChannel = new NotificationChannel("122", "Testchannel", NotificationManager.IMPORTANCE_DEFAULT);
             alarmChannel.setDescription("AlarmChannel description");
             alarmChannel.setLightColor(Color.parseColor("lime"));
             alarmChannel.enableLights(true);
-        /*
+*/
+
+        Intent alarmIntent=new Intent(this.alarmContext, MainActivity.class);
+        alarmIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); //Possibly dont need flags, test TODO
+
+        //Todo: Change Context to navigate to List of past Alarms instead of the home fragment.
+        PendingIntent pendingIntent = PendingIntent.getActivity(this.alarmContext, 0, alarmIntent, 0);
+
+        //TODO: Should the Notification be built with Info from the AlarmPage or just a boilerplate Text? If yes, delegate to AlarmActivity.
+
         //Compat Alarm Channel, cannot import
         NotificationChannelCompat.Builder alarmChannelBuilder= new NotificationChannelCompat.Builder("122",NotificationManagerCompat.IMPORTANCE_DEFAULT)
                 .setDescription("AlarmChannelCompat for alarm notifications")
                 .setLightColor(Color.parseColor("lime"))
-                .setLightEnabled(true);
-    */
+                .setName("AlarmCompatChannel test")
+                .setLightsEnabled(true);
 
+        String textTitle="u:alert Test notification";
+        String textContent="u:alert Test notification text";
 
-            Intent alarmIntent=new Intent(this.alarmContext, MainActivity.class);
-            alarmIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); //Possibly dont need flags, test TODO
+        NotificationCompat.Builder alarmNotificationBuilder = new NotificationCompat.Builder(this.alarmContext.getApplicationContext(), "122")
+                .setSmallIcon(R.drawable.alarm_icon) //Derzeit nocht einfach das Icon aus der Navigation Bar gestohlen.
+                .setContentTitle(textTitle)
+                .setContentText(textContent)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(pendingIntent)
+                .setLights(0xff00ff00,500,100) //bei niedrigeren Android-Versionen relevant, sonst ueber den Channel geregelt.
+                .setAutoCancel(true);
 
-            //Todo: Change Context to navigate to List of past Alarms instead of the home fragment.
-            PendingIntent pendingIntent = PendingIntent.getActivity(this.alarmContext, 0, alarmIntent, 0);
-
-                //TODO: Should the Notification be built with Info from the AlarmPage or just a boilerplate Text? If yes, delegate to AlarmActivity.
-            String textTitle="u:alert Test notification";
-            String textContent="u:alert Test notification text";
-
-            NotificationCompat.Builder alarmNotificationBuilder = new NotificationCompat.Builder(this.alarmContext.getApplicationContext(), "122")
-                    .setSmallIcon(R.drawable.alarm_icon) //Derzeit nocht einfach das Icon aus der Navigation Bar gestohlen.
-                    .setContentTitle(textTitle)
-                    .setContentText(textContent)
-                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                    .setContentIntent(pendingIntent)
-                    .setLights(0xff00ff00,500,100) //bei niedrigeren Android-Versionen relevant, sonst ueber den Channel geregelt.
-                    .setAutoCancel(true);
-
-            NotificationManagerCompat alarmNotificationManager=NotificationManagerCompat.from(this.alarmContext);
-            //alarmNotificationManager.createNotificationChannel(alarmChannelBuilder.build()); for CompatChannel
-            alarmNotificationManager.createNotificationChannel(alarmChannel);
-            alarmNotificationBuilder.setChannelId("122"); //kann wsl weg
-            alarmNotificationManager.notify(0,alarmNotificationBuilder.build());
-
-
+        NotificationManagerCompat alarmNotificationManager=NotificationManagerCompat.from(this.alarmContext);
+        alarmNotificationManager.createNotificationChannel(alarmChannelBuilder.build());
+        alarmNotificationBuilder.setChannelId("122"); //kann wsl weg
+        alarmNotificationManager.notify(0,alarmNotificationBuilder.build());
 
         //Camera flash and vibration
         //Turning flash on/off appears to incur some overhead, so duration of vibration and pause between
