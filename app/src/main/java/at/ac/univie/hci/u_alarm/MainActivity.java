@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +18,11 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import at.ac.univie.hci.u_alarm.databinding.ActivityMainBinding;
+import at.ac.univie.hci.u_alarm.ui.AlarmPage.AlarmActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,10 +44,7 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
-
-        Alarmer alarmtester=new Alarmer(this.getApplicationContext(),500,255,1,500,10);
-        alarmtester.start_alarm();
-
+        
 
     }
     /*

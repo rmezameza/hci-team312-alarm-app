@@ -12,32 +12,39 @@ import android.os.Build;
 import android.os.SystemClock;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
-
+//Todo: Einzelne Alarmoptionen in enums o.Ä speichern um die Verbindung mit den Einstellungen zu ermöglichen.
 //Klassenname sicher noch ausbaufähig
 //Emulatoren werfen exceptions wenn versucht wird die Kamera und/oder die Vibration anzusprechen. Entweder die Teile in start_alarm() zum Testen der Notification auskommentieren oder am physischen Gerät testen.
 public class Alarmer{
+    //public boolean shouldContinue; AIDS
     Context alarmcontext;
     int mill_vibrations;
     int amp_vibrations;
     int vibcycles;
     int milli_flashes_sleep;
     int milli_cycle_sleep;
+    boolean shouldContinue;
 
-    Alarmer(Context context,int milliseconds_vibration,int amplitude_vibration,int vibration_cycles,int milliseconds_sleep_between_flashes,int milliseconds_sleep_between_cycles){
+    public Alarmer(Context context, int milliseconds_vibration, int amplitude_vibration, int vibration_cycles, int milliseconds_sleep_between_flashes, int milliseconds_sleep_between_cycles){
         alarmcontext=context;
         mill_vibrations=milliseconds_vibration;
         amp_vibrations=amplitude_vibration;
         vibcycles=vibration_cycles;
         milli_flashes_sleep=milliseconds_sleep_between_flashes;
         milli_cycle_sleep=milliseconds_sleep_between_cycles;
+        shouldContinue=true;
 
     }
-
+    //Das ist jetzt sicher nicht elegant, mir gerade aber egal und schneller als einfach darauf zu warten, dass der Thread automatisch gekillt wird.
+    public void stop_alarm(){
+        this.shouldContinue=false;
+    }
     public void start_alarm(){
-
+    //Log.d("Boolean shouldContinue=",Boolean.toString(this.shouldContinue));
         //Kram fuer die Notification.
         //Fuer den Channel noch auf NotifcationChannelCompat umsteigen, der braucht einen extra Builder. Vorteil Compat vs "normal" ist backwards compatibility.
         //NotificationLED funktioniert bei mir noch nicht, keine Ahnung wieso. Liegt wahrscheinlich daran, dass ich das Telefon gleichzeitig ueber das USB Kabel lade während ich die App ausführe und deshalb die Notification LED eher das Laden anzeigt als die eingestellte Farbe.
@@ -87,7 +94,9 @@ public class Alarmer{
         } catch (CameraAccessException e) {
             e.printStackTrace();
         }
-        for(int j=0;j<vibcycles;++j){
+
+        //for(int j=0;j<vibcycles;++j){
+        while(this.shouldContinue==true){
             vibrator.vibrate(VibrationEffect.createOneShot(mill_vibrations,amp_vibrations));
             try {
                 flashCameraManager.setTorchMode(camID, true);
@@ -103,6 +112,8 @@ public class Alarmer{
             SystemClock.sleep(milli_cycle_sleep);
         }
     }
+
+
 };
 //Ein- und Ausschalten des Blitzes dürfte etwas overhead haben, deshalb lassen sich Pause zwischen den Blitzen*Iterationen und Dauer der Vibration nicht direkt gleichsetzen.
 //Das ist nur ein Test der Muster, einfach denken dass es while loops wären die abbrechen wenn ein Knopf gedrückt wird.
