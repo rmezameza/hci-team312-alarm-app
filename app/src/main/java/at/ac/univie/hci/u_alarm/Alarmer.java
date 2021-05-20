@@ -12,6 +12,7 @@ import android.media.MediaPlayer;
 import android.os.SystemClock;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -128,7 +129,7 @@ public class Alarmer{
         //Frees the MediaPlayer and associated ressources, more elegant to call here than on extra Function to avoid passing or creating every Alamer with its own MediaPlayer
          AlarmPlayer.release();
     }
-};
+}
 
 //Tested Patterns, using fixed cycles instead of permanent vibration for convenience.
 /*
