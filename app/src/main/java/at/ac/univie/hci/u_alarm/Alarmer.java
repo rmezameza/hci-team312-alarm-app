@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.SystemClock;
 import android.os.VibrationEffect;
@@ -53,7 +54,9 @@ public class Alarmer{
             channel.setLightColor(Color.parseColor("lime"));
             channel.enableLights(true);
 
-
+            //Audio shizzle:
+            final MediaPlayer AlarmPlayer=MediaPlayer.create(this.alarmcontext,R.raw.mytesttone);
+            AlarmPlayer.start();
 
             //Funktioniert an dieser Stelle nur mit NotificationManage, nicht mit der Compat-Variante, sehr interessant.
             //NotificationManager notificationManager = alarmcontext.getSystemService(NotificationManager.class);
@@ -111,6 +114,8 @@ public class Alarmer{
             }
             SystemClock.sleep(milli_cycle_sleep);
         }
+        //Frees the MediaPlayer and associated ressources, more elegant to call here than on extra Function to avoid passing or creating every Alamer with its own MediaPlayer
+         AlarmPlayer.release();
     }
 
 
