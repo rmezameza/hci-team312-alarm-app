@@ -125,7 +125,7 @@ public class MapFragment extends Fragment {
                 this.mapViewModel.setMapTextView("Google Maps");
                 break;
             case "2":
-                if(configurationViewModel.getLanguage().compareTo("English")==0){
+               /* if(configurationViewModel.getLanguage().compareTo("English")==0){
                     Log.i("String in LANGUAGE variable:",configurationViewModel.getLanguage());
                     this.mapViewModel.setMapTextView("Building Map");
                 } else {
@@ -133,7 +133,19 @@ public class MapFragment extends Fragment {
                     this.mapViewModel.setMapTextView("Gebäudekarte");
                 }
 
+                break; */
+
+                if(MainActivity.language.compareTo("English")==0){
+                    Log.i("String in LANGUAGE variable:",MainActivity.language);
+                    this.mapViewModel.setMapTextView("Building Map");
+                } else {
+                    Log.i("String in LANGUAGE variable",MainActivity.language);
+                    this.mapViewModel.setMapTextView("Gebäudekarte");
+                }
+
                 break;
+
+
         }
     }
 

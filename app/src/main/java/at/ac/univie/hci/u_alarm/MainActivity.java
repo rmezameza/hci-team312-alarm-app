@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     SharedPreferences preferences = null;
+    public static String language;
 
 
 
@@ -67,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
             tr.replace(R.id.fragment_home_view,fragment);
             tr.commit();
         }
+
+
     }
 
 }

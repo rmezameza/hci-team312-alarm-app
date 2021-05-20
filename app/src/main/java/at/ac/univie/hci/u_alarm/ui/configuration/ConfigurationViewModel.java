@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import at.ac.univie.hci.u_alarm.MainActivity;
 import at.ac.univie.hci.u_alarm.R;
 
 public class ConfigurationViewModel extends ViewModel {
@@ -38,6 +39,7 @@ public class ConfigurationViewModel extends ViewModel {
     }
     public void setLanguage(String language2){
        this.language.setValue(language2);
+        MainActivity.language = language2;
         Log.i("SET LANGUAGE:", this.language.getValue());
     }
 }
