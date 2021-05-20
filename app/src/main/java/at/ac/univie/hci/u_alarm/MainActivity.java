@@ -83,38 +83,5 @@ public class MainActivity extends AppCompatActivity {
         
 
     }
-    /*
-     //Testweise Funktionen die die App wieder öffnen sollen nachdem sie pausiert/gestoppt/zerstört wurde. Wird die App mit dem Homebutton minimiert werden onPause und onStop aufgerufen, wird sie mit dem Backbutton minimiert wird zusätzlich no onDestroy aufgerufen.
-     //Hilfreich Log.d("Statustest", "onX() called") zum Testen.
-
-    @Override
-    public void onPause(){
-        super.onPause();
-        AlarmManager alarmtest_restartmanager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        Intent intent = new Intent( this, MainActivity.class );
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 123, intent, PendingIntent.FLAG_ONE_SHOT);
-        alarmtest_restartmanager.set( AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+500,pendingIntent);
-    }
-
-    @Override
-    public void onStop(){
-        super.onStop();
-        AlarmManager alarmtest_restartmanager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        Intent restart_intent = new Intent( getApplicationContext(), MainActivity.class );
-        PendingIntent test_restart_intent = PendingIntent.getBroadcast(getApplicationContext(), 111, restart_intent, PendingIntent.FLAG_ONE_SHOT);
-        alarmtest_restartmanager.set( AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+2500,test_restart_intent);
-    }
-    /*
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        AlarmManager alarmtest_restartmanager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        Intent intent = new Intent( this, MainActivity.class );
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 123, intent, PendingIntent.FLAG_ONE_SHOT);
-        alarmtest_restartmanager.set( AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+500,pendingIntent);
-    }
-
-   */
-
-    }
+}
 

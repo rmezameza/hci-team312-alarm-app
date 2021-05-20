@@ -46,7 +46,7 @@ public class Alarmer{
 
         //Audio, creating MediaPlayer with the hardcoded alarm sound and starting it. Gets ended at the tail end of this method.
 
-        final MediaPlayer AlarmPlayer=MediaPlayer.create(this.alarmContext,R.raw.mytesttone);
+        final MediaPlayer AlarmPlayer=MediaPlayer.create(this.alarmContext,R.raw.alertstoundfourfourtyhz);//400hz, alternatively test with "alertsoundonekhz"
         AlarmPlayer.start();
 
 
