@@ -14,17 +14,21 @@ import androidx.lifecycle.ViewModelProvider;
 
 import org.jetbrains.annotations.NotNull;
 
+import at.ac.univie.hci.u_alarm.MainActivity;
 import at.ac.univie.hci.u_alarm.R;
 import at.ac.univie.hci.u_alarm.databinding.FragmentMapBinding;
+import at.ac.univie.hci.u_alarm.ui.configuration.ConfigurationFragment;
+import at.ac.univie.hci.u_alarm.ui.configuration.ConfigurationViewModel;
 
 public class MapFragment extends Fragment {
 
     private MapViewModel mapViewModel;
     private FragmentMapBinding binding;
 
+
     // This variable checks the current Fragment IDs of the child fragments
     private String currentChildMapFragment;
-
+    private ConfigurationViewModel configurationViewModel;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -45,6 +49,11 @@ public class MapFragment extends Fragment {
         setCurrentChildMapFragment("1");
         // Methode to set the title text (ViewModels' field)
         setMapViewModelText();
+
+        configurationViewModel = new ViewModelProvider(this).get(ConfigurationViewModel.class);
+
+
+
 
         return root;
     }
@@ -99,6 +108,9 @@ public class MapFragment extends Fragment {
             }
             this.setMapViewModelText();
         });
+
+
+
     }
 
 
@@ -115,7 +127,12 @@ public class MapFragment extends Fragment {
                 this.mapViewModel.setMapTextView("Google Maps");
                 break;
             case "2":
-                this.mapViewModel.setMapTextView("Gebäudekarte");
+                if(configurationViewModel.getLanguage().equals("English")){
+                    this.mapViewModel.setMapTextView("Gebäudekarte");
+                } else {
+                    this.mapViewModel.setMapTextView("Building Map");
+                }
+
                 break;
         }
     }

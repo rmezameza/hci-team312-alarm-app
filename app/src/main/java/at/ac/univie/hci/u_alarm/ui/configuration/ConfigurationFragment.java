@@ -16,16 +16,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 
+import at.ac.univie.hci.u_alarm.MainActivity;
 import at.ac.univie.hci.u_alarm.R;
 import at.ac.univie.hci.u_alarm.databinding.FragmentConfigurationBinding;
+import at.ac.univie.hci.u_alarm.ui.map.MapFragment;
 
 public class ConfigurationFragment extends Fragment {
 
     private ConfigurationViewModel configurationViewModel;
     private FragmentConfigurationBinding binding;
-
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -43,6 +47,7 @@ public class ConfigurationFragment extends Fragment {
                 textView.setText(s);
             }
         }); */
+
 
 
 
@@ -152,6 +157,10 @@ public class ConfigurationFragment extends Fragment {
 
                 buttonTest.setText("Alarm Test");
 
+                configurationViewModel.setLanguage("English");
+
+
+
 
             }
         });
@@ -185,12 +194,19 @@ public class ConfigurationFragment extends Fragment {
 
                 buttonTest.setText("Alarmprobe");
 
+                configurationViewModel.setLanguage("Deutsch");
+
+
+
+
             }
         });
 
 
 
+
     }
+
 
     @Override
     public void onDestroyView() {

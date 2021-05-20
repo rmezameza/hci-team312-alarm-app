@@ -1,10 +1,8 @@
 package at.ac.univie.hci.u_alarm;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -14,9 +12,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.viewpager.widget.ViewPager;
 
-import com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import at.ac.univie.hci.u_alarm.databinding.ActivityMainBinding;
@@ -27,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     SharedPreferences preferences = null;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
+
         //If the App runs for the first time, the default screen will be the settings one
         //because the screen page is a fragment, we need a framgentmanager+transaction.
         if(firstRun || preferences == null){
@@ -69,4 +68,5 @@ public class MainActivity extends AppCompatActivity {
             tr.commit();
         }
     }
+
 }
