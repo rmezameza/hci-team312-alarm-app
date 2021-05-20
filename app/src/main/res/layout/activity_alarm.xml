@@ -8,11 +8,12 @@
     tools:context=".ui.AlarmPage.AlarmActivity">
 
     <TextView
-        android:id="@+id/alarm_ort_in_alarm_page"
-        android:layout_width="280dp"
+        android:id="@+id/alarm_place_name"
+        android:layout_width="match_parent"
         android:layout_height="75dp"
         android:textColor="#EFE6E6"
         android:textSize="40sp"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,9 +22,10 @@
 
     <TextView
         android:id="@+id/info_id"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="62dp"
         android:text="Info"
+        android:textAlignment="center"
         android:textColor="#EFE6E6"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -62,10 +64,11 @@
 
     <TextView
         android:id="@+id/alarm_name"
-        android:layout_width="282dp"
+        android:layout_width="match_parent"
         android:layout_height="72dp"
         android:textColor="#EFE6E6"
         android:textSize="40sp"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
