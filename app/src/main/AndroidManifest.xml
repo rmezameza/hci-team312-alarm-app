@@ -8,6 +8,9 @@
     <!-- General Permission for internet related functionalities -->
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- Vibration Permission -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
