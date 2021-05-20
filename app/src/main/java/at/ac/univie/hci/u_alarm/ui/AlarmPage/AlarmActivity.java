@@ -52,7 +52,7 @@ public class AlarmActivity extends AppCompatActivity {
 
         stop_button = (Button) findViewById(R.id.stop_button);
         alarmname = findViewById(R.id.alarm_name);
-        ort = findViewById(R.id.alarm_ort_in_alarm_page);
+        ort = findViewById(R.id.alarm_place_name);
 
         stop_button.setOnClickListener(new View.OnClickListener(){
             @Override
