@@ -11,7 +11,6 @@
         android:id="@+id/text_alarmlist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="@string/alarm_list_title"
         android:textAlignment="center"
         android:textSize="20sp"
@@ -27,12 +26,11 @@
         android:id="@+id/alarm_listview_id"
         android:layout_width="match_parent"
         android:layout_height="525dp"
-        android:layout_marginTop="118dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_alarmlist"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/text_alarmlist" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

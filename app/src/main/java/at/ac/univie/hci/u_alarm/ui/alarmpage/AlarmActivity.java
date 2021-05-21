@@ -30,7 +30,7 @@ public class AlarmActivity extends AppCompatActivity {
         setContentView(R.layout.activity_alarm);
 
         Button stopButton;
-        TextView tvAlarmName ;
+        TextView tvAlarmName;
         TextView tvAlarmPlace;
         ImageButton mapButton;
 
@@ -73,9 +73,6 @@ public class AlarmActivity extends AppCompatActivity {
             intent.putExtra("GO_TO_MAP", goToMap);
             startActivity(intent);
         });
-
-
-
 
 
 
