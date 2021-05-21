@@ -16,11 +16,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import at.ac.univie.hci.u_alarm.databinding.ActivityMainBinding;
 import at.ac.univie.hci.u_alarm.ui.configuration.ConfigurationFragment;
@@ -33,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
     public static String language = "Deutsch";
 
     // For alarm - global variables with one value for hardcoded alarm
-    public static ArrayList<String> alarmType = new ArrayList<>(Arrays.asList("Feuer Alarm"));
-    public static ArrayList<String> alarmPlace = new ArrayList<>(Arrays.asList("Erdgeschoss"));
-    public static ArrayList<String> alarmDate = new ArrayList<>(Arrays.asList(calculateDate()));
+    public static ArrayList<String> alarmType = new ArrayList<>();
+    public static ArrayList<String> alarmPlace = new ArrayList<>();
+    public static ArrayList<String> alarmDate = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,21 +75,12 @@ public class MainActivity extends AppCompatActivity {
             tr.replace(R.id.fragment_home_view,fragment);
             tr.commit();
         }
+
     }
 
 
-    // Set date for alarm
-    private static String calculateDate() {
 
-        // Get date and time. Convert them to strings and assign it to alarmTime.
-        DateTimeFormatter date = DateTimeFormatter.ofPattern("uuuu/MM/dd");
-        LocalDate localDate = LocalDate.now();
-        DateTimeFormatter time = DateTimeFormatter.ofPattern("HH:mm:ss");
-        LocalTime localTime = LocalTime.now();
-        String dateString = date.format(localDate) + " | " + time.format(localTime) ;
-
-        return dateString;
-    }
+////
 
 }
 

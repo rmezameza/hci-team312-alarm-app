@@ -16,6 +16,8 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.app.NotificationChannelCompat;
 
+import at.ac.univie.hci.u_alarm.ui.alarmlist.AlarmActivity;
+
 //Could change class name
 
 public class Alarmer{
@@ -69,7 +71,7 @@ public class Alarmer{
                 .setLightsEnabled(true);
 
 
-        String textTitle="Fire Alarm Ground Floor";
+        String textTitle=" Alarm ";
         String textContent="Immediately head to the nearest exit. ";
 
         NotificationCompat.Builder alarmNotificationBuilder = new NotificationCompat.Builder(this.alarmContext.getApplicationContext(), "122")
