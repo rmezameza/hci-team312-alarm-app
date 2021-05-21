@@ -18,7 +18,7 @@ import androidx.core.app.NotificationManagerCompat;
 
 //Could change class name
 
-public class Alarmer{
+public class AlarmSignaler {
     Context alarmContext;
     int millVibrations;
     int ampVibrations;
@@ -27,12 +27,12 @@ public class Alarmer{
     int milliCyclesSleep;
     boolean shouldContinue;
 
-    public Alarmer(Context context,
-                   int millisecondsVibration,
-                   int amplitudeVibration,
-                   int vibrationCycles,
-                   int milliseconds_sleep_between_flashes,
-                   int milliseconds_sleep_between_cycles) {
+    public AlarmSignaler(Context context,
+                         int millisecondsVibration,
+                         int amplitudeVibration,
+                         int vibrationCycles,
+                         int milliseconds_sleep_between_flashes,
+                         int milliseconds_sleep_between_cycles) {
         this.alarmContext = context;
         this.millVibrations = millisecondsVibration;
         this.ampVibrations = amplitudeVibration;

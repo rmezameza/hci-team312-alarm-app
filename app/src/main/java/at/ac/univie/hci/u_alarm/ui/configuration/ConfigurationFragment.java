@@ -7,9 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,8 +20,7 @@ import java.util.TimerTask;
 
 import at.ac.univie.hci.u_alarm.R;
 import at.ac.univie.hci.u_alarm.databinding.FragmentConfigurationBinding;
-import at.ac.univie.hci.u_alarm.ui.AlarmPage.AlarmActivity;
-import at.ac.univie.hci.u_alarm.ui.AlarmPage.AlarmActivityTest;
+import at.ac.univie.hci.u_alarm.ui.alarmpage.AlarmActivity;
 
 public class ConfigurationFragment extends Fragment {
 
@@ -59,7 +56,6 @@ public class ConfigurationFragment extends Fragment {
 
 
         //Variable for the alarm test
-        Button buttonTest = view.findViewById(R.id.buttonTestAlarm);
         Button buttonMock = view.findViewById(R.id.buttonMockAlarm);
 
         //Variables for buttons to switch the language
@@ -69,13 +65,6 @@ public class ConfigurationFragment extends Fragment {
 
 
         //Listener for Test Alarm button
-        buttonTest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlarmTestButtonClicked(view);
-            }
-        });
-
         buttonMock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,7 +90,6 @@ public class ConfigurationFragment extends Fragment {
                 functionsTitleText.setText("Tests");
 
 
-                buttonTest.setText("Alarm Test");
 
                 TextView functionsSubtitle = getActivity().findViewById(R.id.textFunctions2);
                 functionsSubtitle.setText("This is an alarm test that tests the App on your Smartphone");
@@ -129,7 +117,6 @@ public class ConfigurationFragment extends Fragment {
                 functionsTitleText.setText("Funktionstest");
 
 
-                buttonTest.setText("Alarmprobe");
 
                 configurationViewModel.setLanguage("Deutsch");
                 Log.i("LANGUAGE CHANGED:","Deutsch");
@@ -141,17 +128,6 @@ public class ConfigurationFragment extends Fragment {
 
     }
 
-    public void AlarmTestButtonClicked(View v) {
-        new Timer().schedule(new TimerTask(){
-            public void run() {
-                getActivity().runOnUiThread(new Runnable() {
-                    public void run() {
-                        startActivity(new Intent(getActivity(), AlarmActivityTest.class));
-                    }
-                });
-            }
-        }, 5000);
-    }
 
     public void MockTestButtonClicked(View v) {
         new Timer().schedule(new TimerTask(){

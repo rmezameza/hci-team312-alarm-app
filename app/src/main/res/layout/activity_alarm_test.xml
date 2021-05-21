@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/university_mint_green_light"
-    tools:context=".ui.AlarmPage.AlarmActivity">
+    tools:context=".ui.alarmpage.AlarmActivity">
 
     <TextView
         android:id="@+id/alarm_place_name"

@@ -13,7 +13,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.U_Alarm">
-        <activity android:name=".ui.AlarmPage.AlarmActivityTest"></activity>
         <!-- GMS Version and v2.API_Key value -->
         <meta-data
             android:name="com.google.android.gms.version"
@@ -24,7 +23,7 @@
 
         <uses-library android:name="com.google.android.maps" />
 
-        <activity android:name=".ui.AlarmPage.AlarmActivity" />
+        <activity android:name=".ui.alarmpage.AlarmActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

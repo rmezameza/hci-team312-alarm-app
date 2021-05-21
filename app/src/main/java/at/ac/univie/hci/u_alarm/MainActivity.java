@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import at.ac.univie.hci.u_alarm.databinding.ActivityMainBinding;
 import at.ac.univie.hci.u_alarm.ui.configuration.ConfigurationFragment;
 import at.ac.univie.hci.u_alarm.ui.home.HomeFragment;
+import at.ac.univie.hci.u_alarm.ui.map.MapFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
 
 
         //If the App runs for the first time, the default screen will be the settings one

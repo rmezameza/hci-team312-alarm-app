@@ -1,6 +1,4 @@
-package at.ac.univie.hci.u_alarm.ui.AlarmPage;
-
-import androidx.appcompat.app.AppCompatActivity;
+package at.ac.univie.hci.u_alarm.ui.alarmpage;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,11 +6,19 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import at.ac.univie.hci.u_alarm.Alarmer;
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
+import at.ac.univie.hci.u_alarm.AlarmSignaler;
 import at.ac.univie.hci.u_alarm.MainActivity;
 import at.ac.univie.hci.u_alarm.R;
 
-public class AlarmActivityTest extends AppCompatActivity {
+public class AlarmActivity extends AppCompatActivity {
+
+
 
     private static final String ALARM_NAME = "Feuer Alarm";
     private static final String ALARM_PLACE = "Erdgeschoss";
@@ -20,33 +26,24 @@ public class AlarmActivityTest extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_alarm_test);
+        setContentView(R.layout.activity_alarm);
 
         Button stopButton;
         TextView tvAlarmName ;
         TextView tvAlarmPlace;
         ImageButton mapButton;
-        TextView alarmTest;
 
         stopButton = findViewById(R.id.stop_button);
         mapButton = findViewById(R.id.map_button);
         tvAlarmName = findViewById(R.id.alarm_name);
         tvAlarmPlace = findViewById(R.id.alarm_place_name);
-        alarmTest = findViewById(R.id.alarm_testText);
-
-        if (MainActivity.language.compareTo("English") == 0) {
-            alarmTest.setText("THIS IS AN ALARM TEST");
-        } else {
-            alarmTest.setText("DAS IST EINE PROBE ALARM");
-        }
-
 
         // Wäre wsl eleganter wenn die Klasse selbst einen Alarmer als Feld hätte, dann könnte
         // die stop_alarm() Funktion auch noch im onPause/onDestroyed aufgerufen werden. Derzeit
         // leicht buggy wenn sich 2 oder mehr Alarme überschneiden, dann vibriert das ganze auch
         // weiter nachdem der Stop-BUtton gedrückt wurde. Wird in der Praxis wahrscheinlich keinem
         // auffallen.
-        Alarmer alarmTester = new Alarmer(AlarmActivityTest.this.getApplicationContext(),
+        AlarmSignaler alarmTester = new AlarmSignaler(AlarmActivity.this.getApplicationContext(),
                 500,
                 255,
                 10,
@@ -63,12 +60,44 @@ public class AlarmActivityTest extends AppCompatActivity {
 
         stopButton.setOnClickListener(v -> {
             alarmTester.stopAlarm();
-            Intent intent = new Intent(AlarmActivityTest.this, MainActivity.class);
+            Intent intent = new Intent(AlarmActivity.this, MainActivity.class);
             startActivity(intent);
         });
+
+        mapButton.setOnClickListener(v -> {
+            alarmTester.stopAlarm();
+
+            Intent intent = new Intent(AlarmActivity.this, MainActivity.class);
+            String goToMap = "goToMap";
+            intent.putExtra("GO_TO_MAP", goToMap);
+            startActivity(intent);
+            finish();
+        });
+
+
+
+
 
 
         tvAlarmName.setText(ALARM_NAME);
         tvAlarmPlace.setText(ALARM_PLACE);
+
+        // Save the Details of the alarm in arrays in MainActivity
+        MainActivity.alarmType.add(ALARM_NAME);
+        MainActivity.alarmPlace.add(ALARM_PLACE);
+        MainActivity.alarmDate.add(calculateDate());
+
+    }
+
+    // Set date for alarm
+    private static String calculateDate() {
+
+        // Get date and time. Convert them to strings and assign it to alarmTime.
+        DateTimeFormatter date = DateTimeFormatter.ofPattern("uuuu/MM/dd");
+        LocalDate localDate = LocalDate.now();
+        DateTimeFormatter time = DateTimeFormatter.ofPattern("HH:mm:ss");
+        LocalTime localTime = LocalTime.now();
+        String dateString = date.format(localDate) + " | " + time.format(localTime) ;
+        return dateString;
     }
 }
