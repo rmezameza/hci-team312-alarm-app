@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences preferences = null;
     public static String language = "Deutsch";
 
+
     // For alarm - global variables with alarm values for AlarmListView
     public static ArrayList<String> alarmTypes = new ArrayList<>();
     public static ArrayList<String> alarmPlaces = new ArrayList<>();
@@ -65,8 +66,10 @@ public class MainActivity extends AppCompatActivity {
                 Fragment fragment = new MapFragment();
                 FragmentManager fm = getSupportFragmentManager();
                 FragmentTransaction tr = fm.beginTransaction();
-                tr.replace(R.id.nav_host_fragment_activity_main,fragment);
+                tr.add(R.id.nav_host_fragment_activity_main,fragment);
                 tr.commit();
+
+
             }
         }
 
@@ -83,18 +86,17 @@ public class MainActivity extends AppCompatActivity {
             tr.replace(R.id.fragment_home_view,fragment);
             tr.commit();
 
-        } else{
+        } else {
             Log.i("onCreate firstRun: ", "Not first time running the app.");
             Fragment fragment = new HomeFragment();
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction tr = fm.beginTransaction();
-            tr.replace(R.id.fragment_home_view,fragment);
+            tr.replace(R.id.fragment_home_view, fragment);
             tr.commit();
         }
 
+
     }
-
-
 
 
 
