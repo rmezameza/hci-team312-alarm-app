@@ -67,4 +67,8 @@
     <string name="descriptionImageButtonRightLanguage">
         Right Image Button to choose language.
     </string>
+
+    <string name="descriptionMapButton">
+        Click Map button to go to map fragment.
+    </string>
 </resources>

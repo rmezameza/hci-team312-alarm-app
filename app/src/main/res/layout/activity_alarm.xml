@@ -10,15 +10,18 @@
     <TextView
         android:id="@+id/alarm_place_name"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:textColor="#EFE6E6"
-        android:textSize="40sp"
+        android:layout_height="56dp"
+        android:background="#FFFFFF"
         android:textAlignment="center"
+        android:textColor="#FF0000"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.276" />
+        app:layout_constraintVertical_bias="0.26"
+        tools:text="testSubtitle" />
 
     <TextView
         android:id="@+id/info_id"
@@ -36,44 +39,48 @@
         app:layout_constraintVertical_bias="0.409" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="182dp"
-        android:layout_height="96dp"
-        android:drawableBottom="@android:drawable/ic_dialog_map"
-        android:paddingTop="20dp"
-        android:text="Ort"
-        android:textColor="#fff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.603" />
-
-    <Button
         android:id="@+id/stop_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Stop"
+        android:backgroundTint="#FFFFFF"
+        android:text="@string/stopButton"
+        android:textColor="#FF0000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.612" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
     <TextView
         android:id="@+id/alarm_name"
         android:layout_width="match_parent"
-        android:layout_height="72dp"
+        android:layout_height="58dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
         android:textAlignment="center"
-        android:textColor="#EFE6E6"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#FF0000"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.118" />
+        app:layout_constraintVertical_bias="0.127"
+        tools:text="testTitle" />
+
+    <ImageButton
+        android:id="@+id/map_button"
+        android:layout_width="262dp"
+        android:layout_height="132dp"
+        android:background="@drawable/mapbuttonred"
+        android:contentDescription="@string/descriptionMapButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.646" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
