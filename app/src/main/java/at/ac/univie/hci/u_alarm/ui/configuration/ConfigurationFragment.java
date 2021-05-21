@@ -151,8 +151,6 @@ public class ConfigurationFragment extends Fragment {
                 });
             }
         }, 5000);
-        //Alarmer alarmtester=new Alarmer(this.getActivity().getApplicationContext(),500,255,1,500,10);
-        //alarmtester.start_alarm();
     }
 
     public void MockTestButtonClicked(View v) {
