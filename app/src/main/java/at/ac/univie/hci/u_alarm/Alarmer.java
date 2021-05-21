@@ -75,10 +75,10 @@ public class Alarmer{
         // If yes, delegate to AlarmActivity.
         NotificationChannelCompat.Builder alarmChannelBuilder =
                 new NotificationChannelCompat.Builder("122",NotificationManagerCompat.IMPORTANCE_DEFAULT)
-                .setDescription("AlarmChannelCompat for alarm notifications")
-                .setLightColor(Color.parseColor("lime"))
-                .setName("AlarmCompatChannel test")
-                .setLightsEnabled(true);
+                        .setDescription("AlarmChannelCompat for alarm notifications")
+                        .setLightColor(Color.parseColor("lime"))
+                        .setName("AlarmCompatChannel test")
+                        .setLightsEnabled(true);
 
 
         String textTitle=" Alarm ";
@@ -86,15 +86,15 @@ public class Alarmer{
 
         NotificationCompat.Builder alarmNotificationBuilder =
                 new NotificationCompat.Builder(this.alarmContext.getApplicationContext(), "122")
-                .setSmallIcon(R.drawable.alarm_icon)//should use Icon depending on selected theme.
-                .setContentTitle(textTitle)
-                .setContentText(textContent)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setContentIntent(pendingIntent)
-                 //Lime colour. Only relevant for lower Android versions, normally overruled by the
-                 // channel. Channel sadly cannot set blinking frequency.
-                .setLights(0xff00ff00,500,100)
-                .setAutoCancel(true);
+                        .setSmallIcon(R.drawable.alarm_icon)//should use Icon depending on selected theme.
+                        .setContentTitle(textTitle)
+                        .setContentText(textContent)
+                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                        .setContentIntent(pendingIntent)
+                        //Lime colour. Only relevant for lower Android versions, normally overruled by the
+                        // channel. Channel sadly cannot set blinking frequency.
+                        .setLights(0xff00ff00,500,100)
+                        .setAutoCancel(true);
 
         NotificationManagerCompat alarmNotificationManager = NotificationManagerCompat.from(this.alarmContext);
         alarmNotificationManager.createNotificationChannel(alarmChannelBuilder.build());

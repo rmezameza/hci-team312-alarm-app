@@ -23,7 +23,7 @@ public class AlarmListFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         //alarmlistViewModel =
-         //       new ViewModelProvider(this).get(AlarmListViewModel.class);
+        //       new ViewModelProvider(this).get(AlarmListViewModel.class);
 
         binding = FragmentAlarmlistBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

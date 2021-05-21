@@ -36,6 +36,8 @@ public class AlarmActivityTest extends AppCompatActivity {
 
         if (MainActivity.language.compareTo("English") == 0) {
             alarmTest.setText("THIS IS AN ALARM TEST");
+        } else {
+            alarmTest.setText("DAS IST EINE PROBE ALARM");
         }
 
 
