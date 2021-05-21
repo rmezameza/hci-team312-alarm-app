@@ -34,7 +34,7 @@ public class AlarmActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm);
 
-         stopButton = (Button)findViewById(R.id.stop_button);
+        stopButton = (Button)findViewById(R.id.stop_button);
         tvAlarmName = (TextView)findViewById(R.id.alarm_name);
         tvAlarmPlace = (TextView)findViewById(R.id.alarm_place_name);
 
