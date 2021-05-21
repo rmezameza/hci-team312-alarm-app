@@ -67,8 +67,9 @@ public class Alarmer{
                 .setName("AlarmCompatChannel test")
                 .setLightsEnabled(true);
 
-        String textTitle="u:alert Test notification";
-        String textContent="Check the NotificationLED pls";
+
+        String textTitle="Fire Alarm Ground Floor";
+        String textContent="Immediately head to the nearest exit. ";
 
         NotificationCompat.Builder alarmNotificationBuilder = new NotificationCompat.Builder(this.alarmContext.getApplicationContext(), "122")
                 .setSmallIcon(R.drawable.alarm_icon)//should use Icon depending on selected theme.
