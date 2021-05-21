@@ -21,20 +21,29 @@ API-Version:	API 28
 
 Gerät(e), auf dem(denen) getestet wurde:
 
-Pixel 4 - API 28 (Emulator), Samsung A50 - API 30 (Hr. Meza Meza) 
+Hr. Meza Meza:
+Pixel 4 - API 28 (Emulator)
+Pixel 3 - API 30 (Emulator)
+Pixel 2 - API 28 (Emulator)
+Samsung A50 - API 30 
 
-Pixel 2 - API 30 (Emulator), Samsung Note 9 (Hr. Murad) 
+Hr. Murad:
+Pixel 2 - API 30 (Emulator)
+Samsung Note 9 
 
-Pixel 2 - API 30 (Emulator), Samsung S8+ - API 28 (Hr. Uetz)
+Hr. Uetz:
+Pixel 2 - API 30 (Emulator)
+Samsung S8+ - API 28
 
 Pixel 2 - API 30 (Emulator), OnePlus 5T - Api 29 (Hr. Boghean)
 
 Externe Libraries und Frameworks:
 AndroidPdfViewer (https://github.com/barteksc/AndroidPdfViewer)
+Picasso (https://square.github.io/picasso)
 
 Dauer der Entwicklung:
 
-Roberto: 5 Stunden und 23 Minuten (bis jetzt)
+Roberto: 29 Stunden und 30 Minuten (bis jetzt)
 
 Mumen: 18 Stunden und 35 Minuten (bis jetzt)
 
