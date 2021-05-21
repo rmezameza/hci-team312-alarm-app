@@ -60,6 +60,16 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
+        Bundle extras = getIntent().getExtras();
+        if(extras!=null){ {
+                Fragment fragment = new MapFragment();
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction tr = fm.beginTransaction();
+                tr.replace(R.id.nav_host_fragment_activity_main,fragment);
+                tr.commit();
+            }
+        }
+
 
 
         //If the App runs for the first time, the default screen will be the settings one

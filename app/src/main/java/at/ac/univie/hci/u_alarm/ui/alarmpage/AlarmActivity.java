@@ -12,7 +12,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
-import at.ac.univie.hci.u_alarm.AlarmSignaler;
+
 import at.ac.univie.hci.u_alarm.MainActivity;
 import at.ac.univie.hci.u_alarm.R;
 
@@ -22,6 +22,7 @@ public class AlarmActivity extends AppCompatActivity {
 
     private static final String ALARM_NAME = "Feuer Alarm";
     private static final String ALARM_PLACE = "Erdgeschoss";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,10 +69,9 @@ public class AlarmActivity extends AppCompatActivity {
             alarmTester.stopAlarm();
 
             Intent intent = new Intent(AlarmActivity.this, MainActivity.class);
-            String goToMap = "goToMap";
+            String goToMap = "gotomap";
             intent.putExtra("GO_TO_MAP", goToMap);
             startActivity(intent);
-            finish();
         });
 
 
