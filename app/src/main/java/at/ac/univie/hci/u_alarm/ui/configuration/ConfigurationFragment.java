@@ -23,6 +23,7 @@ import java.util.TimerTask;
 import at.ac.univie.hci.u_alarm.R;
 import at.ac.univie.hci.u_alarm.databinding.FragmentConfigurationBinding;
 import at.ac.univie.hci.u_alarm.ui.AlarmPage.AlarmActivity;
+import at.ac.univie.hci.u_alarm.ui.AlarmPage.AlarmActivityTest;
 
 public class ConfigurationFragment extends Fragment {
 
@@ -55,66 +56,16 @@ public class ConfigurationFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
         // All switches assigned to a variable.
-        Switch switchVibration = (Switch) getView().findViewById(R.id.switchVibration);
-        Switch switchLicht = (Switch) getView().findViewById(R.id.switchLight);
-        Switch switchFlash = (Switch) getView().findViewById(R.id.switchFlash);
-        Switch switchDisplay = (Switch) getView().findViewById(R.id.switchDisplay);
+
 
         //Variable for the alarm test
-        Button buttonTest = (Button)view.findViewById(R.id.buttonTestAlarm);
+        Button buttonTest = view.findViewById(R.id.buttonTestAlarm);
 
         //Variables for buttons to switch the language
-        ImageView leftArrow = (ImageView) getActivity().findViewById(R.id.imageViewLeft);
-        ImageView rightArrow = (ImageView) getActivity().findViewById(R.id.imageViewRight);
+        ImageView leftArrow = getActivity().findViewById(R.id.imageViewLeft);
+        ImageView rightArrow = getActivity().findViewById(R.id.imageViewRight);
 
-        //Listener for Vibration Switch
-        switchVibration.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked){
-                    Log.i("TEST ON SWITCH:","IT WORKS.");
 
-                } else {
-
-                }
-            }
-        });
-
-        //Listener for Light Switch
-        switchLicht.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked){
-
-                } else {
-
-                }
-            }
-        });
-
-        //Listener for Flash Switch
-        switchFlash.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked){
-
-                } else {
-
-                }
-            }
-        });
-
-        //Listener for Display Switch
-        switchDisplay.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked){
-
-                } else {
-
-                }
-            }
-        });
 
         //Listener for Test Alarm button
         buttonTest.setOnClickListener(new View.OnClickListener() {
@@ -141,17 +92,6 @@ public class ConfigurationFragment extends Fragment {
                 TextView functionsTitleText = getActivity().findViewById(R.id.textFunctions);
                 functionsTitleText.setText("Tests");
 
-                TextView textVibration = getActivity().findViewById(R.id.textViewVibration);
-                textVibration.setText("Vibration");
-
-                TextView textLight = getActivity().findViewById(R.id.textViewLight);
-                textLight.setText("Light");
-
-                TextView textFlash = getActivity().findViewById(R.id.textViewFlash);
-                textFlash.setText("Flash");
-
-                TextView textDisplay = getActivity().findViewById(R.id.textViewDisplay);
-                textDisplay.setText("Display");
 
                 buttonTest.setText("Alarm Test");
 
@@ -177,17 +117,6 @@ public class ConfigurationFragment extends Fragment {
                 TextView functionsTitleText = getActivity().findViewById(R.id.textFunctions);
                 functionsTitleText.setText("Funktionstest");
 
-                TextView textVibration = getActivity().findViewById(R.id.textViewVibration);
-                textVibration.setText("Vibrationtest");
-
-                TextView textLight = getActivity().findViewById(R.id.textViewLight);
-                textLight.setText("Lighttest");
-
-                TextView textFlash = getActivity().findViewById(R.id.textViewFlash);
-                textFlash.setText("Flashtest");
-
-                TextView textDisplay = getActivity().findViewById(R.id.textViewDisplay);
-                textDisplay.setText("Displaytest");
 
                 buttonTest.setText("Alarmprobe");
 
@@ -206,7 +135,7 @@ public class ConfigurationFragment extends Fragment {
             public void run() {
                 getActivity().runOnUiThread(new Runnable() {
                     public void run() {
-                        startActivity(new Intent(getActivity(), AlarmActivity.class));
+                        startActivity(new Intent(getActivity(), AlarmActivityTest.class));
                     }
                 });
             }

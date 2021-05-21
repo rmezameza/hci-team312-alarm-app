@@ -27,6 +27,12 @@
         STOP
     </string>
 
+
+    <string name="testAlarm">
+        DAS IST EINE PROBE ALARM
+    </string>
+
+
     <!-- ####################################################################################### -->
     <!--                                For fragment_map.xml                                     -->
     <!-- ####################################################################################### -->
@@ -45,6 +51,7 @@
     <string name="frontflash_test">Frontlichttest</string>
     <string name="backflash_test">Backflashtest</string>
     <string name="function_test">Funktionstest</string>
+    <string name="function_test2">Ein Alarmtest, der die App auf Ihrem Smartphone testet</string>
     <string name="displaytest">Displaytext</string>
     <string name="test_alarm">Alarmprobe</string>
 

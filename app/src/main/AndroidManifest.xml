@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="at.ac.univie.hci.u_alarm">
-
     <!-- For MyLocation functionality -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
-    <!-- General Permission for internet related functionalities -->
-    <uses-permission android:name="android.permission.INTERNET" />
-
-    <!-- Vibration Permission -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- General Permission for internet related functionalities -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- Vibration Permission -->
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
@@ -18,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.U_Alarm">
-
+        <activity android:name=".ui.AlarmPage.AlarmActivityTest"></activity>
         <!-- GMS Version and v2.API_Key value -->
         <meta-data
             android:name="com.google.android.gms.version"
@@ -27,10 +22,9 @@
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="@string/google_map_key" />
 
-
         <uses-library android:name="com.google.android.maps" />
 
-        <activity android:name=".ui.AlarmPage.AlarmActivity"></activity>
+        <activity android:name=".ui.AlarmPage.AlarmActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
