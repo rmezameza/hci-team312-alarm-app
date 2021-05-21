@@ -60,6 +60,7 @@ public class ConfigurationFragment extends Fragment {
 
         //Variable for the alarm test
         Button buttonTest = view.findViewById(R.id.buttonTestAlarm);
+        Button buttonMock = view.findViewById(R.id.buttonMockAlarm);
 
         //Variables for buttons to switch the language
         ImageView leftArrow = getActivity().findViewById(R.id.imageViewLeft);
@@ -72,6 +73,13 @@ public class ConfigurationFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 AlarmTestButtonClicked(view);
+            }
+        });
+
+        buttonMock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MockTestButtonClicked(view);
             }
         });
 
@@ -145,6 +153,19 @@ public class ConfigurationFragment extends Fragment {
         }, 5000);
         //Alarmer alarmtester=new Alarmer(this.getActivity().getApplicationContext(),500,255,1,500,10);
         //alarmtester.start_alarm();
+    }
+
+    public void MockTestButtonClicked(View v) {
+        new Timer().schedule(new TimerTask(){
+            public void run() {
+                getActivity().runOnUiThread(new Runnable() {
+                    public void run() {
+                        startActivity(new Intent(getActivity(), AlarmActivity.class));
+                    }
+                });
+            }
+        }, 5000);
+
     }
 
     @Override

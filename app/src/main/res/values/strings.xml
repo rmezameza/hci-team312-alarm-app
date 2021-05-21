@@ -54,6 +54,7 @@
     <string name="function_test2">Ein Alarmtest, der die App auf Ihrem Smartphone testet</string>
     <string name="displaytest">Displaytext</string>
     <string name="test_alarm">Alarmprobe</string>
+    <string name="mock_alarm">Mock Alarm</string>
 
     <!-- Radio buttons -->
     <string name="blue">Blau</string>
