@@ -34,7 +34,7 @@ Dauer der Entwicklung:
 
 Roberto: 5 Stunden und 23 Minuten (bis jetzt)
 
-Mumen: 15 Stunden und 35 Minuten (bis jetzt)
+Mumen: 18 Stunden und 35 Minuten (bis jetzt)
 
 Nico: 16 Stunden (geschätzt, bis jetzt)
 
