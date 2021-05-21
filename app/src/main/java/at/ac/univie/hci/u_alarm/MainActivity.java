@@ -1,15 +1,9 @@
 package at.ac.univie.hci.u_alarm;
 
 
-
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
-
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -22,11 +16,13 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import at.ac.univie.hci.u_alarm.databinding.ActivityMainBinding;
-import at.ac.univie.hci.u_alarm.ui.AlarmPage.AlarmActivity;
 import at.ac.univie.hci.u_alarm.ui.configuration.ConfigurationFragment;
 import at.ac.univie.hci.u_alarm.ui.home.HomeFragment;
 
@@ -35,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     SharedPreferences preferences = null;
     public static String language = "Deutsch";
+
+    // For alarm - global variables with one value for hardcoded alarm
+    public static ArrayList<String> alarmType = new ArrayList<>(Arrays.asList("Feuer Alarm"));
+    public static ArrayList<String> alarmPlace = new ArrayList<>(Arrays.asList("Erdgeschoss"));
+    public static ArrayList<String> alarmDate = new ArrayList<>(Arrays.asList(calculateDate()));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,10 +79,21 @@ public class MainActivity extends AppCompatActivity {
             tr.replace(R.id.fragment_home_view,fragment);
             tr.commit();
         }
-
-
-        
-
     }
+
+
+    // Set date for alarm
+    private static String calculateDate() {
+
+        // Get date and time. Convert them to strings and assign it to alarmTime.
+        DateTimeFormatter date = DateTimeFormatter.ofPattern("uuuu/MM/dd");
+        LocalDate localDate = LocalDate.now();
+        DateTimeFormatter time = DateTimeFormatter.ofPattern("HH:mm:ss");
+        LocalTime localTime = LocalTime.now();
+        String dateString = date.format(localDate) + " | " + time.format(localTime) ;
+
+        return dateString;
+    }
+
 }
 
