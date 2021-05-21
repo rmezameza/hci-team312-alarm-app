@@ -26,11 +26,18 @@ public class AlarmActivityTest extends AppCompatActivity {
         TextView tvAlarmName ;
         TextView tvAlarmPlace;
         ImageButton mapButton;
+        TextView alarmTest;
 
         stopButton = findViewById(R.id.stop_button);
         mapButton = findViewById(R.id.map_button);
         tvAlarmName = findViewById(R.id.alarm_name);
         tvAlarmPlace = findViewById(R.id.alarm_place_name);
+        alarmTest = findViewById(R.id.alarm_testText);
+
+        if (MainActivity.language.compareTo("English") == 0) {
+            alarmTest.setText("THIS IS AN ALARM TEST");
+        }
+
 
         // Wäre wsl eleganter wenn die Klasse selbst einen Alarmer als Feld hätte, dann könnte
         // die stop_alarm() Funktion auch noch im onPause/onDestroyed aufgerufen werden. Derzeit

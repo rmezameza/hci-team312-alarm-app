@@ -95,8 +95,11 @@ public class ConfigurationFragment extends Fragment {
 
                 buttonTest.setText("Alarm Test");
 
+                TextView functionsSubtitle = getActivity().findViewById(R.id.textFunctions2);
+                functionsSubtitle.setText("This is an alarm test that tests the App on your Smartphone");
+
                 configurationViewModel.setLanguage("English");
-                Log.i("LANGUAGE CHANGED:","Deutsch");
+                Log.i("LANGUAGE CHANGED:","English");
 
 
             }

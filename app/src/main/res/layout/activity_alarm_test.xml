@@ -71,7 +71,7 @@
         tools:text="testTitle" />
 
     <TextView
-        android:id="@+id/alarm_name2"
+        android:id="@+id/alarm_testText"
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:background="#FFFFFF"
