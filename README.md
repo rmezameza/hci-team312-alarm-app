@@ -36,7 +36,6 @@ Pixel 2 - API 30 (Emulator)
 Samsung S8+ - API 28
 
 Hr. Boghean:
-
 Pixel 2 - API 30 (Emulator)
 OnePlus 5T - API 29
 
@@ -46,12 +45,16 @@ Picasso (https://square.github.io/picasso)
 
 Dauer der Entwicklung:
 
-Roberto: 24 Stunden und 30 Minuten (bis jetzt)
+Hr. Meza Meza: 25 Stunden und 30 Minuten
 
-Mumen: 18 Stunden und 35 Minuten (bis jetzt)
+Hr. Murad: 23 Stunden und 35 Minuten
 
-Nico: 16 Stunden (geschätzt, bis jetzt)
+Hr. Uetz: 22 Stunden
 
-Boghean: 21 Stunden (geschätzt)
+Hr. Boghean: 24 Stunden
 
 Weitere Anmerkungen:
+Der Darkmode funktioniert nicht. Bitte nur Lightmode verwenden.
+Vibration und Licht sind in den Emulatoren nicht verfügbar. Fehler
+werden gefangen und die App ist weiterhin benutzbar. Um dennoch
+den vollen Funktionsumfang zu bekommen, bitte auf Geräte testen.
