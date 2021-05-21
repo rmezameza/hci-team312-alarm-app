@@ -83,13 +83,13 @@ public class AlarmActivity extends AppCompatActivity {
         tvAlarmPlace.setText(ALARM_PLACE);
 
         // Save the Details of the alarm in arrays in MainActivity
-        MainActivity.alarmType.add(ALARM_NAME);
-        MainActivity.alarmPlace.add(ALARM_PLACE);
-        MainActivity.alarmDate.add(calculateDate());
+        MainActivity.alarmTypes.add(ALARM_NAME);
+        MainActivity.alarmPlaces.add(ALARM_PLACE);
+        MainActivity.alarmDates.add(calculateDate());
 
     }
 
-    // Set date for alarm
+    // Set date (actual date and time) for alarm
     private static String calculateDate() {
 
         // Get date and time. Convert them to strings and assign it to alarmTime.
