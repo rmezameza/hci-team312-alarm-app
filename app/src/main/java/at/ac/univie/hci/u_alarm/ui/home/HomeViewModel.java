@@ -3,10 +3,8 @@ package at.ac.univie.hci.u_alarm.ui.home;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelStoreOwner;
 
-import at.ac.univie.hci.u_alarm.ui.configuration.ConfigurationViewModel;
+import at.ac.univie.hci.u_alarm.MainActivity;
 
 public class HomeViewModel extends ViewModel {
 
@@ -16,11 +14,8 @@ public class HomeViewModel extends ViewModel {
     private final MutableLiveData<String> telephoneContent;
     private final MutableLiveData<String> emailTitle;
     private final MutableLiveData<String> emailContent;
-    private ConfigurationViewModel configurationViewModel;
 
     public HomeViewModel() {
-
-
         this.actualPlaceTitle = new MutableLiveData<>();
         this.actualPlaceContent = new MutableLiveData<>();
         this.telephoneTitle = new MutableLiveData<>();
@@ -28,19 +23,36 @@ public class HomeViewModel extends ViewModel {
         this.emailTitle = new MutableLiveData<>();
         this.emailContent = new MutableLiveData<>();
 
-        this.actualPlaceTitle.setValue("Aktueller Ort");
-        this.actualPlaceContent.setValue("Hauptgebäude der Universtität Wien");
 
-        this.telephoneTitle.setValue("Telefon");
-        this.telephoneContent.setValue("+43-1-4277-128 81\n" +
-                "+43-1-4277-128 82");
 
-        this.emailTitle.setValue("E-Mail");
-        this.emailContent.setValue("siwachthg1(at)univie.ac.at\n" +
-                "siwachthg2(at)univie.ac.at");
+        if (MainActivity.language.compareTo("English") == 0) {
 
-        //configurationViewModel = new ViewModelProvider((ViewModelStoreOwner) this).get(ConfigurationViewModel .class);
+            this.actualPlaceTitle.setValue("Current location");
+            this.actualPlaceContent.setValue("University of Vienna Main Building");
 
+            this.telephoneTitle.setValue("Phone numbers");
+            this.telephoneContent.setValue("+43-1-4277-128 81\n" +
+                    "+43-1-4277-128 82");
+
+            this.emailTitle.setValue("E-Mail");
+            this.emailContent.setValue("siwachthg1(at)univie.ac.at\n" +
+                    "siwachthg2(at)univie.ac.at");
+
+
+        } else{
+
+            this.actualPlaceTitle.setValue("Aktueller Ort");
+            this.actualPlaceContent.setValue("Hauptgebäude der Universtität Wien");
+
+            this.telephoneTitle.setValue("Telefon");
+            this.telephoneContent.setValue("+43-1-4277-128 81\n" +
+                    "+43-1-4277-128 82");
+
+            this.emailTitle.setValue("E-Mail");
+            this.emailContent.setValue("siwachthg1(at)univie.ac.at\n" +
+                    "siwachthg2(at)univie.ac.at");
+
+        }
 
     }
 

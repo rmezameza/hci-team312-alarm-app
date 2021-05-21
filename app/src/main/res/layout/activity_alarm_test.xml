@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF0000	"
+    android:background="@color/university_mint_green_light"
     tools:context=".ui.alarmpage.AlarmActivity">
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_height="56dp"
         android:background="#FFFFFF"
         android:textAlignment="center"
-        android:textColor="#FF0000"
+        android:textColor="@color/university_mint_green_light"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#FFFFFF"
         android:text="@string/stopButton"
-        android:textColor="#FF0000"
+        android:textColor="@color/university_mint_green_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -60,7 +60,7 @@
         android:backgroundTint="#FFFFFF"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#FF0000"
+        android:textColor="@color/university_mint_green_light"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,12 +70,30 @@
         app:layout_constraintVertical_bias="0.127"
         tools:text="testTitle" />
 
+    <TextView
+        android:id="@+id/alarm_testText"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:text="@string/testAlarm"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/university_mint_green_light"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022"
+        tools:text="DAS IST EINE PROBE ALARM" />
+
     <ImageButton
         android:id="@+id/map_button"
         android:layout_width="262dp"
         android:layout_height="132dp"
-        android:background="@drawable/mapbuttonred"
-        android:contentDescription="@string/descriptionMapButton"
+        android:background="@drawable/mapbuttongreen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"

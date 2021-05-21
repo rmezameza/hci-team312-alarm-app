@@ -1,62 +1,40 @@
 package at.ac.univie.hci.u_alarm.ui.configuration;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.Vibrator;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 
-import java.util.Observable;
-import java.util.Observer;
-import androidx.lifecycle.*;
+import java.util.Timer;
+import java.util.TimerTask;
 
-import at.ac.univie.hci.u_alarm.MainActivity;
 import at.ac.univie.hci.u_alarm.R;
 import at.ac.univie.hci.u_alarm.databinding.FragmentConfigurationBinding;
-import at.ac.univie.hci.u_alarm.ui.map.MapFragment;
+import at.ac.univie.hci.u_alarm.ui.alarmpage.AlarmActivity;
 
 public class ConfigurationFragment extends Fragment {
 
     private ConfigurationViewModel configurationViewModel;
     private FragmentConfigurationBinding binding;
-    private View root = null;
 
-
-    private static final String CONFIGURATION_STATE = "CONFIGURATION_STATE";
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-
-        if(binding == null){
-            binding = FragmentConfigurationBinding.inflate(inflater, container, false);
-            root = binding.getRoot();
-        } else{
-            return root;
-        }
-
         configurationViewModel =
                 new ViewModelProvider(this).get(ConfigurationViewModel.class);
 
-
-       /* binding = FragmentConfigurationBinding.inflate(inflater, container, false);
-        View root = binding.getRoot(); */
-
-
+        binding = FragmentConfigurationBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
 
         /*
         final TextView textView = binding.textConfiguration;
@@ -69,82 +47,28 @@ public class ConfigurationFragment extends Fragment {
 
 
 
-
         return root;
     }
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-
-
         // All switches assigned to a variable.
-        Switch switchVibration = (Switch) getView().findViewById(R.id.switchVibration);
-        Switch switchLicht = (Switch) getView().findViewById(R.id.switchLight);
-        Switch switchFlash = (Switch) getView().findViewById(R.id.switchFlash);
-        Switch switchDisplay = (Switch) getView().findViewById(R.id.switchDisplay);
 
 
         //Variable for the alarm test
-        Button buttonTest = (Button) getView().findViewById(R.id.buttonTestAlarm);
+        Button buttonMock = view.findViewById(R.id.buttonMockAlarm);
 
         //Variables for buttons to switch the language
-        ImageView leftArrow = (ImageView) getActivity().findViewById(R.id.imageViewLeft);
-        ImageView rightArrow = (ImageView) getActivity().findViewById(R.id.imageViewRight);
+        ImageView leftArrow = getActivity().findViewById(R.id.imageViewLeft);
+        ImageView rightArrow = getActivity().findViewById(R.id.imageViewRight);
 
-        //Listener for Vibration Switch
-        switchVibration.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked){
-                    Log.i("TEST ON SWITCH:","IT WORKS.");
 
-                } else {
-
-                }
-            }
-        });
-
-        //Listener for Light Switch
-        switchLicht.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked){
-
-                } else {
-
-                }
-            }
-        });
-
-        //Listener for Flash Switch
-        switchFlash.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked){
-
-                } else {
-
-                }
-            }
-        });
-
-        //Listener for Display Switch
-        switchDisplay.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked){
-
-                } else {
-
-                }
-            }
-        });
 
         //Listener for Test Alarm button
-        buttonTest.setOnClickListener(new View.OnClickListener() {
+        buttonMock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Will do something.
+                MockTestButtonClicked(view);
             }
         });
 
@@ -165,24 +89,13 @@ public class ConfigurationFragment extends Fragment {
                 TextView functionsTitleText = getActivity().findViewById(R.id.textFunctions);
                 functionsTitleText.setText("Tests");
 
-                TextView textVibration = getActivity().findViewById(R.id.textViewVibration);
-                textVibration.setText("Vibration");
 
-                TextView textLight = getActivity().findViewById(R.id.textViewLight);
-                textLight.setText("Light");
 
-                TextView textFlash = getActivity().findViewById(R.id.textViewFlash);
-                textFlash.setText("Flash");
-
-                TextView textDisplay = getActivity().findViewById(R.id.textViewDisplay);
-                textDisplay.setText("Display");
-
-                buttonTest.setText("Alarm Test");
+                TextView functionsSubtitle = getActivity().findViewById(R.id.textFunctions2);
+                functionsSubtitle.setText("This is an alarm test that tests the App on your Smartphone");
 
                 configurationViewModel.setLanguage("English");
                 Log.i("LANGUAGE CHANGED:","English");
-
-
 
 
             }
@@ -203,23 +116,10 @@ public class ConfigurationFragment extends Fragment {
                 TextView functionsTitleText = getActivity().findViewById(R.id.textFunctions);
                 functionsTitleText.setText("Funktionstest");
 
-                TextView textVibration = getActivity().findViewById(R.id.textViewVibration);
-                textVibration.setText("Vibrationtest");
 
-                TextView textLight = getActivity().findViewById(R.id.textViewLight);
-                textLight.setText("Lighttest");
-
-                TextView textFlash = getActivity().findViewById(R.id.textViewFlash);
-                textFlash.setText("Flashtest");
-
-                TextView textDisplay = getActivity().findViewById(R.id.textViewDisplay);
-                textDisplay.setText("Displaytest");
-
-                buttonTest.setText("Alarmprobe");
 
                 configurationViewModel.setLanguage("Deutsch");
                 Log.i("LANGUAGE CHANGED:","Deutsch");
-
 
             }
         });
@@ -228,5 +128,24 @@ public class ConfigurationFragment extends Fragment {
 
     }
 
+
+    public void MockTestButtonClicked(View v) {
+        new Timer().schedule(new TimerTask(){
+            public void run() {
+                getActivity().runOnUiThread(new Runnable() {
+                    public void run() {
+                        startActivity(new Intent(getActivity(), AlarmActivity.class));
+                    }
+                });
+            }
+        }, 5000);
+
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
 
 }

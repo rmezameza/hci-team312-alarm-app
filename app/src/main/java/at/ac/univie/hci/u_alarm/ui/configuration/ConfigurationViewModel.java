@@ -15,31 +15,32 @@ public class ConfigurationViewModel extends ViewModel {
     private static MutableLiveData<String> mText;
     private static MutableLiveData<String> language;
 
-
-
     public ConfigurationViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is configuration fragment");
         language = new MutableLiveData<>();
-
     }
 
-    public boolean switchToTrue(){
+    public boolean switchToTrue() {
         return true;
     }
+
     public LiveData<String> getText() {
         return mText;
     }
-    public String getLanguage(){
-        if(language.getValue()==null){
+
+    public String getLanguage() {
+        if (language.getValue() == null) {
             language = new MutableLiveData<>();
             language.setValue("Deutsch");
         }
         return this.language.getValue();
     }
-    public void setLanguage(String language2){
-       this.language.setValue(language2);
+
+    public void setLanguage(String language2) {
+        this.language.setValue(language2);
         MainActivity.language = language2;
         Log.i("SET LANGUAGE:", this.language.getValue());
     }
+
 }

@@ -21,18 +21,40 @@ API-Version:	API 28
 
 Gerät(e), auf dem(denen) getestet wurde:
 
-Pixel 4 - API 28 (Emulator), Samsung A50 - API 30 (Hr. Meza Meza) 
+Hr. Meza Meza:
+Pixel 4 - API 28 (Emulator)
+Pixel 3 - API 30 (Emulator)
+Pixel 2 - API 28 (Emulator)
+Samsung A50 - API 30 
 
-Pixel 2 - API 30 (Emulator), (Hr. Murad) 
+Hr. Murad:
+Pixel 2 - API 30 (Emulator)
+Samsung Note 9 
 
+Hr. Uetz:
+Pixel 2 - API 30 (Emulator)
+Samsung S8+ - API 28
+
+Hr. Boghean:
+Pixel 2 - API 30 (Emulator)
+OnePlus 5T - API 29
 
 Externe Libraries und Frameworks:
 AndroidPdfViewer (https://github.com/barteksc/AndroidPdfViewer)
+Picasso (https://square.github.io/picasso)
 
 Dauer der Entwicklung:
 
-Roberto: 5 Stunden und 23 Minuten (bis jetzt)
+Hr. Meza Meza: 25 Stunden und 30 Minuten
 
-Mumen: 15 Stunden und 35 Minuten (bis jetzt)
+Hr. Murad: 23 Stunden und 35 Minuten
+
+Hr. Uetz: 22 Stunden
+
+Hr. Boghean: 24 Stunden
 
 Weitere Anmerkungen:
+Der Darkmode funktioniert nicht. Bitte nur Lightmode verwenden.
+Vibration und Licht sind in den Emulatoren nicht verfügbar. Fehler
+werden gefangen und die App ist weiterhin benutzbar. Um dennoch
+den vollen Funktionsumfang zu bekommen, bitte auf Geräte testen.

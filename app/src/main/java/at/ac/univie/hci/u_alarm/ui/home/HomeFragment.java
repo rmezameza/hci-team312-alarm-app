@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -29,6 +31,8 @@ public class HomeFragment extends Fragment{
         // Inflate the layout of this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+
 
         // Background image
         final ImageView backgroundImage = binding.backgroundImage;
@@ -70,9 +74,25 @@ public class HomeFragment extends Fragment{
         return root;
     }
 
+    // Hide the title in action bar, but just for the home fragment
+    @Override
+    public void onResume() {
+        super.onResume();
+        ActionBar supportActionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
+
+        if (supportActionBar != null)
+            supportActionBar.hide();
+    }
+
+    // Reset the title in action bar for the other fragments.
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+
+        ActionBar supportActionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
+
+        if (!supportActionBar.isShowing())
+            supportActionBar.show();
         binding = null;
     }
 }

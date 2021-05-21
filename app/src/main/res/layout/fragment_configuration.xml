@@ -5,11 +5,39 @@
     android:id="@+id/fragment_settings_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:focusedByDefault="false"
-    android:forceHasOverlappingRendering="true"
+    android:background="@android:color/white"
     tools:context=".ui.configuration.ConfigurationFragment">
 
+
+    <Button
+        android:id="@+id/buttonMockAlarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/university_grey"
+        android:backgroundTintMode="add"
+        android:text="@string/mock_alarm"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textFunctions2"
+        app:layout_constraintVertical_bias="0.224" />
+
+    <TextView
+        android:id="@+id/textFunctions2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/function_test2"
+        android:textAlignment="center"
+        android:textColor="@color/university_grey"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textFunctions" />
 
     <TextView
         android:id="@+id/languageText"
@@ -38,7 +66,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/colorsText"
-        app:layout_constraintVertical_bias="0.062">
+        app:layout_constraintVertical_bias="0.091">
 
         <RadioButton
             android:id="@+id/BlueButton"
@@ -89,22 +117,24 @@
         app:layout_constraintTop_toBottomOf="@+id/languageText"
         app:layout_constraintVertical_bias="0.028" />
 
+    <!-- Image buttons for choosing language -->
+
     <TextView
         android:id="@+id/colorsText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:text="@string/color_combination"
+        android:textAlignment="center"
         android:textColor="@color/university_grey"
         android:textSize="20sp"
-        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewLanguage"
-        app:layout_constraintVertical_bias="0.085" />
+        app:layout_constraintVertical_bias="0.185" />
 
-    <!-- Image buttons for choosing language -->
     <ImageButton
         android:id="@+id/imageViewLeft"
         android:layout_width="20dp"
@@ -132,164 +162,19 @@
         app:layout_constraintVertical_bias="0.026" />
 
     <TextView
-        android:id="@+id/textViewVibration"
-        android:layout_width="match_parent"
-        android:layout_height="28dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/vibration_test"
-        android:textColor="@color/university_grey"
-        android:textSize="16sp"
-        android:paddingStart="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.34"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.615"
-        tools:ignore="RtlSymmetry" />
-
-    <TextView
-        android:id="@+id/textViewLight"
-        android:layout_width="match_parent"
-        android:layout_height="27dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/frontflash_test"
-        android:textColor="@color/university_grey"
-        android:textSize="16sp"
-        android:paddingStart="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.327"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.674"
-        tools:ignore="RtlSymmetry" />
-
-    <TextView
-        android:id="@+id/textViewFlash"
-        android:layout_width="match_parent"
-        android:layout_height="27dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/backflash_test"
-        android:textColor="@color/university_grey"
-        android:textSize="16sp"
-        android:paddingStart="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.327"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.731"
-        tools:ignore="RtlSymmetry" />
-
-    <Switch
-        android:id="@+id/switchFlash"
-        android:layout_width="49dp"
-        android:layout_height="6dp"
-        android:checked="false"
-        android:showText="false"
-        android:thumbTint="@color/university_grey"
-        android:trackTint="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.723"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.731" />
-
-    <Switch
-        android:id="@+id/switchVibration"
-        android:layout_width="49dp"
-        android:layout_height="6dp"
-        android:checked="false"
-        android:showText="false"
-        android:thumbTint="@color/university_grey"
-        android:trackTint="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.723"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.615" />
-
-    <Switch
-        android:id="@+id/switchLight"
-        android:layout_width="49dp"
-        android:layout_height="6dp"
-        android:checked="false"
-        android:showText="false"
-        android:thumbTint="@color/university_grey"
-        android:trackTint="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.723"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.674" />
-
-    <Switch
-        android:id="@+id/switchDisplay"
-        android:layout_width="49dp"
-        android:layout_height="6dp"
-        android:checked="false"
-        android:showText="false"
-        android:thumbTint="@color/university_grey"
-        android:trackTint="#000000"
-        android:paddingStart="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.723"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.792"
-        tools:ignore="RtlSymmetry" />
-
-    <TextView
-        android:id="@+id/textViewDisplay"
-        android:layout_width="match_parent"
-        android:layout_height="27dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/displaytest"
-        android:textColor="@color/university_grey"
-        android:textSize="16sp"
-        android:paddingStart="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.327"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.792"
-        tools:ignore="RtlSymmetry" />
-
-    <TextView
         android:id="@+id/textFunctions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/function_test"
+        android:textAlignment="center"
         android:textColor="@color/university_grey"
         android:textSize="20sp"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/textViewVibration"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toggle"
-        app:layout_constraintVertical_bias="0.643" />
-
-    <Button
-        android:id="@+id/buttonTestAlarm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/university_grey"
-        android:backgroundTintMode="add"
-        android:text="@string/test_alarm"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.935" />
+        app:layout_constraintTop_toBottomOf="@+id/toggle" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
