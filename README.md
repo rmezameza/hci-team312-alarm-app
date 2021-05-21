@@ -35,7 +35,10 @@ Hr. Uetz:
 Pixel 2 - API 30 (Emulator)
 Samsung S8+ - API 28
 
-Pixel 2 - API 30 (Emulator), OnePlus 5T - Api 29 (Hr. Boghean)
+Hr. Boghean:
+
+Pixel 2 - API 30 (Emulator)
+OnePlus 5T - Api 29
 
 Externe Libraries und Frameworks:
 AndroidPdfViewer (https://github.com/barteksc/AndroidPdfViewer)
@@ -49,6 +52,6 @@ Mumen: 18 Stunden und 35 Minuten (bis jetzt)
 
 Nico: 16 Stunden (geschätzt, bis jetzt)
 
-Boghean: 19 Stunden (geschätzt)
+Boghean: 21 Stunden (geschätzt)
 
 Weitere Anmerkungen:
