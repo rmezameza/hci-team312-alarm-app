@@ -1,4 +1,4 @@
-package at.ac.univie.hci.u_alarm;
+package at.ac.univie.hci.u_alarm.ui.alarmpage;
 
 import android.app.PendingIntent;
 import android.content.Context;
@@ -15,6 +15,9 @@ import android.util.Log;
 import androidx.core.app.NotificationChannelCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+
+import at.ac.univie.hci.u_alarm.MainActivity;
+import at.ac.univie.hci.u_alarm.R;
 
 //Could change class name
 
