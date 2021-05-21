@@ -27,6 +27,8 @@ Pixel 2 - API 30 (Emulator), Samsung Note 9 (Hr. Murad)
 
 Pixel 2 - API 30 (Emulator), Samsung S8+ - API 28 (Hr. Uetz)
 
+Pixel 2 - API 30 (Emulator), OnePlus 5T - Api 29 (Hr. Boghean)
+
 Externe Libraries und Frameworks:
 AndroidPdfViewer (https://github.com/barteksc/AndroidPdfViewer)
 
@@ -37,5 +39,7 @@ Roberto: 5 Stunden und 23 Minuten (bis jetzt)
 Mumen: 18 Stunden und 35 Minuten (bis jetzt)
 
 Nico: 16 Stunden (geschätzt, bis jetzt)
+
+Boghean: 19 Stunden (geschätzt)
 
 Weitere Anmerkungen:

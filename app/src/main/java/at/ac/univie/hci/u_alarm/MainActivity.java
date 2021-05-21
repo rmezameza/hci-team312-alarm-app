@@ -68,8 +68,6 @@ public class MainActivity extends AppCompatActivity {
                 FragmentTransaction tr = fm.beginTransaction();
                 tr.add(R.id.nav_host_fragment_activity_main,fragment);
                 tr.commit();
-
-
             }
         }
 
