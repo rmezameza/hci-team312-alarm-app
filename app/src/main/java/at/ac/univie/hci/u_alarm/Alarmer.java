@@ -47,7 +47,7 @@ public class Alarmer{
 
         //Audio, creating MediaPlayer with the hardcoded alarm sound and starting it. Gets ended at the tail end of this method.
 
-        final MediaPlayer AlarmPlayer=MediaPlayer.create(this.alarmContext,R.raw.mytesttone);
+        final MediaPlayer AlarmPlayer=MediaPlayer.create(this.alarmContext,R.raw.alertstoundfourfourtyhz);//400hz, alternatively test with "alertsoundonekhz"
         AlarmPlayer.start();
 
 
@@ -68,8 +68,9 @@ public class Alarmer{
                 .setName("AlarmCompatChannel test")
                 .setLightsEnabled(true);
 
-        String textTitle="u:alert Test notification";
-        String textContent="Check the NotificationLED pls";
+
+        String textTitle="Fire Alarm Ground Floor";
+        String textContent="Immediately head to the nearest exit. ";
 
         NotificationCompat.Builder alarmNotificationBuilder = new NotificationCompat.Builder(this.alarmContext.getApplicationContext(), "122")
                 .setSmallIcon(R.drawable.alarm_icon)//should use Icon depending on selected theme.
