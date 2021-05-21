@@ -38,7 +38,7 @@ Samsung S8+ - API 28
 Hr. Boghean:
 
 Pixel 2 - API 30 (Emulator)
-OnePlus 5T - Api 29
+OnePlus 5T - API 29
 
 Externe Libraries und Frameworks:
 AndroidPdfViewer (https://github.com/barteksc/AndroidPdfViewer)
