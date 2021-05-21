@@ -53,7 +53,7 @@ public class Alarmer{
         //Notification. Using Compat Versions to allow Builder patterns and compatibility to older android versions (although not necessary for this projcet)
 
         Intent alarmIntent=new Intent(this.alarmContext, MainActivity.class);
-        alarmIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); //Possibly dont need flags, test TODO
+        alarmIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);//first flag needed according to pendingintent doc, second flag according to the notification documentation.
 
         //Todo: Change Context to navigate to List of past Alarms instead of the home fragment.
         PendingIntent pendingIntent = PendingIntent.getActivity(this.alarmContext, 0, alarmIntent, 0);
