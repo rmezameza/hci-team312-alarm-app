@@ -20,7 +20,7 @@ public class AlarmActivity extends AppCompatActivity {
 
 
 
-    private static final String ALARM_NAME = "Feuer Alarm";
+    private static final String ALARM_NAME = "Feueralarm";
     private static final String ALARM_PLACE = "Erdgeschoss";
 
 
@@ -39,11 +39,7 @@ public class AlarmActivity extends AppCompatActivity {
         tvAlarmName = findViewById(R.id.alarm_name);
         tvAlarmPlace = findViewById(R.id.alarm_place_name);
 
-        // Wäre wsl eleganter wenn die Klasse selbst einen Alarmer als Feld hätte, dann könnte
-        // die stop_alarm() Funktion auch noch im onPause/onDestroyed aufgerufen werden. Derzeit
-        // leicht buggy wenn sich 2 oder mehr Alarme überschneiden, dann vibriert das ganze auch
-        // weiter nachdem der Stop-BUtton gedrückt wurde. Wird in der Praxis wahrscheinlich keinem
-        // auffallen.
+
         AlarmSignaler alarmTester = new AlarmSignaler(AlarmActivity.this.getApplicationContext(),
                 500,
                 255,
@@ -51,10 +47,6 @@ public class AlarmActivity extends AppCompatActivity {
                 500,
                 10);
 
-        // Geht vllt auch indem ein Runnable an den Thread gepasst wird statt nur Thread,
-        // sollte aber egal sein. Wenns ohne extra Thread gestartet wird läuft zuerst die Vibration
-        // komplett durch bevor das User Interface gezeichnet wurde.
-        // Wenn Zeit ist noch mittels Threadhandlern statt "nackt" machen.
         Thread thread = new Thread(alarmTester::startAlarm);
         thread.start();
 
