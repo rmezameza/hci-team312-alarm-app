@@ -1,15 +1,9 @@
 package at.ac.univie.hci.u_alarm;
 
 
-
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
-
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -22,11 +16,13 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import at.ac.univie.hci.u_alarm.databinding.ActivityMainBinding;
-import at.ac.univie.hci.u_alarm.ui.AlarmPage.AlarmActivity;
 import at.ac.univie.hci.u_alarm.ui.configuration.ConfigurationFragment;
 import at.ac.univie.hci.u_alarm.ui.home.HomeFragment;
 
@@ -35,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     SharedPreferences preferences = null;
     public static String language = "Deutsch";
+
+    // For alarm - global variables with one value for hardcoded alarm
+    public static ArrayList<String> alarmType = new ArrayList<>(Arrays.asList("Feuer Alarm"));
+    public static ArrayList<String> alarmPlace = new ArrayList<>(Arrays.asList("Erdgeschoss"));
+    public static ArrayList<String> alarmDate = new ArrayList<>(Arrays.asList(calculateDate()));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,43 +79,21 @@ public class MainActivity extends AppCompatActivity {
             tr.replace(R.id.fragment_home_view,fragment);
             tr.commit();
         }
-
-
-        
-
-    }
-    /*
-     //Testweise Funktionen die die App wieder öffnen sollen nachdem sie pausiert/gestoppt/zerstört wurde. Wird die App mit dem Homebutton minimiert werden onPause und onStop aufgerufen, wird sie mit dem Backbutton minimiert wird zusätzlich no onDestroy aufgerufen.
-     //Hilfreich Log.d("Statustest", "onX() called") zum Testen.
-
-    @Override
-    public void onPause(){
-        super.onPause();
-        AlarmManager alarmtest_restartmanager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        Intent intent = new Intent( this, MainActivity.class );
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 123, intent, PendingIntent.FLAG_ONE_SHOT);
-        alarmtest_restartmanager.set( AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+500,pendingIntent);
     }
 
-    @Override
-    public void onStop(){
-        super.onStop();
-        AlarmManager alarmtest_restartmanager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        Intent restart_intent = new Intent( getApplicationContext(), MainActivity.class );
-        PendingIntent test_restart_intent = PendingIntent.getBroadcast(getApplicationContext(), 111, restart_intent, PendingIntent.FLAG_ONE_SHOT);
-        alarmtest_restartmanager.set( AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+2500,test_restart_intent);
-    }
-    /*
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        AlarmManager alarmtest_restartmanager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        Intent intent = new Intent( this, MainActivity.class );
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 123, intent, PendingIntent.FLAG_ONE_SHOT);
-        alarmtest_restartmanager.set( AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+500,pendingIntent);
+
+    // Set date for alarm
+    private static String calculateDate() {
+
+        // Get date and time. Convert them to strings and assign it to alarmTime.
+        DateTimeFormatter date = DateTimeFormatter.ofPattern("uuuu/MM/dd");
+        LocalDate localDate = LocalDate.now();
+        DateTimeFormatter time = DateTimeFormatter.ofPattern("HH:mm:ss");
+        LocalTime localTime = LocalTime.now();
+        String dateString = date.format(localDate) + " | " + time.format(localTime) ;
+
+        return dateString;
     }
 
-   */
-
-    }
+}
 
