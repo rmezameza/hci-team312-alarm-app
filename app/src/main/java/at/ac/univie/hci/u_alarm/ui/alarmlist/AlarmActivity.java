@@ -25,17 +25,16 @@ import static at.ac.univie.hci.u_alarm.MainActivity.alarmType;
 
 
 public class AlarmActivity extends AppCompatActivity {
+     Button stopButton;
+     TextView tvAlarmName ;
+     TextView tvAlarmPlace;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm);
 
-        Button stopButton;
-        TextView tvAlarmName ;
-        TextView tvAlarmPlace;
-
-        stopButton = (Button)findViewById(R.id.stop_button);
+         stopButton = (Button)findViewById(R.id.stop_button);
         tvAlarmName = (TextView)findViewById(R.id.alarm_name);
         tvAlarmPlace = (TextView)findViewById(R.id.alarm_place_name);
 
@@ -59,12 +58,12 @@ public class AlarmActivity extends AppCompatActivity {
 
         //Initial names for Alarms
         ArrayList<String> Alaram_initial_type =new ArrayList<>(Arrays.asList(
-                "Feuer Alarm","Probe Alarm",
-                "Erdbeben Alarm","unbekannte Alarm"
+                "Fire Alarm","Test Alarm",
+                "Earthquake alarm","unkownon Alarm"
         ));
         ArrayList<String>  Alaram_initial_Location =new ArrayList<>(Arrays.asList(
-                "Erdgeschoss","Pc Raum ",
-                "Uni Kantine","Garten"
+                "Ground Floor","Pc Raum ",
+                "University Canteen","Garden"
         ));
 
         // Random Select the Type and the Location of Alarm
@@ -80,6 +79,13 @@ public class AlarmActivity extends AppCompatActivity {
         alarmPlace.add(tvAlarmPlace.getText().toString());
         alarmDate.add(calculateDate());
 
+    }
+
+    public String getAlarmName(){
+        return tvAlarmName.getText().toString();
+    }
+    public String getAlarmPlace(){
+        return tvAlarmPlace.getText().toString();
     }
 
     // Set date for alarm
