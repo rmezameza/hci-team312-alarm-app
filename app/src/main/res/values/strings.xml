@@ -24,7 +24,7 @@
     <!--                            For fragment_configuration.xml                               -->
     <!-- ####################################################################################### -->
     <string name="alarm_info_text">
-        Haupteingang
+        Treffpunkt: Haupteingang
     </string>
 
     <string name="stopButton">
