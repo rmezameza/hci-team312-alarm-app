@@ -8,10 +8,13 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 import at.ac.univie.hci.u_alarm.Alarmer;
 import at.ac.univie.hci.u_alarm.MainActivity;
 import at.ac.univie.hci.u_alarm.R;
-import at.ac.univie.hci.u_alarm.ui.map.MapFragment;
 
 public class AlarmActivity extends AppCompatActivity {
 
@@ -64,5 +67,23 @@ public class AlarmActivity extends AppCompatActivity {
 
         tvAlarmName.setText(ALARM_NAME);
         tvAlarmPlace.setText(ALARM_PLACE);
+
+        // Save the Details of the alarm in arrays in MainActivity
+        MainActivity.alarmType.add(ALARM_NAME);
+        MainActivity.alarmPlace.add(ALARM_PLACE);
+        MainActivity.alarmDate.add(calculateDate());
+
+    }
+
+    // Set date for alarm
+    private static String calculateDate() {
+
+        // Get date and time. Convert them to strings and assign it to alarmTime.
+        DateTimeFormatter date = DateTimeFormatter.ofPattern("uuuu/MM/dd");
+        LocalDate localDate = LocalDate.now();
+        DateTimeFormatter time = DateTimeFormatter.ofPattern("HH:mm:ss");
+        LocalTime localTime = LocalTime.now();
+        String dateString = date.format(localDate) + " | " + time.format(localTime) ;
+        return dateString;
     }
 }

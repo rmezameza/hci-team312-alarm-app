@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences preferences = null;
     public static String language = "Deutsch";
 
-    // For alarm - global variables with one value for hardcoded alarm
+    // For alarm - global variables with alarm values for AlarmListView
     public static ArrayList<String> alarmType = new ArrayList<>();
     public static ArrayList<String> alarmPlace = new ArrayList<>();
     public static ArrayList<String> alarmDate = new ArrayList<>();
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-////
+
 
 }
 

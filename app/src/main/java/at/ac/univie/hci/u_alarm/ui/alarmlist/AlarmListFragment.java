@@ -35,6 +35,7 @@ public class AlarmListFragment extends Fragment {
                 MainActivity.alarmDate);
 
         ListView list = binding.alarmListviewId;
+
         list.setAdapter(adapter);
 
         return root;
