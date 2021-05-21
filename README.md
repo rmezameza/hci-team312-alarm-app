@@ -43,7 +43,7 @@ Picasso (https://square.github.io/picasso)
 
 Dauer der Entwicklung:
 
-Roberto: 29 Stunden und 30 Minuten (bis jetzt)
+Roberto: 24 Stunden und 30 Minuten (bis jetzt)
 
 Mumen: 18 Stunden und 35 Minuten (bis jetzt)
 
