@@ -3,6 +3,7 @@ package at.ac.univie.hci.u_alarm.ui.AlarmPage;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import at.ac.univie.hci.u_alarm.Alarmer;
 import at.ac.univie.hci.u_alarm.MainActivity;
 import at.ac.univie.hci.u_alarm.R;
+import at.ac.univie.hci.u_alarm.ui.map.MapFragment;
 
 public class AlarmActivity extends AppCompatActivity {
 
@@ -26,8 +28,10 @@ public class AlarmActivity extends AppCompatActivity {
         Button stopButton;
         TextView tvAlarmName ;
         TextView tvAlarmPlace;
+        ImageButton mapButton;
 
         stopButton = (Button)findViewById(R.id.stop_button);
+        mapButton = (ImageButton) findViewById(R.id.map_button);
         tvAlarmName = (TextView)findViewById(R.id.alarm_name);
         tvAlarmPlace = (TextView)findViewById(R.id.alarm_place_name);
 
@@ -56,6 +60,7 @@ public class AlarmActivity extends AppCompatActivity {
             Intent intent = new Intent(AlarmActivity.this, MainActivity.class);
             startActivity(intent);
         });
+
 
         tvAlarmName.setText(ALARM_NAME);
         tvAlarmPlace.setText(ALARM_PLACE);
