@@ -29,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
     public static String language = "Deutsch";
 
     // For alarm - global variables with alarm values for AlarmListView
-    public static ArrayList<String> alarmType = new ArrayList<>();
-    public static ArrayList<String> alarmPlace = new ArrayList<>();
-    public static ArrayList<String> alarmDate = new ArrayList<>();
+    public static ArrayList<String> alarmTypes = new ArrayList<>();
+    public static ArrayList<String> alarmPlaces = new ArrayList<>();
+    public static ArrayList<String> alarmDates = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

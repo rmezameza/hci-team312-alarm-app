@@ -10,13 +10,15 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 import at.ac.univie.hci.u_alarm.MainActivity;
 import at.ac.univie.hci.u_alarm.databinding.FragmentAlarmlistBinding;
 
 
 public class AlarmListFragment extends Fragment {
 
-    //private AlarmListViewModel alarmlistViewModel;
     private FragmentAlarmlistBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -28,15 +30,24 @@ public class AlarmListFragment extends Fragment {
         binding = FragmentAlarmlistBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        ArrayList<String> alarmTypesDescOrder = MainActivity.alarmTypes;
+        ArrayList<String> alarmPlacesDescOrder = MainActivity.alarmPlaces;
+        ArrayList<String> alarmDatesDescOrder = MainActivity.alarmDates;
+
+        Collections.reverse(alarmTypesDescOrder);
+        Collections.reverse(alarmPlacesDescOrder);
+        Collections.reverse(alarmDatesDescOrder);
+
         AlarmListView adapter = new AlarmListView(
                 (Activity)this.getContext(),
-                MainActivity.alarmType,
-                MainActivity.alarmPlace,
-                MainActivity.alarmDate);
+                alarmTypesDescOrder,
+                alarmPlacesDescOrder,
+                alarmDatesDescOrder);
 
         ListView list = binding.alarmListviewId;
 
         list.setAdapter(adapter);
+
 
         return root;
     }
