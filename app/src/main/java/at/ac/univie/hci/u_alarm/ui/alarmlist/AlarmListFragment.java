@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 
 import at.ac.univie.hci.u_alarm.MainActivity;
 import at.ac.univie.hci.u_alarm.databinding.FragmentAlarmlistBinding;
-import at.ac.univie.hci.u_alarm.ui.AlarmPage.AlarmActivity;
 
 
 public class AlarmListFragment extends Fragment {

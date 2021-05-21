@@ -22,7 +22,7 @@ import java.util.TimerTask;
 
 import at.ac.univie.hci.u_alarm.R;
 import at.ac.univie.hci.u_alarm.databinding.FragmentConfigurationBinding;
-import at.ac.univie.hci.u_alarm.ui.AlarmPage.AlarmActivity;
+import at.ac.univie.hci.u_alarm.ui.alarmlist.AlarmActivity;
 
 public class ConfigurationFragment extends Fragment {
 

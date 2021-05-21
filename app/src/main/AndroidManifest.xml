@@ -30,7 +30,7 @@
 
         <uses-library android:name="com.google.android.maps" />
 
-        <activity android:name=".ui.AlarmPage.AlarmActivity"></activity>
+        <activity android:name=".ui.alarmlist.AlarmActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
