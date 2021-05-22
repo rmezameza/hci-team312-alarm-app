@@ -1,7 +1,7 @@
 # HCI group project
-# Alarm system for deaf and heard hearing university members
+# Alarm system for deaf and hard of hearing university members
 
-Android App for an alarm system for deaf and heard hearing member of the
+Android App for an alarm system for deaf and hard of hearing member of the
 University of Vienna.
 
 This project will be a prototype to show the basic function of that application.
