@@ -32,9 +32,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="55dp"
             android:textAlignment="center"
-            app:layout_constraintStart_toEndOf="@id/alarm_ort"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/alarm_ort"
             app:layout_constraintTop_toTopOf="@+id/alarm_type" />
 
         <TextView
@@ -43,6 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="55dp"
             android:textAlignment="center"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/alarm_datum_id_in_ListView"
             app:layout_constraintStart_toStartOf="parent"
