@@ -19,7 +19,7 @@ import androidx.core.app.NotificationManagerCompat;
 import at.ac.univie.hci.u_alarm.MainActivity;
 import at.ac.univie.hci.u_alarm.R;
 
-//Could change class name
+// Could change class name
 
 public class AlarmSignaler {
     Context alarmContext;
