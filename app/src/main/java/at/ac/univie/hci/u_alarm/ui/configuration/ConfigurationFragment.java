@@ -18,6 +18,7 @@ import androidx.lifecycle.ViewModelProvider;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import at.ac.univie.hci.u_alarm.MainActivity;
 import at.ac.univie.hci.u_alarm.R;
 import at.ac.univie.hci.u_alarm.databinding.FragmentConfigurationBinding;
 import at.ac.univie.hci.u_alarm.ui.alarmpage.AlarmActivity;
@@ -62,6 +63,16 @@ public class ConfigurationFragment extends Fragment {
         ImageView leftArrow = getActivity().findViewById(R.id.imageViewLeft);
         ImageView rightArrow = getActivity().findViewById(R.id.imageViewRight);
 
+        if (MainActivity.language.compareTo("English") == 0) {
+            Log.i("String in LANGUAGE variable:", MainActivity.language);
+            setLanguageEnglish();
+
+
+
+        } else {
+            Log.i("String in LANGUAGE variable", MainActivity.language);
+            setLanguageGerman();
+        }
 
 
         //Listener for Test Alarm button
@@ -78,25 +89,11 @@ public class ConfigurationFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 TextView languageText = getActivity().findViewById(R.id.textViewLanguage);
-                languageText.setText("English");
-
-                TextView languageTitle = getActivity().findViewById(R.id.languageText);
-                languageTitle.setText("Language");
-
-                TextView colorsText = getActivity().findViewById(R.id.colorsText);
-                colorsText.setText("Color combination");
-
-                TextView functionsTitleText = getActivity().findViewById(R.id.textFunctions);
-                functionsTitleText.setText("Tests");
-
-
-
-                TextView functionsSubtitle = getActivity().findViewById(R.id.textFunctions2);
-                functionsSubtitle.setText("This is an alarm test that tests the App on your Smartphone");
-
-                configurationViewModel.setLanguage("English");
-                Log.i("LANGUAGE CHANGED:","English");
-
+                if(languageText.getText()=="English"){
+                    setLanguageGerman();
+                } else{
+                    setLanguageEnglish();
+                }
 
             }
         });
@@ -105,29 +102,17 @@ public class ConfigurationFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 TextView languageText = getActivity().findViewById(R.id.textViewLanguage);
-                languageText.setText("Deutsch");
-
-                TextView languageTitle = getActivity().findViewById(R.id.languageText);
-                languageTitle.setText("Sprache");
-
-                TextView colorsText = getActivity().findViewById(R.id.colorsText);
-                colorsText.setText("Farbkombination");
-
-                TextView functionsTitleText = getActivity().findViewById(R.id.textFunctions);
-                functionsTitleText.setText("Funktionstest");
-
-
-
-                configurationViewModel.setLanguage("Deutsch");
-                Log.i("LANGUAGE CHANGED:","Deutsch");
+                if(languageText.getText()=="English"){
+                    setLanguageGerman();
+                } else{
+                    setLanguageEnglish();
+                }
 
             }
         });
 
 
-
     }
-
 
     public void MockTestButtonClicked(View v) {
         new Timer().schedule(new TimerTask(){
@@ -147,5 +132,52 @@ public class ConfigurationFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+    private void setLanguageGerman(){
+
+        TextView languageText = getActivity().findViewById(R.id.textViewLanguage);
+        languageText.setText("Deutsch");
+
+        TextView languageTitle = getActivity().findViewById(R.id.languageText);
+        languageTitle.setText("Sprache");
+
+        TextView colorsText = getActivity().findViewById(R.id.colorsText);
+        colorsText.setText("Farbkombination");
+
+        TextView functionsTitleText = getActivity().findViewById(R.id.textFunctions);
+        functionsTitleText.setText("Funktionstest");
+
+        TextView functionsSubtitle = getActivity().findViewById(R.id.textFunctions2);
+        functionsSubtitle.setText("Ein Alarmtest, der die App auf Ihrem Smartphone testet");
+
+        configurationViewModel.setLanguage("Deutsch");
+        Log.i("LANGUAGE CHANGED:","Deutsch");
+
+    }
+
+    private void setLanguageEnglish(){
+
+        TextView languageText = getActivity().findViewById(R.id.textViewLanguage);
+        languageText.setText("English");
+
+        TextView languageTitle = getActivity().findViewById(R.id.languageText);
+        languageTitle.setText("Language");
+
+        TextView colorsText = getActivity().findViewById(R.id.colorsText);
+        colorsText.setText("Color combination");
+
+        TextView functionsTitleText = getActivity().findViewById(R.id.textFunctions);
+        functionsTitleText.setText("Tests");
+
+
+
+        TextView functionsSubtitle = getActivity().findViewById(R.id.textFunctions2);
+        functionsSubtitle.setText("This is an alarm test that tests the App on your Smartphone");
+
+        configurationViewModel.setLanguage("English");
+        Log.i("LANGUAGE CHANGED:","English");
+
+    }
+
 
 }
