@@ -87,7 +87,6 @@ public class AlarmActivity extends AppCompatActivity {
         LocalDate localDate = LocalDate.now();
         DateTimeFormatter time = DateTimeFormatter.ofPattern("HH:mm:ss");
         LocalTime localTime = LocalTime.now();
-        String dateString = date.format(localDate) + " | " + time.format(localTime) ;
-        return dateString;
+        return date.format(localDate) + " | " + time.format(localTime);
     }
 }
