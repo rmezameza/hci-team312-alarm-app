@@ -4,13 +4,19 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/university_blue</item>
         <item name="colorPrimaryVariant">@color/university_blue</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorOnPrimary">@color/university_blue</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/university_blue</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+
+
+        <!-- These are the colors which defines the attributes (attrs.xml) -->
+        <item name="textColor">@color/white</item>
+        <item name="windowBackgroundColor">@color/black</item>
+        <item name="buttonLeft">@drawable/left_night</item>
+        <item name="buttonRight">@drawable/right_night</item>
     </style>
 </resources>

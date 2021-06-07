@@ -1,3 +1,78 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- ####################################################################################### -->
+    <!--                               For bottom_nav_menu.xml                                   -->
+    <!-- ####################################################################################### -->
+    <string name="app_name">u:alarm</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_alarmlist">Alarmliste</string>
+    <string name="title_map">Map</string>
+    <string name="title_configuration">Einstellungen</string>
+
+
+    <!-- ####################################################################################### -->
+    <!--                                For fragment_home.xml                                    -->
+    <!-- ####################################################################################### -->
+    <string name="home_background_image">Background image for home fragment (u:alarm)</string>
+
+
+    <!-- ####################################################################################### -->
+    <!--                                For fragment_home.xml                                    -->
+    <!-- ####################################################################################### -->
+    <string name="alarm_list_title">Liste vergangener Alarme</string>
+    <!-- ####################################################################################### -->
+    <!--                            For fragment_configuration.xml                               -->
+    <!-- ####################################################################################### -->
+    <string name="alarm_info_text">
+        Sammelpunkt: Haupteingang
+    </string>
+
+    <string name="stopButton">
+        STOP
+    </string>
+
+
+    <string name="testAlarm">
+        DAS IST EINE PROBE ALARM
+    </string>
+
+
+    <!-- ####################################################################################### -->
+    <!--                                For fragment_map.xml                                     -->
+    <!-- ####################################################################################### -->
+    <string name="descriptionImageButtonRight">Right Button for switching between maps.</string>
+    <string name="descriptionImageButtonLeft">Left Button for switching between maps.</string>
+
+
+    <!-- ####################################################################################### -->
+    <!--                            For fragment_configuration.xml                               -->
+    <!-- ####################################################################################### -->
+    <!-- Text views -->
+    <string name="language">Sprache</string>
+    <string name="german_language">Deutsch</string>
+    <string name="color_combination">Farbkombination</string>
+    <string name="vibration_test">Vibrationstest</string>
+    <string name="frontflash_test">Frontlichttest</string>
+    <string name="backflash_test">Backflashtest</string>
+    <string name="function_test">Funktionstest</string>
+    <string name="function_test2">Ein Alarmtest, der die App auf Ihrem Smartphone testet</string>
+    <string name="displaytest">Displaytext</string>
+    <string name="test_alarm">Alarmprobe</string>
+    <string name="mock_alarm">Mock Alarm</string>
+
+    <!-- Radio buttons -->
+    <string name="blue">Blau</string>
+    <string name="green">Grün</string>
+
+    <!-- Image buttons -->
+    <string name="descriptionImageButtonLeftLanguage">
+        Left Image Button to choose language.
+    </string>
+    <string name="descriptionImageButtonRightLanguage">
+        Right Image Button to choose language.
+    </string>
+
+    <string name="descriptionMapButton">
+        Click Map button to go to map fragment.
+    </string>
 </resources>

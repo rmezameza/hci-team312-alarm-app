@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    These are the attributes which defines the color of every listed element
+            In the xml file of every fragments' xml are now ?attr/... for a flexible color design
+            This flexible is desired for switching between night and light mode
+    -->
+    <attr name="windowBackgroundColor" format="color" />
+    <attr name="textColor" format="color" />
+    <attr name="primaryColor" format="color" />
+
+    <!-- Buttons -->
+    <attr name="buttonLeft" format="reference" />
+    <attr name="buttonRight" format="reference" />
+</resources>

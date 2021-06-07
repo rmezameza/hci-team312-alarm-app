@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="?attr/windowBackgroundColor"
     tools:context=".ui.alarmlist.AlarmListFragment">
 
     <TextView
@@ -13,8 +13,10 @@
         android:layout_height="wrap_content"
         android:text="@string/alarm_list_title"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="28sp"
         android:textStyle="bold"
+        android:textColor="?attr/textColor"
+        android:layout_marginBottom="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

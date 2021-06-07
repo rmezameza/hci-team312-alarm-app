@@ -2,9 +2,12 @@ package at.ac.univie.hci.u_alarm;
 
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -38,6 +41,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Overwrite the background color of the app bar. Because we want the same color both
+        // for light and night mode.
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#0063A6"));
+        actionBar.setBackgroundDrawable(colorDrawable);
+
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

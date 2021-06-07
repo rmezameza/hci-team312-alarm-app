@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/windowBackgroundColor">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,8 +19,9 @@
             android:padding="5dp"
             android:textAlignment="center"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#4d4d4d"
+            android:textColor="?attr/textColor"
             android:textStyle="bold"
+            android:textSize="26sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -27,28 +29,30 @@
             app:layout_constraintVertical_bias="0.266" />
 
         <TextView
-            android:id="@+id/alarm_datum_id_in_ListView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="55dp"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/alarm_ort"
-            app:layout_constraintTop_toTopOf="@+id/alarm_type" />
-
-        <TextView
             android:id="@+id/alarm_ort"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="55dp"
             android:textAlignment="center"
+            android:textColor="?attr/textColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/alarm_datum_id_in_ListView"
+            app:layout_constraintTop_toBottomOf="@+id/alarm_type" />
+
+        <TextView
+            android:id="@+id/alarm_datum_id_in_ListView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="?attr/textColor"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/alarm_datum_id_in_ListView"
+            app:layout_constraintEnd_toStartOf="@+id/alarm_ort"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/alarm_type" />
+            app:layout_constraintTop_toBottomOf="@+id/alarm_type" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
