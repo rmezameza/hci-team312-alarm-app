@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.os.Handler;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,6 +18,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
 
 import at.ac.univie.hci.u_alarm.MainActivity;
 import at.ac.univie.hci.u_alarm.R;
@@ -79,7 +81,18 @@ public class ConfigurationFragment extends Fragment {
         buttonMock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d("MockButton","ButtonDisabled!");
                 MockTestButtonClicked(view);
+                buttonMock.setEnabled(false);
+                //Handler preferrable over Timer/TimerTask for performance and reliability reasons.
+                Handler buttonDisabler=new Handler();
+                buttonDisabler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        buttonMock.setEnabled(true);
+                    }
+                    //Time set does not really matter (as long as it's longer than the delay until the alarm), as the Button's view will be created anew after stopping the alarm as far as I know.
+                },5001);
             }
         });
 
