@@ -19,7 +19,7 @@
             android:textAlignment="center"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="?attr/textColor"
-            android:textSize="22sp"
+            android:textSize="21sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

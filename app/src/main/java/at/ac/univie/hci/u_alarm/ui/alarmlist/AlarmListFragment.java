@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 import at.ac.univie.hci.u_alarm.MainActivity;
@@ -38,11 +39,23 @@ public class AlarmListFragment extends Fragment {
         Collections.reverse(alarmPlacesDescOrder);
         Collections.reverse(alarmDatesDescOrder);
 
-        AlarmListView adapter = new AlarmListView(
-                (Activity)this.getContext(),
-                alarmTypesDescOrder,
-                alarmPlacesDescOrder,
-                alarmDatesDescOrder);
+        AlarmListView adapter = null;
+
+        if(alarmTypesDescOrder.isEmpty()) {
+            adapter = new AlarmListView(
+                    (Activity)this.getContext(),
+                    new ArrayList<>(Arrays.asList("Liste ist momentan leer.")),
+                    new ArrayList<>(Arrays.asList("")),
+                    new ArrayList<>(Arrays.asList("")));
+
+        }
+        else {
+            adapter = new AlarmListView(
+                    (Activity)this.getContext(),
+                    alarmTypesDescOrder,
+                    alarmPlacesDescOrder,
+                    alarmDatesDescOrder);
+        }
 
         ListView list = binding.alarmListviewId;
 
