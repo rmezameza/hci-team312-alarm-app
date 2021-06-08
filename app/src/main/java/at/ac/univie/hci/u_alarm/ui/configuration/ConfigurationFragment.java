@@ -19,7 +19,6 @@ import androidx.lifecycle.ViewModelProvider;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
 import at.ac.univie.hci.u_alarm.MainActivity;
 import at.ac.univie.hci.u_alarm.R;
 import at.ac.univie.hci.u_alarm.databinding.FragmentConfigurationBinding;
@@ -81,7 +80,7 @@ public class ConfigurationFragment extends Fragment {
         buttonMock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("MockButton","ButtonDisabled!");
+                //Log.d("MockButton","ButtonDisabled!");
                 MockTestButtonClicked(view);
                 buttonMock.setEnabled(false);
                 //Handler preferrable over Timer/TimerTask for performance and reliability reasons.
