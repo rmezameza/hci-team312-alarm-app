@@ -20,8 +20,10 @@ public class AlarmActivity extends AppCompatActivity {
 
 
 
-    private static final String ALARM_NAME = "Feueralarm";
-    private static final String ALARM_PLACE = "Erdgeschoss";
+    public static  String ALARM_NAME = "Feueralarm";
+    public static  String ALARM_PLACE = "Erdgeschoss";
+    public static  String ALARM_INFO ="Sammelpunkt:Haupteingang";
+
 
 
     @Override
@@ -32,11 +34,13 @@ public class AlarmActivity extends AppCompatActivity {
         Button stopButton;
         TextView tvAlarmName;
         TextView tvAlarmPlace;
+        TextView tvAlarmInfo;
         ImageButton mapButton;
 
         stopButton = findViewById(R.id.stop_button);
         mapButton = findViewById(R.id.map_button);
         tvAlarmName = findViewById(R.id.alarm_name);
+        tvAlarmInfo = findViewById(R.id.info_id);
         tvAlarmPlace = findViewById(R.id.alarm_place_name);
 
 
@@ -70,6 +74,7 @@ public class AlarmActivity extends AppCompatActivity {
 
         tvAlarmName.setText(ALARM_NAME);
         tvAlarmPlace.setText(ALARM_PLACE);
+        tvAlarmInfo.setText(ALARM_INFO);
 
         // Save the Details of the alarm in arrays in MainActivity
         MainActivity.alarmTypes.add(ALARM_NAME);

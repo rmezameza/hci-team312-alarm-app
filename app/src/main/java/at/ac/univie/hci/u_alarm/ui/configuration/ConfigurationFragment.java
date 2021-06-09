@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.os.Handler;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,12 +23,14 @@ import java.util.TimerTask;
 import at.ac.univie.hci.u_alarm.MainActivity;
 import at.ac.univie.hci.u_alarm.R;
 import at.ac.univie.hci.u_alarm.databinding.FragmentConfigurationBinding;
+import at.ac.univie.hci.u_alarm.ui.alarmlist.AlarmListFragment;
 import at.ac.univie.hci.u_alarm.ui.alarmpage.AlarmActivity;
 
 public class ConfigurationFragment extends Fragment {
 
     private ConfigurationViewModel configurationViewModel;
     private FragmentConfigurationBinding binding;
+
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -67,9 +70,6 @@ public class ConfigurationFragment extends Fragment {
         if (MainActivity.language.compareTo("English") == 0) {
             Log.i("String in LANGUAGE variable:", MainActivity.language);
             setLanguageEnglish();
-
-
-
         } else {
             Log.i("String in LANGUAGE variable", MainActivity.language);
             setLanguageGerman();
@@ -103,8 +103,13 @@ public class ConfigurationFragment extends Fragment {
                 TextView languageText = getActivity().findViewById(R.id.textViewLanguage);
                 if(languageText.getText()=="English"){
                     setLanguageGerman();
+
+                    Toast.makeText(view.getContext() , "Sprache zum Deutsch gewechselt",Toast.LENGTH_SHORT).show();
+
                 } else{
                     setLanguageEnglish();
+                    Toast.makeText(view.getContext() , "Language changed to English",Toast.LENGTH_SHORT).show();
+
                 }
 
             }
@@ -116,8 +121,12 @@ public class ConfigurationFragment extends Fragment {
                 TextView languageText = getActivity().findViewById(R.id.textViewLanguage);
                 if(languageText.getText()=="English"){
                     setLanguageGerman();
+                    Toast.makeText(view.getContext() , "Sprache zum Deutsch gewechselt",Toast.LENGTH_SHORT).show();
+
                 } else{
                     setLanguageEnglish();
+                    Toast.makeText(view.getContext() , "Language changed to English",Toast.LENGTH_SHORT).show();
+
                 }
 
             }
@@ -165,6 +174,17 @@ public class ConfigurationFragment extends Fragment {
         configurationViewModel.setLanguage("Deutsch");
         Log.i("LANGUAGE CHANGED:","Deutsch");
 
+        Button blue = getActivity().findViewById(R.id.BlueButton);
+        blue.setText("Blau");
+        Button Grenn = getActivity().findViewById(R.id.GreenButton);
+        Grenn.setText("Grün");
+
+        // Change the Language in Alarm Page and View List
+        AlarmListFragment.language2 = "Deutsch";
+        AlarmActivity.ALARM_NAME = "Feuer Alarm";
+        AlarmActivity.ALARM_PLACE = "Erdgeschoss";
+        AlarmActivity.ALARM_INFO = "Sammelpunkt : Haupteingang";
+
     }
 
     private void setLanguageEnglish(){
@@ -181,13 +201,22 @@ public class ConfigurationFragment extends Fragment {
         TextView functionsTitleText = getActivity().findViewById(R.id.textFunctions);
         functionsTitleText.setText("Tests");
 
-
-
         TextView functionsSubtitle = getActivity().findViewById(R.id.textFunctions2);
         functionsSubtitle.setText("This is an alarm test that tests the App on your Smartphone");
 
+        Button blue = getActivity().findViewById(R.id.BlueButton);
+        blue.setText("Blue");
+        Button Grenn = getActivity().findViewById(R.id.GreenButton);
+        Grenn.setText("Green");
+
         configurationViewModel.setLanguage("English");
         Log.i("LANGUAGE CHANGED:","English");
+
+        // Change the Language in Alarm Page and View List
+        AlarmListFragment.language2 = "English";
+        AlarmActivity.ALARM_NAME = "Fire Alarm ";
+        AlarmActivity.ALARM_PLACE = "Ground floor";
+        AlarmActivity.ALARM_INFO = "gathering point : main entrance";
 
     }
 

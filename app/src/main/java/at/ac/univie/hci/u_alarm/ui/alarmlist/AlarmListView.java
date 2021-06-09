@@ -19,7 +19,6 @@ public class AlarmListView extends ArrayAdapter<String> {
     private ArrayList<String> alarmPlaces;
     private ArrayList<String> alarmDates;
 
-
     public AlarmListView(Activity alarm,
                          ArrayList<String> alarmType,
                          ArrayList<String> alarmPlace,
@@ -31,6 +30,7 @@ public class AlarmListView extends ArrayAdapter<String> {
         this.alarmPlaces = alarmPlace;
         this.alarmDates = alarmDate;
     }
+
 
     public View getView(int position, View view, ViewGroup parent) {
 

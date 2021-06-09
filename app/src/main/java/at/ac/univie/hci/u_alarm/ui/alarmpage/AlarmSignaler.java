@@ -139,7 +139,6 @@ public class AlarmSignaler {
             }
             SystemClock.sleep(milliCyclesSleep);
         }
-
         //Frees the MediaPlayer and associated resources, more elegant to call here than on extra
         // Function to avoid passing or creating every Alarmer with its own MediaPlayer
         AlarmPlayer.release();
