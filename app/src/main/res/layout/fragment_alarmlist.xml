@@ -8,7 +8,7 @@
     tools:context=".ui.alarmlist.AlarmListFragment">
 
     <TextView
-        android:id="@+id/text_alarmlist"
+        android:id="@+id/title_alarmlist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/alarm_list_title"
@@ -34,6 +34,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_alarmlist" />
+        app:layout_constraintTop_toBottomOf="@+id/title_alarmlist" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

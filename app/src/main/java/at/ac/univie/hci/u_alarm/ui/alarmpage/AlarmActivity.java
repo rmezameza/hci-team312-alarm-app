@@ -80,8 +80,6 @@ public class AlarmActivity extends AppCompatActivity {
         MainActivity.alarmTypes.add(ALARM_NAME);
         MainActivity.alarmPlaces.add(ALARM_PLACE);
         MainActivity.alarmDates.add(calculateDate());
-
-
     }
 
     // Set date (actual date and time) for alarm

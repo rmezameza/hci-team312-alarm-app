@@ -2,6 +2,7 @@ package at.ac.univie.hci.u_alarm.ui.configuration;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.os.Handler;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,7 +23,6 @@ import java.util.TimerTask;
 import at.ac.univie.hci.u_alarm.MainActivity;
 import at.ac.univie.hci.u_alarm.R;
 import at.ac.univie.hci.u_alarm.databinding.FragmentConfigurationBinding;
-import at.ac.univie.hci.u_alarm.ui.alarmlist.AlarmListFragment;
 import at.ac.univie.hci.u_alarm.ui.alarmpage.AlarmActivity;
 
 public class ConfigurationFragment extends Fragment {
@@ -40,7 +39,6 @@ public class ConfigurationFragment extends Fragment {
 
         binding = FragmentConfigurationBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
         /*
         final TextView textView = binding.textConfiguration;
        configurationViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
@@ -50,15 +48,14 @@ public class ConfigurationFragment extends Fragment {
             }
         }); */
 
-
-
         return root;
     }
+
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
         // All switches assigned to a variable.
-
 
         //Variable for the alarm test
         Button buttonMock = view.findViewById(R.id.buttonMockAlarm);
@@ -77,22 +74,19 @@ public class ConfigurationFragment extends Fragment {
 
 
         //Listener for Test Alarm button
-        buttonMock.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Log.d("MockButton","ButtonDisabled!");
-                MockTestButtonClicked(view);
-                buttonMock.setEnabled(false);
-                //Handler preferrable over Timer/TimerTask for performance and reliability reasons.
-                Handler buttonDisabler=new Handler();
-                buttonDisabler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        buttonMock.setEnabled(true);
-                    }
-                    //Time set does not really matter (as long as it's longer than the delay until the alarm), as the Button's view will be created anew after stopping the alarm as far as I know.
-                },5001);
-            }
+        buttonMock.setOnClickListener(view12 -> {
+
+            //Log.d("MockButton","ButtonDisabled!");
+            MockTestButtonClicked(view12);
+            buttonMock.setEnabled(false);
+
+            //Handler preferable over Timer/TimerTask for performance and reliability reasons.
+            Handler buttonDisabler=new Handler();
+
+            // Time set does not really matter (as long as it's longer than the delay until
+            // the alarm), as the Button's view will be created anew after stopping the alarm
+            // as far as I know.
+            buttonDisabler.postDelayed(() -> buttonMock.setEnabled(true),5001);
         });
 
 
@@ -101,48 +95,39 @@ public class ConfigurationFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 TextView languageText = getActivity().findViewById(R.id.textViewLanguage);
-                if(languageText.getText()=="English"){
+                if(languageText.getText() == "English") {
                     setLanguageGerman();
 
-                    Toast.makeText(view.getContext() , "Sprache zum Deutsch gewechselt",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(view.getContext() , "Sprache auf Deutsch geändert",Toast.LENGTH_SHORT)
+                            .show();
 
-                } else{
+                } else {
                     setLanguageEnglish();
-                    Toast.makeText(view.getContext() , "Language changed to English",Toast.LENGTH_SHORT).show();
-
+                    Toast.makeText(view.getContext() , "Language changed to English",Toast.LENGTH_SHORT)
+                            .show();
                 }
-
             }
         });
 
-        leftArrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                TextView languageText = getActivity().findViewById(R.id.textViewLanguage);
-                if(languageText.getText()=="English"){
-                    setLanguageGerman();
-                    Toast.makeText(view.getContext() , "Sprache zum Deutsch gewechselt",Toast.LENGTH_SHORT).show();
+        leftArrow.setOnClickListener(view1 -> {
+            TextView languageText = getActivity().findViewById(R.id.textViewLanguage);
+            if(languageText.getText() == "English"){
+                setLanguageGerman();
+                Toast.makeText(view1.getContext() , "Sprache auf Deutsch geändert",Toast.LENGTH_SHORT).show();
 
-                } else{
-                    setLanguageEnglish();
-                    Toast.makeText(view.getContext() , "Language changed to English",Toast.LENGTH_SHORT).show();
-
-                }
+            } else{
+                setLanguageEnglish();
+                Toast.makeText(view1.getContext() , "Language changed to English",Toast.LENGTH_SHORT).show();
 
             }
         });
-
-
     }
+
 
     public void MockTestButtonClicked(View v) {
         new Timer().schedule(new TimerTask(){
             public void run() {
-                getActivity().runOnUiThread(new Runnable() {
-                    public void run() {
-                        startActivity(new Intent(getActivity(), AlarmActivity.class));
-                    }
-                });
+                getActivity().runOnUiThread(() -> startActivity(new Intent(getActivity(), AlarmActivity.class)));
             }
         }, 5000);
 
@@ -154,6 +139,7 @@ public class ConfigurationFragment extends Fragment {
         binding = null;
     }
 
+    // Method sets every texView' information to German
     private void setLanguageGerman(){
 
         TextView languageText = getActivity().findViewById(R.id.textViewLanguage);
@@ -169,7 +155,7 @@ public class ConfigurationFragment extends Fragment {
         functionsTitleText.setText("Funktionstest");
 
         TextView functionsSubtitle = getActivity().findViewById(R.id.textFunctions2);
-        functionsSubtitle.setText("Ein Alarmtest, der die App auf Ihrem Smartphone testet");
+        functionsSubtitle.setText("Ein Testalarm zur Prüfung der Funktionalitäten.");
 
         configurationViewModel.setLanguage("Deutsch");
         Log.i("LANGUAGE CHANGED:","Deutsch");
@@ -180,13 +166,16 @@ public class ConfigurationFragment extends Fragment {
         Grenn.setText("Grün");
 
         // Change the Language in Alarm Page and View List
-        AlarmListFragment.language2 = "Deutsch";
+        MainActivity.language = "Deutsch";
+        //AlarmListFragment.language = "Deutsch";
         AlarmActivity.ALARM_NAME = "Feuer Alarm";
         AlarmActivity.ALARM_PLACE = "Erdgeschoss";
         AlarmActivity.ALARM_INFO = "Sammelpunkt : Haupteingang";
 
     }
 
+
+    // Method sets every texView' information to English
     private void setLanguageEnglish(){
 
         TextView languageText = getActivity().findViewById(R.id.textViewLanguage);
@@ -196,13 +185,13 @@ public class ConfigurationFragment extends Fragment {
         languageTitle.setText("Language");
 
         TextView colorsText = getActivity().findViewById(R.id.colorsText);
-        colorsText.setText("Color combination");
+        colorsText.setText("Color Combination");
 
         TextView functionsTitleText = getActivity().findViewById(R.id.textFunctions);
-        functionsTitleText.setText("Tests");
+        functionsTitleText.setText("Functionality Test");
 
         TextView functionsSubtitle = getActivity().findViewById(R.id.textFunctions2);
-        functionsSubtitle.setText("This is an alarm test that tests the App on your Smartphone");
+        functionsSubtitle.setText("This is a mock alarm for testing the functionalities.");
 
         Button blue = getActivity().findViewById(R.id.BlueButton);
         blue.setText("Blue");
@@ -213,12 +202,10 @@ public class ConfigurationFragment extends Fragment {
         Log.i("LANGUAGE CHANGED:","English");
 
         // Change the Language in Alarm Page and View List
-        AlarmListFragment.language2 = "English";
+        //AlarmListFragment.language = "English";
+        MainActivity.language = "English";
         AlarmActivity.ALARM_NAME = "Fire Alarm ";
-        AlarmActivity.ALARM_PLACE = "Ground floor";
-        AlarmActivity.ALARM_INFO = "gathering point : main entrance";
-
+        AlarmActivity.ALARM_PLACE = "Ground Floor";
+        AlarmActivity.ALARM_INFO = "Gathering Point : Main Entrance";
     }
-
-
 }
