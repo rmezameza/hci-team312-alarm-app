@@ -39,14 +39,6 @@ public class ConfigurationFragment extends Fragment {
 
         binding = FragmentConfigurationBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        /*
-        final TextView textView = binding.textConfiguration;
-       configurationViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        }); */
 
         return root;
     }
@@ -75,8 +67,6 @@ public class ConfigurationFragment extends Fragment {
 
         //Listener for Test Alarm button
         buttonMock.setOnClickListener(view12 -> {
-
-            //Log.d("MockButton","ButtonDisabled!");
             MockTestButtonClicked(view12);
             buttonMock.setEnabled(false);
 

@@ -4,10 +4,10 @@
 Android App for an alarm system for deaf and hard-of-hearing members of the
 University of Vienna.
 
-This project will be a prototype to show the basic function of that application.
+This is the improvement of our hi-fi prototype which contains several updates
+and includes a dark theme now.
 
-
-## Readme - M3
+## Readme - M4
 
 * Gruppe:       18:00
 * Team-Nr.:     312
@@ -45,16 +45,23 @@ Picasso (https://square.github.io/picasso)
 
 Dauer der Entwicklung:
 
-Hr. Meza Meza: 25 Stunden und 30 Minuten
+Hr. Meza Meza: ~2 Stunden (MS3: 25 Stunden und 30 Minuten)
 
-Hr. Murad: 23 Stunden und 35 Minuten
+Hr. Murad: ~2 Stunden (MS3: 23 Stunden und 35 Minuten)
 
-Hr. Uetz: 22 Stunden
+Hr. Uetz: ~2 Stunden (MS3: 22 Stunden)
 
-Hr. Boghean: 24 Stunden
+Hr. Boghean: ~1.5 Stunden (MS3: 24 Stunden)
+
 
 Weitere Anmerkungen:
-Der Darkmode funktioniert nicht. Bitte nur Lightmode verwenden.
-Vibration und Licht sind in den Emulatoren nicht verfügbar. Fehler
-werden gefangen und die App ist weiterhin benutzbar. Um dennoch
-den vollen Funktionsumfang zu bekommen, bitte auf Geräte testen.
+Dark Mode ist jetzt implementiert. Außerdem wurde die Schriftgröße der Titel
+vergrößert. Buttongröße der Karten- und Sprachauswahl wurden ebenso vergrößert.
+Weiters sind jetzt die Inhalte aller Fragments ins Englische übersetzt
+worden. Die Sprache bleibt außerdem gespeichert und der / die Benutzer*in bekommt
+ein Feedback beim Wechsel der Sprache.
+
+Die Mock Button kann jetzt nur hintereinander ausgeführt werden, anstatt parallel.
+Des Weiteren wurde die APK Größe von ca. 60 MB auf etwas weniger als 20 MB verringert.
+Zusätzlich werden release APKs für vier gängigsten Architekuren unterstützt und es
+gibt eine Universale APK.

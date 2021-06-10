@@ -67,9 +67,6 @@ public class MapFragment extends Fragment {
                 googleMapFragment).commit();
 
 
-        //
-
-
         // Buttons for switching between Google and building map
         ImageButton imageButtonLeft = (ImageButton) view.findViewById(R.id.leftMapChangeButton);
         imageButtonLeft.setOnClickListener(viewLeftButton -> {
