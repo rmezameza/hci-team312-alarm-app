@@ -1,7 +1,7 @@
-<div style="text-align: center;">
-# Group project for the course Human-Computer-Interaction
+
+# <div style="text-align: center">Group project for the course Human-Computer-Interaction</div>
 # Alarm system for deaf and hard-of-hearing university members
-</div>
+
 
 ## Team Members
 - Boghean, Adrian
