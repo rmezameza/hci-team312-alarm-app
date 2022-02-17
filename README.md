@@ -1,11 +1,13 @@
+<div style="text-align: center;">
 # Group project for the course Human-Computer-Interaction
 # Alarm system for deaf and hard-of-hearing university members
+</div>
 
 ## Team Members
-Boghean, Adrian
-Meza Meza, Roberto Alfredo
-Murad, Mumen
-Uetz, Nico
+- Boghean, Adrian
+- Meza Meza, Roberto Alfredo
+- Murad, Mumen
+- Uetz, Nico
 
 ## Description
 For this course we chose the exercise "Alarm system for deaf and hard-of-hearing university members".
