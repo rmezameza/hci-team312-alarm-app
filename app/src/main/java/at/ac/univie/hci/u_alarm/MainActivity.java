@@ -2,9 +2,12 @@ package at.ac.univie.hci.u_alarm;
 
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -39,6 +42,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Overwrite the background color of the app bar. Because we want the same color both
+        // for light and night mode.
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#0063A6"));
+        actionBar.setBackgroundDrawable(colorDrawable);
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -46,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
         preferences = MainActivity.this.getSharedPreferences("preferences",0);
         boolean firstRun = preferences.getBoolean("firstRun",true);
 
-
         BottomNavigationView navView = findViewById(R.id.nav_view);
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
@@ -62,13 +73,12 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
 
         Bundle extras = getIntent().getExtras();
-        if(extras!=null){ {
-                Fragment fragment = new MapFragment();
-                FragmentManager fm = getSupportFragmentManager();
-                FragmentTransaction tr = fm.beginTransaction();
-                tr.add(R.id.nav_host_fragment_activity_main,fragment);
-                tr.commit();
-            }
+        if(extras!=null){
+            Fragment fragment = new MapFragment();
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction tr = fm.beginTransaction();
+            tr.add(R.id.nav_host_fragment_activity_main,fragment);
+            tr.commit();
         }
 
 
@@ -92,10 +102,5 @@ public class MainActivity extends AppCompatActivity {
             tr.replace(R.id.fragment_home_view, fragment);
             tr.commit();
         }
-
-
     }
-
-
-
 }

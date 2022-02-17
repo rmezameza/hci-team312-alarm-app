@@ -38,7 +38,7 @@ public class GoogleMapFragment extends Fragment {
 
             // Zooms in by the value (17.0f)
             googleMap.moveCamera(CameraUpdateFactory
-                    .newLatLngZoom(mainBuildingUniversityVienna, 17.0f));
+                    .newLatLngZoom(mainBuildingUniversityVienna, 18.0f));
 
             // Values to enable indoor building map view of Google Maps
             googleMap.setIndoorEnabled(true);

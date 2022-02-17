@@ -66,6 +66,7 @@ public class MapFragment extends Fragment {
         childFragment.beginTransaction().replace(R.id.map_fragment_container,
                 googleMapFragment).commit();
 
+
         // Buttons for switching between Google and building map
         ImageButton imageButtonLeft = (ImageButton) view.findViewById(R.id.leftMapChangeButton);
         imageButtonLeft.setOnClickListener(viewLeftButton -> {
@@ -124,10 +125,7 @@ public class MapFragment extends Fragment {
                     Log.i("String in LANGUAGE variable", MainActivity.language);
                     this.mapViewModel.setMapTextView("Gebäudekarte");
                 }
-
                 break;
-
-
         }
     }
 

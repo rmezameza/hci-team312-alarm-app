@@ -19,7 +19,7 @@ import androidx.core.app.NotificationManagerCompat;
 import at.ac.univie.hci.u_alarm.MainActivity;
 import at.ac.univie.hci.u_alarm.R;
 
-//Could change class name
+// Could change class name
 
 public class AlarmSignaler {
     Context alarmContext;
@@ -63,7 +63,7 @@ public class AlarmSignaler {
         AlarmPlayer.start();
 
 
-        //Notification. Using Compat Versions to allow Builder patterns and compatibility to
+        // Notification. Using Compat Versions to allow Builder patterns and compatibility to
         // older android versions (although not necessary for this project)
         Intent alarmIntent=new Intent(this.alarmContext, MainActivity.class);
         // First flag needed according to PendingIntent doc, second flag according to the
@@ -139,8 +139,7 @@ public class AlarmSignaler {
             }
             SystemClock.sleep(milliCyclesSleep);
         }
-
-        //Frees the MediaPlayer and associated resources, more elegant to call here than on extra
+        // Frees the MediaPlayer and associated resources, more elegant to call here than on extra
         // Function to avoid passing or creating every Alarmer with its own MediaPlayer
         AlarmPlayer.release();
     }

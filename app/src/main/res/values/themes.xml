@@ -11,6 +11,11 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+
+        <!-- These are the colors which defines the attributes (attrs.xml) -->
+        <item name="textColor">@color/university_grey</item>
+        <item name="windowBackgroundColor">@color/white</item>
+        <item name="buttonLeft">@drawable/left</item>
+        <item name="buttonRight">@drawable/right</item>
     </style>
 </resources>
