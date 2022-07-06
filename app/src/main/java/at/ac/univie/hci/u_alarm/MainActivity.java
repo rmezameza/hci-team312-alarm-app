@@ -26,7 +26,8 @@ import at.ac.univie.hci.u_alarm.ui.configuration.ConfigurationFragment;
 import at.ac.univie.hci.u_alarm.ui.home.HomeFragment;
 import at.ac.univie.hci.u_alarm.ui.map.MapFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class
+MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     SharedPreferences preferences = null;

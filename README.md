@@ -21,7 +21,7 @@ existing ones.
 We improved this prototype after twelve interviews. The colors represents the University of Vienna
 (cooperate design) and it includes a dark theme. The Logo is also based on the cooperate design of the
 University of Vienna. Every alarm situation has its own color representation. In this prototype there
-is a mock button for a fire alarm, which is represented in red.
+is a mock button for a fire alarm, which is represented by the color red.
 
 The prototype supports German and English.
 
@@ -37,7 +37,7 @@ It shows the alarm type, date and hour and the location in the building as well.
 
 
 ### Maps
-For external persons, new students or to look up for emergency exits beforehand, there are to
+For external persons, new students or to look up for emergency exits beforehand, there are two
 maps. One from Google Maps including its building indoor map view. The other one includes the
 map from the university for the sake of completions. Important for the use of Google Maps, an
 API Key is required. We deleted our for security reasons. A to do introduction will be added soon.
