@@ -35,6 +35,12 @@ location and for that location its contact information like telephone number and
 For eventually memory minutes and legal reasons or just for the overview the alarms are saved as a list.
 It shows the alarm type, date and hour and the location in the building as well.
 
+<p align="middle">
+  <img src="https://github.com/rmezameza/hci-team312-alarm-app/blob/main/images_for_git/u-alarm_mocking-fire-alarm.png?raw=true" width="300" />
+  <img src="https://github.com/rmezameza/hci-team312-alarm-app/blob/main/images_for_git/u-alarm_notification-alarm.png?raw=true" width="300" /> 
+  <img src="https://github.com/rmezameza/hci-team312-alarm-app/blob/main/images_for_git/u-alarm_alarmlist.png" width="300" />
+</p>
+
 
 ### Maps
 For external persons, new students or to look up for emergency exits beforehand, there are two
@@ -46,6 +52,13 @@ API Key is required. We deleted our for security reasons. A to do introduction w
 ### Configuration
 To guarantee full functionality, there are only two configuration options. One for the language, the
 other one for the color theme. The third option is only for the prototype to mock a fire alarm.
+
+<p align="middle">
+  <img src="https://github.com/rmezameza/hci-team312-alarm-app/blob/main/images_for_git/u-alarm_config.png?raw=true" width="300" />
+  <img src="https://github.com/rmezameza/hci-team312-alarm-app/blob/main/images_for_git/u-alarm_changing-language.png?raw=true" width="300" /> 
+</p>
+
+
 
 
 <!--
