@@ -36,9 +36,9 @@ For eventually memory minutes and legal reasons or just for the overview the ala
 It shows the alarm type, date and hour and the location in the building as well.
 
 <p align="middle">
-  <img src="https://github.com/rmezameza/hci-team312-alarm-app/blob/main/images_for_git/u-alarm_mocking-fire-alarm.png?raw=true" width="300" />
-  <img src="https://github.com/rmezameza/hci-team312-alarm-app/blob/main/images_for_git/u-alarm_notification-alarm.png?raw=true" width="300" /> 
-  <img src="https://github.com/rmezameza/hci-team312-alarm-app/blob/main/images_for_git/u-alarm_alarmlist.png" width="300" />
+  <img src="https://github.com/rmezameza/hci-team312-alarm-app/blob/main/images_for_git/u-alarm_mocking-fire-alarm.png?raw=true" width="200" />
+  <img src="https://github.com/rmezameza/hci-team312-alarm-app/blob/main/images_for_git/u-alarm_notification-alarm.png?raw=true" width="200" /> 
+  <img src="https://github.com/rmezameza/hci-team312-alarm-app/blob/main/images_for_git/u-alarm_alarmlist.png" width="200" />
 </p>
 
 
